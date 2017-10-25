@@ -7,6 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		C845919B1FA01F5F0005AF23 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = C845919A1FA01F5F0005AF23 /* Weather.swift */; };
+		C845919D1FA020920005AF23 /* GifBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = C845919C1FA020920005AF23 /* GifBackground.swift */; };
+		C84591A11FA0269B0005AF23 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84591A01FA0269B0005AF23 /* WeatherViewController.swift */; };
+		C84591A51FA02B340005AF23 /* rainGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = C84591A41FA02B330005AF23 /* rainGif.gif */; };
+		C84591A71FA02C710005AF23 /* WeatherTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84591A61FA02C710005AF23 /* WeatherTableViewController.swift */; };
 		C8D017C31F9D8F5E00FF1D7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D017C21F9D8F5E00FF1D7A /* AppDelegate.swift */; };
 		C8D017C51F9D8F5E00FF1D7A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D017C41F9D8F5E00FF1D7A /* ViewController.swift */; };
 		C8D017C81F9D8F5E00FF1D7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8D017C61F9D8F5E00FF1D7A /* Main.storyboard */; };
@@ -35,6 +40,11 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		C845919A1FA01F5F0005AF23 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
+		C845919C1FA020920005AF23 /* GifBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifBackground.swift; sourceTree = "<group>"; };
+		C84591A01FA0269B0005AF23 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
+		C84591A41FA02B330005AF23 /* rainGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = rainGif.gif; path = ../../rainGif.gif; sourceTree = "<group>"; };
+		C84591A61FA02C710005AF23 /* WeatherTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewController.swift; sourceTree = "<group>"; };
 		C8D017BF1F9D8F5E00FF1D7A /* Assignment3-MON-Home.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Assignment3-MON-Home.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8D017C21F9D8F5E00FF1D7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8D017C41F9D8F5E00FF1D7A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -102,10 +112,15 @@
 				C8D017C21F9D8F5E00FF1D7A /* AppDelegate.swift */,
 				C8D017C41F9D8F5E00FF1D7A /* ViewController.swift */,
 				C8D017C61F9D8F5E00FF1D7A /* Main.storyboard */,
+				C84591A41FA02B330005AF23 /* rainGif.gif */,
 				C8D017CC1F9D8F5E00FF1D7A /* Assets.xcassets */,
 				C8D017CE1F9D8F5E00FF1D7A /* LaunchScreen.storyboard */,
 				C8D017D11F9D8F5E00FF1D7A /* Info.plist */,
 				C8D017C91F9D8F5E00FF1D7A /* Assignment3_MON_Home.xcdatamodeld */,
+				C845919A1FA01F5F0005AF23 /* Weather.swift */,
+				C84591A01FA0269B0005AF23 /* WeatherViewController.swift */,
+				C84591A61FA02C710005AF23 /* WeatherTableViewController.swift */,
+				C845919C1FA020920005AF23 /* GifBackground.swift */,
 			);
 			path = "Assignment3-MON-Home";
 			sourceTree = "<group>";
@@ -236,6 +251,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8D017D01F9D8F5E00FF1D7A /* LaunchScreen.storyboard in Resources */,
+				C84591A51FA02B340005AF23 /* rainGif.gif in Resources */,
 				C8D017CD1F9D8F5E00FF1D7A /* Assets.xcassets in Resources */,
 				C8D017C81F9D8F5E00FF1D7A /* Main.storyboard in Resources */,
 			);
@@ -262,8 +278,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C84591A71FA02C710005AF23 /* WeatherTableViewController.swift in Sources */,
 				C8D017CB1F9D8F5E00FF1D7A /* Assignment3_MON_Home.xcdatamodeld in Sources */,
 				C8D017C51F9D8F5E00FF1D7A /* ViewController.swift in Sources */,
+				C845919B1FA01F5F0005AF23 /* Weather.swift in Sources */,
+				C84591A11FA0269B0005AF23 /* WeatherViewController.swift in Sources */,
+				C845919D1FA020920005AF23 /* GifBackground.swift in Sources */,
 				C8D017C31F9D8F5E00FF1D7A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
