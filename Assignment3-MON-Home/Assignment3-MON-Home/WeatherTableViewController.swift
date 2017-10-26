@@ -9,27 +9,16 @@
 import UIKit
 import CoreLocation
 
-class WeatherTableViewController: UITableViewController, UISearchBarDelegate {
+class WeatherTableViewController: UITableViewController {
 
-    @IBOutlet weak var searchBar: UISearchBar!
-    
     var forecastData = [Weather]()
+    var location = "Melbourne"
+    @IBOutlet weak var viewTitle: UINavigationItem!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        searchBar.delegate = self
-        
-        updateWeatherForLocation(location: "Melbourne")
-    }
-    
-    
-    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
-        searchBar.resignFirstResponder()
-        if let locationString = searchBar.text, !locationString.isEmpty {
-            updateWeatherForLocation(location: locationString)
-        }
-        
+        updateWeatherForLocation(location: location)
+        viewTitle.title = location
     }
     
     func updateWeatherForLocation (location:String) {
@@ -37,16 +26,12 @@ class WeatherTableViewController: UITableViewController, UISearchBarDelegate {
             if error == nil {
                 if let location = placemarks?.first?.location {
                     Weather.forecast(withLocation: location.coordinate, completion: { (results:[Weather]?) in
-                        
                         if let weatherData = results {
                             self.forecastData = weatherData
-                            
                             DispatchQueue.main.async {
                                 self.tableView.reloadData()
                             }
-                            
                         }
-                        
                     })
                 }
             }
@@ -86,7 +71,7 @@ class WeatherTableViewController: UITableViewController, UISearchBarDelegate {
         let weatherObject = forecastData[indexPath.section]
         
         cell.textLabel?.text = weatherObject.summary
-        cell.detailTextLabel?.text = "\(Int(weatherObject.temperature)) °F"
+        cell.detailTextLabel?.text = "\(Int(weatherObject.temperature)) °C"
         cell.imageView?.image = UIImage(named: weatherObject.icon)
         
         return cell

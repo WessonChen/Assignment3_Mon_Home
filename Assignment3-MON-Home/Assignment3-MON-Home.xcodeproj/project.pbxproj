@@ -12,6 +12,11 @@
 		C84591A11FA0269B0005AF23 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84591A01FA0269B0005AF23 /* WeatherViewController.swift */; };
 		C84591A51FA02B340005AF23 /* rainGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = C84591A41FA02B330005AF23 /* rainGif.gif */; };
 		C84591A71FA02C710005AF23 /* WeatherTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84591A61FA02C710005AF23 /* WeatherTableViewController.swift */; };
+		C84591A91FA042820005AF23 /* fogGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = C84591A81FA042810005AF23 /* fogGif.gif */; };
+		C84591AB1FA0496D0005AF23 /* cloudyGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = C84591AA1FA0496D0005AF23 /* cloudyGif.gif */; };
+		C84591BA1FA1654F0005AF23 /* WeatherLocation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84591B81FA1654F0005AF23 /* WeatherLocation+CoreDataClass.swift */; };
+		C84591BB1FA1654F0005AF23 /* WeatherLocation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84591B91FA1654F0005AF23 /* WeatherLocation+CoreDataProperties.swift */; };
+		C84591BD1FA17E970005AF23 /* sunnyGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = C84591BC1FA17E970005AF23 /* sunnyGif.gif */; };
 		C8D017C31F9D8F5E00FF1D7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D017C21F9D8F5E00FF1D7A /* AppDelegate.swift */; };
 		C8D017C51F9D8F5E00FF1D7A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D017C41F9D8F5E00FF1D7A /* ViewController.swift */; };
 		C8D017C81F9D8F5E00FF1D7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8D017C61F9D8F5E00FF1D7A /* Main.storyboard */; };
@@ -45,6 +50,11 @@
 		C84591A01FA0269B0005AF23 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
 		C84591A41FA02B330005AF23 /* rainGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = rainGif.gif; path = ../../rainGif.gif; sourceTree = "<group>"; };
 		C84591A61FA02C710005AF23 /* WeatherTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewController.swift; sourceTree = "<group>"; };
+		C84591A81FA042810005AF23 /* fogGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = fogGif.gif; path = ../../fogGif.gif; sourceTree = "<group>"; };
+		C84591AA1FA0496D0005AF23 /* cloudyGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = cloudyGif.gif; path = ../../cloudyGif.gif; sourceTree = "<group>"; };
+		C84591B81FA1654F0005AF23 /* WeatherLocation+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeatherLocation+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C84591B91FA1654F0005AF23 /* WeatherLocation+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeatherLocation+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C84591BC1FA17E970005AF23 /* sunnyGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = sunnyGif.gif; path = ../../sunnyGif.gif; sourceTree = "<group>"; };
 		C8D017BF1F9D8F5E00FF1D7A /* Assignment3-MON-Home.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Assignment3-MON-Home.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8D017C21F9D8F5E00FF1D7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8D017C41F9D8F5E00FF1D7A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,10 +119,15 @@
 		C8D017C11F9D8F5E00FF1D7A /* Assignment3-MON-Home */ = {
 			isa = PBXGroup;
 			children = (
+				C84591B81FA1654F0005AF23 /* WeatherLocation+CoreDataClass.swift */,
+				C84591B91FA1654F0005AF23 /* WeatherLocation+CoreDataProperties.swift */,
 				C8D017C21F9D8F5E00FF1D7A /* AppDelegate.swift */,
 				C8D017C41F9D8F5E00FF1D7A /* ViewController.swift */,
 				C8D017C61F9D8F5E00FF1D7A /* Main.storyboard */,
 				C84591A41FA02B330005AF23 /* rainGif.gif */,
+				C84591A81FA042810005AF23 /* fogGif.gif */,
+				C84591AA1FA0496D0005AF23 /* cloudyGif.gif */,
+				C84591BC1FA17E970005AF23 /* sunnyGif.gif */,
 				C8D017CC1F9D8F5E00FF1D7A /* Assets.xcassets */,
 				C8D017CE1F9D8F5E00FF1D7A /* LaunchScreen.storyboard */,
 				C8D017D11F9D8F5E00FF1D7A /* Info.plist */,
@@ -251,9 +266,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8D017D01F9D8F5E00FF1D7A /* LaunchScreen.storyboard in Resources */,
+				C84591BD1FA17E970005AF23 /* sunnyGif.gif in Resources */,
+				C84591AB1FA0496D0005AF23 /* cloudyGif.gif in Resources */,
 				C84591A51FA02B340005AF23 /* rainGif.gif in Resources */,
 				C8D017CD1F9D8F5E00FF1D7A /* Assets.xcassets in Resources */,
 				C8D017C81F9D8F5E00FF1D7A /* Main.storyboard in Resources */,
+				C84591A91FA042820005AF23 /* fogGif.gif in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -280,7 +298,9 @@
 			files = (
 				C84591A71FA02C710005AF23 /* WeatherTableViewController.swift in Sources */,
 				C8D017CB1F9D8F5E00FF1D7A /* Assignment3_MON_Home.xcdatamodeld in Sources */,
+				C84591BB1FA1654F0005AF23 /* WeatherLocation+CoreDataProperties.swift in Sources */,
 				C8D017C51F9D8F5E00FF1D7A /* ViewController.swift in Sources */,
+				C84591BA1FA1654F0005AF23 /* WeatherLocation+CoreDataClass.swift in Sources */,
 				C845919B1FA01F5F0005AF23 /* Weather.swift in Sources */,
 				C84591A11FA0269B0005AF23 /* WeatherViewController.swift in Sources */,
 				C845919D1FA020920005AF23 /* GifBackground.swift in Sources */,
