@@ -1,5 +1,5 @@
 //
-//  WeatherLocation+CoreDataClass.swift
+//  Device+CoreDataClass.swift
 //  Assignment3-MON-Home
 //
 //  Created by weicheng chen on 26/10/17.
@@ -10,7 +10,7 @@
 import Foundation
 import CoreData
 
-
-public class WeatherLocation: NSManagedObject {
+@objc(Device)
+public class Device: NSManagedObject {
 
 }

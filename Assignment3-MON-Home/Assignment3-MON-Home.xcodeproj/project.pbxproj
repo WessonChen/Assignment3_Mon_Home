@@ -14,9 +14,16 @@
 		C84591A71FA02C710005AF23 /* WeatherTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84591A61FA02C710005AF23 /* WeatherTableViewController.swift */; };
 		C84591A91FA042820005AF23 /* fogGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = C84591A81FA042810005AF23 /* fogGif.gif */; };
 		C84591AB1FA0496D0005AF23 /* cloudyGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = C84591AA1FA0496D0005AF23 /* cloudyGif.gif */; };
-		C84591BA1FA1654F0005AF23 /* WeatherLocation+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84591B81FA1654F0005AF23 /* WeatherLocation+CoreDataClass.swift */; };
-		C84591BB1FA1654F0005AF23 /* WeatherLocation+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84591B91FA1654F0005AF23 /* WeatherLocation+CoreDataProperties.swift */; };
 		C84591BD1FA17E970005AF23 /* sunnyGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = C84591BC1FA17E970005AF23 /* sunnyGif.gif */; };
+		C84591BF1FA18FD60005AF23 /* RoomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84591BE1FA18FD60005AF23 /* RoomTableViewController.swift */; };
+		C84591CD1FA1A3280005AF23 /* RoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84591CC1FA1A3280005AF23 /* RoomTableViewCell.swift */; };
+		C84591D41FA1A5EA0005AF23 /* RoomTable+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84591CE1FA1A5EA0005AF23 /* RoomTable+CoreDataClass.swift */; };
+		C84591D51FA1A5EA0005AF23 /* RoomTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84591CF1FA1A5EA0005AF23 /* RoomTable+CoreDataProperties.swift */; };
+		C84591D61FA1A5EA0005AF23 /* Room+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84591D01FA1A5EA0005AF23 /* Room+CoreDataClass.swift */; };
+		C84591D71FA1A5EA0005AF23 /* Room+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84591D11FA1A5EA0005AF23 /* Room+CoreDataProperties.swift */; };
+		C84591D81FA1A5EA0005AF23 /* Device+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84591D21FA1A5EA0005AF23 /* Device+CoreDataClass.swift */; };
+		C84591D91FA1A5EA0005AF23 /* Device+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84591D31FA1A5EA0005AF23 /* Device+CoreDataProperties.swift */; };
+		C84591E01FA2D40F0005AF23 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84591DF1FA2D40F0005AF23 /* TestViewController.swift */; };
 		C8D017C31F9D8F5E00FF1D7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D017C21F9D8F5E00FF1D7A /* AppDelegate.swift */; };
 		C8D017C51F9D8F5E00FF1D7A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D017C41F9D8F5E00FF1D7A /* ViewController.swift */; };
 		C8D017C81F9D8F5E00FF1D7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8D017C61F9D8F5E00FF1D7A /* Main.storyboard */; };
@@ -52,9 +59,16 @@
 		C84591A61FA02C710005AF23 /* WeatherTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewController.swift; sourceTree = "<group>"; };
 		C84591A81FA042810005AF23 /* fogGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = fogGif.gif; path = ../../fogGif.gif; sourceTree = "<group>"; };
 		C84591AA1FA0496D0005AF23 /* cloudyGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = cloudyGif.gif; path = ../../cloudyGif.gif; sourceTree = "<group>"; };
-		C84591B81FA1654F0005AF23 /* WeatherLocation+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeatherLocation+CoreDataClass.swift"; sourceTree = "<group>"; };
-		C84591B91FA1654F0005AF23 /* WeatherLocation+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WeatherLocation+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C84591BC1FA17E970005AF23 /* sunnyGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = sunnyGif.gif; path = ../../sunnyGif.gif; sourceTree = "<group>"; };
+		C84591BE1FA18FD60005AF23 /* RoomTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTableViewController.swift; sourceTree = "<group>"; };
+		C84591CC1FA1A3280005AF23 /* RoomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTableViewCell.swift; sourceTree = "<group>"; };
+		C84591CE1FA1A5EA0005AF23 /* RoomTable+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoomTable+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C84591CF1FA1A5EA0005AF23 /* RoomTable+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoomTable+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C84591D01FA1A5EA0005AF23 /* Room+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Room+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C84591D11FA1A5EA0005AF23 /* Room+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Room+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C84591D21FA1A5EA0005AF23 /* Device+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Device+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C84591D31FA1A5EA0005AF23 /* Device+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Device+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C84591DF1FA2D40F0005AF23 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		C8D017BF1F9D8F5E00FF1D7A /* Assignment3-MON-Home.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Assignment3-MON-Home.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8D017C21F9D8F5E00FF1D7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8D017C41F9D8F5E00FF1D7A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -99,6 +113,12 @@
 		C8D017B61F9D8F5E00FF1D7A = {
 			isa = PBXGroup;
 			children = (
+				C84591CE1FA1A5EA0005AF23 /* RoomTable+CoreDataClass.swift */,
+				C84591CF1FA1A5EA0005AF23 /* RoomTable+CoreDataProperties.swift */,
+				C84591D01FA1A5EA0005AF23 /* Room+CoreDataClass.swift */,
+				C84591D11FA1A5EA0005AF23 /* Room+CoreDataProperties.swift */,
+				C84591D21FA1A5EA0005AF23 /* Device+CoreDataClass.swift */,
+				C84591D31FA1A5EA0005AF23 /* Device+CoreDataProperties.swift */,
 				C8D017C11F9D8F5E00FF1D7A /* Assignment3-MON-Home */,
 				C8D017D91F9D8F5E00FF1D7A /* Assignment3-MON-HomeTests */,
 				C8D017E41F9D8F5E00FF1D7A /* Assignment3-MON-HomeUITests */,
@@ -119,8 +139,6 @@
 		C8D017C11F9D8F5E00FF1D7A /* Assignment3-MON-Home */ = {
 			isa = PBXGroup;
 			children = (
-				C84591B81FA1654F0005AF23 /* WeatherLocation+CoreDataClass.swift */,
-				C84591B91FA1654F0005AF23 /* WeatherLocation+CoreDataProperties.swift */,
 				C8D017C21F9D8F5E00FF1D7A /* AppDelegate.swift */,
 				C8D017C41F9D8F5E00FF1D7A /* ViewController.swift */,
 				C8D017C61F9D8F5E00FF1D7A /* Main.storyboard */,
@@ -136,6 +154,9 @@
 				C84591A01FA0269B0005AF23 /* WeatherViewController.swift */,
 				C84591A61FA02C710005AF23 /* WeatherTableViewController.swift */,
 				C845919C1FA020920005AF23 /* GifBackground.swift */,
+				C84591BE1FA18FD60005AF23 /* RoomTableViewController.swift */,
+				C84591CC1FA1A3280005AF23 /* RoomTableViewCell.swift */,
+				C84591DF1FA2D40F0005AF23 /* TestViewController.swift */,
 			);
 			path = "Assignment3-MON-Home";
 			sourceTree = "<group>";
@@ -298,10 +319,17 @@
 			files = (
 				C84591A71FA02C710005AF23 /* WeatherTableViewController.swift in Sources */,
 				C8D017CB1F9D8F5E00FF1D7A /* Assignment3_MON_Home.xcdatamodeld in Sources */,
-				C84591BB1FA1654F0005AF23 /* WeatherLocation+CoreDataProperties.swift in Sources */,
+				C84591E01FA2D40F0005AF23 /* TestViewController.swift in Sources */,
 				C8D017C51F9D8F5E00FF1D7A /* ViewController.swift in Sources */,
-				C84591BA1FA1654F0005AF23 /* WeatherLocation+CoreDataClass.swift in Sources */,
+				C84591D81FA1A5EA0005AF23 /* Device+CoreDataClass.swift in Sources */,
+				C84591D41FA1A5EA0005AF23 /* RoomTable+CoreDataClass.swift in Sources */,
+				C84591D61FA1A5EA0005AF23 /* Room+CoreDataClass.swift in Sources */,
+				C84591D51FA1A5EA0005AF23 /* RoomTable+CoreDataProperties.swift in Sources */,
+				C84591D91FA1A5EA0005AF23 /* Device+CoreDataProperties.swift in Sources */,
+				C84591CD1FA1A3280005AF23 /* RoomTableViewCell.swift in Sources */,
+				C84591D71FA1A5EA0005AF23 /* Room+CoreDataProperties.swift in Sources */,
 				C845919B1FA01F5F0005AF23 /* Weather.swift in Sources */,
+				C84591BF1FA18FD60005AF23 /* RoomTableViewController.swift in Sources */,
 				C84591A11FA0269B0005AF23 /* WeatherViewController.swift in Sources */,
 				C845919D1FA020920005AF23 /* GifBackground.swift in Sources */,
 				C8D017C31F9D8F5E00FF1D7A /* AppDelegate.swift in Sources */,
