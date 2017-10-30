@@ -10,6 +10,8 @@ import UIKit
 
 class SocketViewController: UIViewController {
 
+    var thisDevice: Device?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

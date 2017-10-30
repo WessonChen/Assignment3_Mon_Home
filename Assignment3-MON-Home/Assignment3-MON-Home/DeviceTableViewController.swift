@@ -14,6 +14,7 @@ class DeviceTableViewController: UITableViewController {
 
     var thisRoom: Room?
     var devices = [Device]()
+    var thisDevice: Device?
     var managedObjectContext:NSManagedObjectContext!
     
     override func viewDidLoad() {
@@ -85,23 +86,44 @@ class DeviceTableViewController: UITableViewController {
         }
     }
     
-    var number = 0
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        number = indexPath.row
-        if devices[indexPath.row].type == "Socket" {
+        thisDevice = devices[indexPath.row]
+        
+        switch(devices[indexPath.row].type){
+        case "Socket"?:
             self.performSegue(withIdentifier: "socketDetailSegue", sender: indexPath);
-        } else if devices[indexPath.row].type == "Heater" {
+            break
+        case "Heater"?:
             self.performSegue(withIdentifier: "heaterDetailSegue", sender: indexPath);
-        } else {
+            break
+        case "Lamp"?:
             self.performSegue(withIdentifier: "lampDetailSegue", sender: indexPath);
+            break
+        default:
+            break
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "addDeviceSegue"
-        {
+        switch(segue.identifier){
+        case "addDeviceSegue"?:
             let controller: NewDeviceTableViewController = segue.destination as! NewDeviceTableViewController
             controller.thisRoom = self.thisRoom
+            break
+        case "socketDetailSegue"?:
+            let controller: SocketViewController = segue.destination as! SocketViewController
+            controller.thisDevice = self.thisDevice
+            break
+        case "heaterDetailSegue"?:
+            let controller: HeaterViewController = segue.destination as! HeaterViewController
+            controller.thisDevice = self.thisDevice
+            break
+        case "lampDetailSegue"?:
+            let controller: LampViewController = segue.destination as! LampViewController
+            controller.thisDevice = self.thisDevice
+            break
+        default:
+            break
         }
     }
     

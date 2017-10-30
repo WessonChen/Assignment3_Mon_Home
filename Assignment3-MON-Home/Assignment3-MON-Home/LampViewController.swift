@@ -10,6 +10,8 @@ import UIKit
 
 class LampViewController: UIViewController {
 
+    var thisDevice: Device?
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
