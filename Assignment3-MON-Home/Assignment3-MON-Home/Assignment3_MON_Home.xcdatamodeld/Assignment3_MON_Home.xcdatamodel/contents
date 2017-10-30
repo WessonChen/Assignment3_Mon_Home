@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="13241" systemVersion="16G29" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="Device" representedClassName="Device" syncable="YES">
-        <attribute name="data" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="id" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
         <relationship name="inRoom" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Room" inverseName="hasDevices" inverseEntity="Room" syncable="YES"/>
@@ -9,15 +9,10 @@
     <entity name="Room" representedClassName="Room" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="type" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="hasDevices" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Device" inverseName="inRoom" inverseEntity="Device" syncable="YES"/>
-        <relationship name="includedIn" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="RoomTable" inverseName="contains" inverseEntity="RoomTable" syncable="YES"/>
-    </entity>
-    <entity name="RoomTable" representedClassName="RoomTable" syncable="YES">
-        <relationship name="contains" optional="YES" toMany="YES" deletionRule="Nullify" ordered="YES" destinationEntity="Room" inverseName="includedIn" inverseEntity="Room" syncable="YES"/>
+        <relationship name="hasDevices" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Device" inverseName="inRoom" inverseEntity="Device" syncable="YES"/>
     </entity>
     <elements>
-        <element name="RoomTable" positionX="-36" positionY="9" width="128" height="60"/>
-        <element name="Room" positionX="0" positionY="45" width="128" height="105"/>
         <element name="Device" positionX="36" positionY="117" width="128" height="105"/>
+        <element name="Room" positionX="0" positionY="45" width="128" height="90"/>
     </elements>
 </model>

@@ -10,70 +10,36 @@ import UIKit
 import Foundation
 import CoreData
 
-protocol addRoomDelegate{
-    func addRoom(room: Room)
-}
-
-class RoomTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource, addRoomDelegate {
+class RoomTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
 
     @IBOutlet var addRoomView: UIView!
     @IBOutlet weak var nameText: UITextField!
     @IBOutlet weak var typePicker: UIPickerView!
     
     let types = ["Bedroom", "Dining Room", "Games Room", "Kitchen", "Living Room"]
+    var currentType = "Bedroom"
     
-    var myRoomList: [NSManagedObject] = []
-    var myRoom: RoomTable?
-    var managedObjectContext: NSManagedObjectContext
-    var currentType = ""
-    var delegate: addRoomDelegate?
+    var rooms = [Room]()
     
-    required init(coder aDecoder: NSCoder) {
-        let appDelegate = UIApplication.shared.delegate as! AppDelegate
-        self.managedObjectContext = appDelegate.persistentContainer.viewContext
-        super.init(coder: aDecoder)!
-    }
-    
-    func numberOfComponents(in pickerView: UIPickerView) -> Int {
-        return 1
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return types[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-        return types.count
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        currentType = types[row]
-    }
+    var managedObjectContext:NSManagedObjectContext!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let fetchRequest = NSFetchRequest<NSManagedObject>(entityName: "RoomTable")
-        do{
-            var result = try self.managedObjectContext.fetch(fetchRequest)
-            if result.count == 0
-            {
-                self.myRoom = RoomTable.init(entity: NSEntityDescription.entity(forEntityName: "RoomTable", in: self.managedObjectContext)!, insertInto: self.managedObjectContext)
-            } else{
-                self.myRoom = result[0] as? RoomTable
-                //self.myRoomList = myRoom?.contains?.allObjects as! [Room]
-            }
+        managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        
+        loadData()
+   }
+    
+    func loadData(){
+        let roomRequest:NSFetchRequest<Room> = Room.fetchRequest()
+        
+        do {
+            rooms = try managedObjectContext.fetch(roomRequest)
+            self.tableView.reloadData()
+        }catch {
+            print("Could not load data from database \(error.localizedDescription)")
         }
-        catch{
-            let fetchError = error as NSError
-            print(fetchError)
-        }
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
     }
 
     func animateIn() {
@@ -103,63 +69,84 @@ class RoomTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
     }
     
     @IBAction func finishAddRoom(_ sender: Any) {
-        if nameText.text == "" || currentType == ""{
+        createRoom()
+        animateOut()
+    }
+    
+    func createRoom() {
+        var isValid = true
+        for each in rooms {
+            if each.name == trimString(inputString: nameText.text!) {
+                isValid = false
+            }
+        }
+        if trimString(inputString: nameText.text!) == "" {
             generateAlert(title: "It should have a room name.")
+        } else if isValid {
+            let newRoom = Room(context: managedObjectContext)
+            newRoom.name = trimString(inputString: nameText.text!)
+            newRoom.type = currentType
+            
+            do {
+                try self.managedObjectContext.save()
+                self.loadData()
+            }catch {
+                print("Could not save data \(error.localizedDescription)")
+            }
         } else {
-            let newRoom = NSEntityDescription.insertNewObject(forEntityName: "Room", into: managedObjectContext) as? Room
-            newRoom!.name = nameText.text
-            newRoom!.type = currentType
+            generateAlert(title: "You cannot use the same room name twice.")
+        }
+        nameText.text = ""
+    }
+    
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            let delRoom: Room = rooms[indexPath.row]
+            let fRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Device")
+            fRequest.predicate = NSPredicate(format: "%K == %@", "inRoom.name", delRoom.name!)
+            print(delRoom.name!)
+            var delList: [Device] = []
+            print(delList.count)
+            do {
+                delList = try self.managedObjectContext.fetch(fRequest) as! [Device]
+            } catch {
+                let fetchError = error as NSError
+                print(fetchError)
+            }
+            for each in delList {
+                managedObjectContext.delete(each)
+            }
+            managedObjectContext.delete(delRoom)
             do{
                 try self.managedObjectContext.save()
             }
             catch let error{
                 print("Could not save: \(error)")
             }
-            addRoom(room: newRoom!)
-            animateOut()
+            self.loadData()
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
         }
     }
     
-    func addRoom(room: Room) {
-        self.myRoom?.addRoom(value: room)
-        saveRecords()
-    }
-    
-    func saveRecords()
-    {
-        do{
-            try self.managedObjectContext.save()
-        }
-        catch let error{
-            print("Could not save: \(error)")
-        }
+    func trimString (inputString: String) -> String {
+        return inputString.trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
-
-    // MARK: - Table view data source
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 1
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return self.myRoomList.count
-    }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RoomCell", for: indexPath) as! RoomTableViewCell
         
-        let r: Room = self.myRoomList[indexPath.row] as! Room
+        let theRoom = rooms[indexPath.row]
         
-        cell.roomLabel.text = r.name
-        switch(r.type) {
-        case "Bed Room"?:
+        cell.roomLabel.text = theRoom.name
+        switch(theRoom.type){
+        case "Bedroom"?:
             cell.roomImage.image = #imageLiteral(resourceName: "bedroom")
             break
         case "Dining Room"?:
@@ -181,6 +168,32 @@ class RoomTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
         return cell
     }
 
+    var number = 0
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        number = indexPath.row
+        self.performSegue(withIdentifier: "roomToDeviceSegue", sender: indexPath);
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "roomToDeviceSegue"
+        {
+            let controller: DeviceTableViewController = segue.destination as! DeviceTableViewController
+            controller.thisRoom = rooms[number]
+        }
+    }
+    // MARK: - Table view data source
+
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        // #warning Incomplete implementation, return the number of sections
+        return 1
+    }
+
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // #warning Incomplete implementation, return the number of rows
+        return rooms.count
+    }
+
+
     func generateAlert(title: String) {
         let alertController = UIAlertController(title: title, message: "", preferredStyle: UIAlertControllerStyle.alert)
         
@@ -190,49 +203,20 @@ class RoomTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
         
         self.present(alertController, animated: true, completion: nil)
     }
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+    
+    func numberOfComponents(in pickerView: UIPickerView) -> Int {
+        return 1
     }
-    */
-
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        return types[row]
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
+    
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        return types.count
     }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
+    
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        currentType = types[row]
     }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

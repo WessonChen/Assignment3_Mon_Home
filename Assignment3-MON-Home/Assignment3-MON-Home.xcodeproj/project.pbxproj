@@ -17,13 +17,15 @@
 		C84591BD1FA17E970005AF23 /* sunnyGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = C84591BC1FA17E970005AF23 /* sunnyGif.gif */; };
 		C84591BF1FA18FD60005AF23 /* RoomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84591BE1FA18FD60005AF23 /* RoomTableViewController.swift */; };
 		C84591CD1FA1A3280005AF23 /* RoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84591CC1FA1A3280005AF23 /* RoomTableViewCell.swift */; };
-		C84591D41FA1A5EA0005AF23 /* RoomTable+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84591CE1FA1A5EA0005AF23 /* RoomTable+CoreDataClass.swift */; };
-		C84591D51FA1A5EA0005AF23 /* RoomTable+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84591CF1FA1A5EA0005AF23 /* RoomTable+CoreDataProperties.swift */; };
-		C84591D61FA1A5EA0005AF23 /* Room+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84591D01FA1A5EA0005AF23 /* Room+CoreDataClass.swift */; };
-		C84591D71FA1A5EA0005AF23 /* Room+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84591D11FA1A5EA0005AF23 /* Room+CoreDataProperties.swift */; };
-		C84591D81FA1A5EA0005AF23 /* Device+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84591D21FA1A5EA0005AF23 /* Device+CoreDataClass.swift */; };
-		C84591D91FA1A5EA0005AF23 /* Device+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84591D31FA1A5EA0005AF23 /* Device+CoreDataProperties.swift */; };
 		C84591E01FA2D40F0005AF23 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84591DF1FA2D40F0005AF23 /* TestViewController.swift */; };
+		C867B2F31FA68895006ABF97 /* DeviceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C867B2F21FA68895006ABF97 /* DeviceTableViewCell.swift */; };
+		C867B2F51FA688BA006ABF97 /* DeviceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C867B2F41FA688BA006ABF97 /* DeviceTableViewController.swift */; };
+		C867B2F71FA6C90C006ABF97 /* NewDeviceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C867B2F61FA6C90C006ABF97 /* NewDeviceTableViewController.swift */; };
+		C867B2F91FA6C937006ABF97 /* NewDeviceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C867B2F81FA6C937006ABF97 /* NewDeviceTableViewCell.swift */; };
+		C867B2FE1FA6DB32006ABF97 /* Room+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C867B2FA1FA6DB32006ABF97 /* Room+CoreDataClass.swift */; };
+		C867B2FF1FA6DB32006ABF97 /* Room+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C867B2FB1FA6DB32006ABF97 /* Room+CoreDataProperties.swift */; };
+		C867B3001FA6DB32006ABF97 /* Device+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C867B2FC1FA6DB32006ABF97 /* Device+CoreDataClass.swift */; };
+		C867B3011FA6DB32006ABF97 /* Device+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C867B2FD1FA6DB32006ABF97 /* Device+CoreDataProperties.swift */; };
 		C8D017C31F9D8F5E00FF1D7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D017C21F9D8F5E00FF1D7A /* AppDelegate.swift */; };
 		C8D017C51F9D8F5E00FF1D7A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D017C41F9D8F5E00FF1D7A /* ViewController.swift */; };
 		C8D017C81F9D8F5E00FF1D7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8D017C61F9D8F5E00FF1D7A /* Main.storyboard */; };
@@ -55,20 +57,22 @@
 		C845919A1FA01F5F0005AF23 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		C845919C1FA020920005AF23 /* GifBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifBackground.swift; sourceTree = "<group>"; };
 		C84591A01FA0269B0005AF23 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
-		C84591A41FA02B330005AF23 /* rainGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = rainGif.gif; path = ../../rainGif.gif; sourceTree = "<group>"; };
+		C84591A41FA02B330005AF23 /* rainGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = rainGif.gif; sourceTree = "<group>"; };
 		C84591A61FA02C710005AF23 /* WeatherTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherTableViewController.swift; sourceTree = "<group>"; };
-		C84591A81FA042810005AF23 /* fogGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = fogGif.gif; path = ../../fogGif.gif; sourceTree = "<group>"; };
-		C84591AA1FA0496D0005AF23 /* cloudyGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = cloudyGif.gif; path = ../../cloudyGif.gif; sourceTree = "<group>"; };
-		C84591BC1FA17E970005AF23 /* sunnyGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; name = sunnyGif.gif; path = ../../sunnyGif.gif; sourceTree = "<group>"; };
+		C84591A81FA042810005AF23 /* fogGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = fogGif.gif; sourceTree = "<group>"; };
+		C84591AA1FA0496D0005AF23 /* cloudyGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = cloudyGif.gif; sourceTree = "<group>"; };
+		C84591BC1FA17E970005AF23 /* sunnyGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sunnyGif.gif; sourceTree = "<group>"; };
 		C84591BE1FA18FD60005AF23 /* RoomTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTableViewController.swift; sourceTree = "<group>"; };
 		C84591CC1FA1A3280005AF23 /* RoomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTableViewCell.swift; sourceTree = "<group>"; };
-		C84591CE1FA1A5EA0005AF23 /* RoomTable+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoomTable+CoreDataClass.swift"; sourceTree = "<group>"; };
-		C84591CF1FA1A5EA0005AF23 /* RoomTable+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "RoomTable+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		C84591D01FA1A5EA0005AF23 /* Room+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Room+CoreDataClass.swift"; sourceTree = "<group>"; };
-		C84591D11FA1A5EA0005AF23 /* Room+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Room+CoreDataProperties.swift"; sourceTree = "<group>"; };
-		C84591D21FA1A5EA0005AF23 /* Device+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Device+CoreDataClass.swift"; sourceTree = "<group>"; };
-		C84591D31FA1A5EA0005AF23 /* Device+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Device+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C84591DF1FA2D40F0005AF23 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
+		C867B2F21FA68895006ABF97 /* DeviceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTableViewCell.swift; sourceTree = "<group>"; };
+		C867B2F41FA688BA006ABF97 /* DeviceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTableViewController.swift; sourceTree = "<group>"; };
+		C867B2F61FA6C90C006ABF97 /* NewDeviceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDeviceTableViewController.swift; sourceTree = "<group>"; };
+		C867B2F81FA6C937006ABF97 /* NewDeviceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDeviceTableViewCell.swift; sourceTree = "<group>"; };
+		C867B2FA1FA6DB32006ABF97 /* Room+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Room+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C867B2FB1FA6DB32006ABF97 /* Room+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Room+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C867B2FC1FA6DB32006ABF97 /* Device+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Device+CoreDataClass.swift"; sourceTree = "<group>"; };
+		C867B2FD1FA6DB32006ABF97 /* Device+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Device+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C8D017BF1F9D8F5E00FF1D7A /* Assignment3-MON-Home.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Assignment3-MON-Home.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8D017C21F9D8F5E00FF1D7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8D017C41F9D8F5E00FF1D7A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -113,12 +117,14 @@
 		C8D017B61F9D8F5E00FF1D7A = {
 			isa = PBXGroup;
 			children = (
-				C84591CE1FA1A5EA0005AF23 /* RoomTable+CoreDataClass.swift */,
-				C84591CF1FA1A5EA0005AF23 /* RoomTable+CoreDataProperties.swift */,
-				C84591D01FA1A5EA0005AF23 /* Room+CoreDataClass.swift */,
-				C84591D11FA1A5EA0005AF23 /* Room+CoreDataProperties.swift */,
-				C84591D21FA1A5EA0005AF23 /* Device+CoreDataClass.swift */,
-				C84591D31FA1A5EA0005AF23 /* Device+CoreDataProperties.swift */,
+				C867B2FA1FA6DB32006ABF97 /* Room+CoreDataClass.swift */,
+				C867B2FB1FA6DB32006ABF97 /* Room+CoreDataProperties.swift */,
+				C867B2FC1FA6DB32006ABF97 /* Device+CoreDataClass.swift */,
+				C867B2FD1FA6DB32006ABF97 /* Device+CoreDataProperties.swift */,
+				C84591A41FA02B330005AF23 /* rainGif.gif */,
+				C84591A81FA042810005AF23 /* fogGif.gif */,
+				C84591AA1FA0496D0005AF23 /* cloudyGif.gif */,
+				C84591BC1FA17E970005AF23 /* sunnyGif.gif */,
 				C8D017C11F9D8F5E00FF1D7A /* Assignment3-MON-Home */,
 				C8D017D91F9D8F5E00FF1D7A /* Assignment3-MON-HomeTests */,
 				C8D017E41F9D8F5E00FF1D7A /* Assignment3-MON-HomeUITests */,
@@ -142,10 +148,6 @@
 				C8D017C21F9D8F5E00FF1D7A /* AppDelegate.swift */,
 				C8D017C41F9D8F5E00FF1D7A /* ViewController.swift */,
 				C8D017C61F9D8F5E00FF1D7A /* Main.storyboard */,
-				C84591A41FA02B330005AF23 /* rainGif.gif */,
-				C84591A81FA042810005AF23 /* fogGif.gif */,
-				C84591AA1FA0496D0005AF23 /* cloudyGif.gif */,
-				C84591BC1FA17E970005AF23 /* sunnyGif.gif */,
 				C8D017CC1F9D8F5E00FF1D7A /* Assets.xcassets */,
 				C8D017CE1F9D8F5E00FF1D7A /* LaunchScreen.storyboard */,
 				C8D017D11F9D8F5E00FF1D7A /* Info.plist */,
@@ -154,9 +156,13 @@
 				C84591A01FA0269B0005AF23 /* WeatherViewController.swift */,
 				C84591A61FA02C710005AF23 /* WeatherTableViewController.swift */,
 				C845919C1FA020920005AF23 /* GifBackground.swift */,
+				C84591DF1FA2D40F0005AF23 /* TestViewController.swift */,
 				C84591BE1FA18FD60005AF23 /* RoomTableViewController.swift */,
 				C84591CC1FA1A3280005AF23 /* RoomTableViewCell.swift */,
-				C84591DF1FA2D40F0005AF23 /* TestViewController.swift */,
+				C867B2F41FA688BA006ABF97 /* DeviceTableViewController.swift */,
+				C867B2F21FA68895006ABF97 /* DeviceTableViewCell.swift */,
+				C867B2F61FA6C90C006ABF97 /* NewDeviceTableViewController.swift */,
+				C867B2F81FA6C937006ABF97 /* NewDeviceTableViewCell.swift */,
 			);
 			path = "Assignment3-MON-Home";
 			sourceTree = "<group>";
@@ -317,19 +323,21 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C867B2FF1FA6DB32006ABF97 /* Room+CoreDataProperties.swift in Sources */,
+				C867B3011FA6DB32006ABF97 /* Device+CoreDataProperties.swift in Sources */,
+				C867B2F71FA6C90C006ABF97 /* NewDeviceTableViewController.swift in Sources */,
+				C867B2FE1FA6DB32006ABF97 /* Room+CoreDataClass.swift in Sources */,
+				C867B2F51FA688BA006ABF97 /* DeviceTableViewController.swift in Sources */,
 				C84591A71FA02C710005AF23 /* WeatherTableViewController.swift in Sources */,
 				C8D017CB1F9D8F5E00FF1D7A /* Assignment3_MON_Home.xcdatamodeld in Sources */,
 				C84591E01FA2D40F0005AF23 /* TestViewController.swift in Sources */,
 				C8D017C51F9D8F5E00FF1D7A /* ViewController.swift in Sources */,
-				C84591D81FA1A5EA0005AF23 /* Device+CoreDataClass.swift in Sources */,
-				C84591D41FA1A5EA0005AF23 /* RoomTable+CoreDataClass.swift in Sources */,
-				C84591D61FA1A5EA0005AF23 /* Room+CoreDataClass.swift in Sources */,
-				C84591D51FA1A5EA0005AF23 /* RoomTable+CoreDataProperties.swift in Sources */,
-				C84591D91FA1A5EA0005AF23 /* Device+CoreDataProperties.swift in Sources */,
 				C84591CD1FA1A3280005AF23 /* RoomTableViewCell.swift in Sources */,
-				C84591D71FA1A5EA0005AF23 /* Room+CoreDataProperties.swift in Sources */,
 				C845919B1FA01F5F0005AF23 /* Weather.swift in Sources */,
+				C867B2F31FA68895006ABF97 /* DeviceTableViewCell.swift in Sources */,
 				C84591BF1FA18FD60005AF23 /* RoomTableViewController.swift in Sources */,
+				C867B2F91FA6C937006ABF97 /* NewDeviceTableViewCell.swift in Sources */,
+				C867B3001FA6DB32006ABF97 /* Device+CoreDataClass.swift in Sources */,
 				C84591A11FA0269B0005AF23 /* WeatherViewController.swift in Sources */,
 				C845919D1FA020920005AF23 /* GifBackground.swift in Sources */,
 				C8D017C31F9D8F5E00FF1D7A /* AppDelegate.swift in Sources */,

@@ -2,7 +2,7 @@
 //  Device+CoreDataProperties.swift
 //  Assignment3-MON-Home
 //
-//  Created by weicheng chen on 26/10/17.
+//  Created by weicheng chen on 30/10/17.
 //  Copyright © 2017 Minh&Weicheng. All rights reserved.
 //
 //
@@ -17,9 +17,9 @@ extension Device {
         return NSFetchRequest<Device>(entityName: "Device")
     }
 
+    @NSManaged public var id: String?
     @NSManaged public var name: String?
     @NSManaged public var type: String?
-    @NSManaged public var data: String?
     @NSManaged public var inRoom: Room?
 
 }
