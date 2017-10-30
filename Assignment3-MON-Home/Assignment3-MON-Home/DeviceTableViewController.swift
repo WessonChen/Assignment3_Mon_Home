@@ -68,10 +68,26 @@ class DeviceTableViewController: UITableViewController {
         return cell
     }
     
+    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
+        if editingStyle == .delete {
+            // Delete the row from the data source
+            let delDevice: Device = devices[indexPath.row]
+            managedObjectContext.delete(delDevice)
+            do{
+                try self.managedObjectContext.save()
+            }
+            catch let error{
+                print("Could not save: \(error)")
+            }
+            self.loadData()
+        } else if editingStyle == .insert {
+            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
+        }
+    }
+    
     var number = 0
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         number = indexPath.row
-        /*
         if devices[indexPath.row].type == "Socket" {
             self.performSegue(withIdentifier: "socketDetailSegue", sender: indexPath);
         } else if devices[indexPath.row].type == "Heater" {
@@ -79,7 +95,6 @@ class DeviceTableViewController: UITableViewController {
         } else {
             self.performSegue(withIdentifier: "lampDetailSegue", sender: indexPath);
         }
-        */
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

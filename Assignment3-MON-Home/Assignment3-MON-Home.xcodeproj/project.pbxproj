@@ -26,6 +26,9 @@
 		C867B2FF1FA6DB32006ABF97 /* Room+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C867B2FB1FA6DB32006ABF97 /* Room+CoreDataProperties.swift */; };
 		C867B3001FA6DB32006ABF97 /* Device+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = C867B2FC1FA6DB32006ABF97 /* Device+CoreDataClass.swift */; };
 		C867B3011FA6DB32006ABF97 /* Device+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = C867B2FD1FA6DB32006ABF97 /* Device+CoreDataProperties.swift */; };
+		C867B3031FA72CE7006ABF97 /* SocketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C867B3021FA72CE7006ABF97 /* SocketViewController.swift */; };
+		C867B3051FA72CF3006ABF97 /* LampViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C867B3041FA72CF3006ABF97 /* LampViewController.swift */; };
+		C867B3071FA72CFC006ABF97 /* HeaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C867B3061FA72CFC006ABF97 /* HeaterViewController.swift */; };
 		C8D017C31F9D8F5E00FF1D7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D017C21F9D8F5E00FF1D7A /* AppDelegate.swift */; };
 		C8D017C51F9D8F5E00FF1D7A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D017C41F9D8F5E00FF1D7A /* ViewController.swift */; };
 		C8D017C81F9D8F5E00FF1D7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8D017C61F9D8F5E00FF1D7A /* Main.storyboard */; };
@@ -73,6 +76,9 @@
 		C867B2FB1FA6DB32006ABF97 /* Room+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Room+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		C867B2FC1FA6DB32006ABF97 /* Device+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Device+CoreDataClass.swift"; sourceTree = "<group>"; };
 		C867B2FD1FA6DB32006ABF97 /* Device+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Device+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		C867B3021FA72CE7006ABF97 /* SocketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketViewController.swift; sourceTree = "<group>"; };
+		C867B3041FA72CF3006ABF97 /* LampViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampViewController.swift; sourceTree = "<group>"; };
+		C867B3061FA72CFC006ABF97 /* HeaterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaterViewController.swift; sourceTree = "<group>"; };
 		C8D017BF1F9D8F5E00FF1D7A /* Assignment3-MON-Home.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Assignment3-MON-Home.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8D017C21F9D8F5E00FF1D7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8D017C41F9D8F5E00FF1D7A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -163,6 +169,9 @@
 				C867B2F21FA68895006ABF97 /* DeviceTableViewCell.swift */,
 				C867B2F61FA6C90C006ABF97 /* NewDeviceTableViewController.swift */,
 				C867B2F81FA6C937006ABF97 /* NewDeviceTableViewCell.swift */,
+				C867B3021FA72CE7006ABF97 /* SocketViewController.swift */,
+				C867B3041FA72CF3006ABF97 /* LampViewController.swift */,
+				C867B3061FA72CFC006ABF97 /* HeaterViewController.swift */,
 			);
 			path = "Assignment3-MON-Home";
 			sourceTree = "<group>";
@@ -330,6 +339,7 @@
 				C867B2F51FA688BA006ABF97 /* DeviceTableViewController.swift in Sources */,
 				C84591A71FA02C710005AF23 /* WeatherTableViewController.swift in Sources */,
 				C8D017CB1F9D8F5E00FF1D7A /* Assignment3_MON_Home.xcdatamodeld in Sources */,
+				C867B3071FA72CFC006ABF97 /* HeaterViewController.swift in Sources */,
 				C84591E01FA2D40F0005AF23 /* TestViewController.swift in Sources */,
 				C8D017C51F9D8F5E00FF1D7A /* ViewController.swift in Sources */,
 				C84591CD1FA1A3280005AF23 /* RoomTableViewCell.swift in Sources */,
@@ -338,6 +348,8 @@
 				C84591BF1FA18FD60005AF23 /* RoomTableViewController.swift in Sources */,
 				C867B2F91FA6C937006ABF97 /* NewDeviceTableViewCell.swift in Sources */,
 				C867B3001FA6DB32006ABF97 /* Device+CoreDataClass.swift in Sources */,
+				C867B3031FA72CE7006ABF97 /* SocketViewController.swift in Sources */,
+				C867B3051FA72CF3006ABF97 /* LampViewController.swift in Sources */,
 				C84591A11FA0269B0005AF23 /* WeatherViewController.swift in Sources */,
 				C845919D1FA020920005AF23 /* GifBackground.swift in Sources */,
 				C8D017C31F9D8F5E00FF1D7A /* AppDelegate.swift in Sources */,

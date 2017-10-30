@@ -70,6 +70,9 @@ class RoomTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
     
     @IBAction func finishAddRoom(_ sender: Any) {
         createRoom()
+    }
+    
+    @IBAction func cancelAddRoom(_ sender: Any) {
         animateOut()
     }
     
@@ -90,6 +93,7 @@ class RoomTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
             do {
                 try self.managedObjectContext.save()
                 self.loadData()
+                animateOut()
             }catch {
                 print("Could not save data \(error.localizedDescription)")
             }
@@ -105,9 +109,7 @@ class RoomTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
             let delRoom: Room = rooms[indexPath.row]
             let fRequest = NSFetchRequest<NSFetchRequestResult>(entityName: "Device")
             fRequest.predicate = NSPredicate(format: "%K == %@", "inRoom.name", delRoom.name!)
-            print(delRoom.name!)
             var delList: [Device] = []
-            print(delList.count)
             do {
                 delList = try self.managedObjectContext.fetch(fRequest) as! [Device]
             } catch {

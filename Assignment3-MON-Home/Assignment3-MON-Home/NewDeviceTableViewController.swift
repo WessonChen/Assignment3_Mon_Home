@@ -12,6 +12,9 @@ import CoreData
 
 class NewDeviceTableViewController: UITableViewController {
     
+    @IBOutlet weak var nameTextField: UITextField!
+    @IBOutlet var addDeviceView: UIView!
+    
     var thisRoom: Room?
     
     var newDevices = [[String]]()
@@ -59,55 +62,123 @@ class NewDeviceTableViewController: UITableViewController {
         }
     }
     
-    /*
-    func getJSON() {
-        let urlString = ""
-        
-        let url = URL(string: urlString)
-        URLSession.shared.dataTask(with:url!) { (data, response, error) in
-            if error != nil {
-                print(error!)
-            } else {
-                do {
-                    let parsedData = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
-                    let currentDevice = parsedData["name"] as! [String:Any]
-                    let deviceId = currentDevice["id"] as! String
-                    let deviceType = currentDevice["type"] as! String
-                    let newDevice = [deviceId, deviceType]
-                    self.newDevices.append(newDevice)
-                } catch let error as NSError {
-                    print(error)
-                }
-            }
-            
-            }.resume()
+    @IBAction func cancelAddDevice(_ sender: Any) {
+        animateOut()
     }
-    */
-
+    
+    @IBAction func finishAddDevice(_ sender: Any) {
+        var devices = [Device]()
+        let deviceRequest:NSFetchRequest<Device> = Device.fetchRequest()
+        do {
+            devices = try managedObjectContext.fetch(deviceRequest)
+        }catch {
+            print("Could not load data from database \(error.localizedDescription)")
+        }
+        
+        var isValid = true
+        for each in devices {
+            if each.name == trimString(inputString: nameTextField.text!) {
+                isValid = false
+            }
+        }
+        
+        if trimString(inputString: nameTextField.text!) == "" {
+            generateAlert(title: "It should have a device name.")
+        } else if isValid {
+            var selectedNewDevice = [String]()
+            selectedNewDevice = newDevices[addRow]
+            let theDevice = NSEntityDescription.insertNewObject(forEntityName: "Device", into: managedObjectContext) as? Device
+            theDevice?.name = trimString(inputString: nameTextField.text!)
+            theDevice?.type = selectedNewDevice[0]
+            theDevice?.id = selectedNewDevice[1]
+            let room = thisRoom?.mutableSetValue(forKey: "hasDevices")
+            room?.add(theDevice!)
+            do{
+                try self.managedObjectContext.save()
+            }
+            catch let error{
+                print("Could not save: \(error)")
+            }
+            animateOut()
+            self.navigationController!.popViewController(animated: true)
+        } else {
+            generateAlert(title: "You cannot use the same device name twice.")
+        }
+    }
+    
+    func trimString (inputString: String) -> String {
+        return inputString.trimmingCharacters(in: .whitespacesAndNewlines)
+    }
+    
+    func generateAlert(title: String) {
+        let alertController = UIAlertController(title: title, message: "", preferredStyle: UIAlertControllerStyle.alert)
+        
+        alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in
+            alertController.dismiss(animated: true, completion: nil)
+        }))
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
+    /*
+     func getJSON() {
+     let urlString = ""
+     
+     let url = URL(string: urlString)
+     URLSession.shared.dataTask(with:url!) { (data, response, error) in
+     if error != nil {
+     print(error!)
+     } else {
+     do {
+     let parsedData = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
+     let currentDevice = parsedData["name"] as! [String:Any]
+     let deviceId = currentDevice["id"] as! String
+     let deviceType = currentDevice["type"] as! String
+     let newDevice = [deviceId, deviceType]
+     self.newDevices.append(newDevice)
+     } catch let error as NSError {
+     print(error)
+     }
+     }
+     
+     }.resume()
+     }
+     */
+    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
     }
     
+    func animateIn() {
+        self.view.addSubview(addDeviceView)
+        addDeviceView.center = self.view.center
+        
+        addDeviceView.transform = CGAffineTransform.init(translationX: 1.3, y: 1.3)
+        addDeviceView.alpha = 0
+        
+        UIView.animate(withDuration: 0.4) {
+            self.addDeviceView.alpha = 1
+            self.addDeviceView.transform = CGAffineTransform.identity
+        }
+    }
+    
+    func animateOut() {
+        UIView.animate(withDuration: 0.3, animations: {
+            self.addDeviceView.transform = CGAffineTransform.init(translationX: 1.3, y: 1.3)
+            self.addDeviceView.alpha = 0
+        }) {(success:Bool) in
+            self.addDeviceView.removeFromSuperview()
+        }
+    }
+    
+    var addRow = 0
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
-        var selectedNewDevice = [String]()
-        selectedNewDevice = newDevices[indexPath.row]
-        let theDevice = NSEntityDescription.insertNewObject(forEntityName: "Device", into: managedObjectContext) as? Device
-        theDevice?.name = "testName"
-        theDevice?.type = selectedNewDevice[0]
-        theDevice?.id = selectedNewDevice[1]
-        let room = thisRoom?.mutableSetValue(forKey: "hasDevices")
-        room?.add(theDevice!)
-        do{
-            try self.managedObjectContext.save()
-        }
-        catch let error{
-            print("Could not save: \(error)")
-        }
-        self.navigationController!.popViewController(animated: true)
+        addRow = indexPath.row
+        animateIn()
     }
-
+    
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewDeviceCell", for: indexPath) as! NewDeviceTableViewCell
         
@@ -131,12 +202,12 @@ class NewDeviceTableViewController: UITableViewController {
         return cell
     }
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return newDevices.count

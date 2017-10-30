@@ -120,6 +120,14 @@
                                 <action selector="finishAddRoom:" destination="mn2-Xa-z60" eventType="touchUpInside" id="7sg-8h-Rar"/>
                             </connections>
                         </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="z7Y-3w-4Sq">
+                            <rect key="frame" x="264" y="20" width="32" height="32"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" image="cancel"/>
+                            <connections>
+                                <action selector="cancelAddRoom:" destination="mn2-Xa-z60" eventType="touchUpInside" id="S9L-Cx-Xcb"/>
+                            </connections>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     <viewLayoutGuide key="safeArea" id="TMd-hB-G4Z"/>
@@ -189,6 +197,11 @@
                             </button>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="S6X-p8-Uol" kind="show" identifier="lampDetailSegue" id="gng-9p-w9u"/>
+                        <segue destination="6Wu-iv-TN4" kind="show" identifier="heaterDetailSegue" id="vmk-0X-ZZr"/>
+                        <segue destination="yCk-JP-Xmw" kind="show" identifier="socketDetailSegue" id="hzS-Vx-p9m"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="i6m-Is-Fn5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -240,10 +253,52 @@
                             </tableViewCell>
                         </prototypes>
                     </tableView>
+                    <connections>
+                        <outlet property="addDeviceView" destination="YGE-Ug-OfZ" id="tfK-3S-kjx"/>
+                        <outlet property="nameTextField" destination="SRG-ii-rsL" id="I5S-xs-LtO"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MnH-iG-jyE" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <view contentMode="scaleToFill" id="YGE-Ug-OfZ">
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="102"/>
+                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Room Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9aS-vo-1p1">
+                            <rect key="frame" x="16" y="20" width="99" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="My Heater" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="SRG-ii-rsL">
+                            <rect key="frame" x="16" y="52" width="168" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <nil key="textColor"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <textInputTraits key="textInputTraits"/>
+                        </textField>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tqX-vK-Pua">
+                            <rect key="frame" x="192" y="52" width="32" height="32"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" image="done"/>
+                            <connections>
+                                <action selector="finishAddDevice:" destination="HVv-eT-A89" eventType="touchUpInside" id="Cma-2j-BDb"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4wX-xF-UJO">
+                            <rect key="frame" x="192" y="14" width="32" height="32"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <state key="normal" image="cancel"/>
+                            <connections>
+                                <action selector="cancelAddDevice:" destination="HVv-eT-A89" eventType="touchUpInside" id="9w0-vU-Ys7"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                    <viewLayoutGuide key="safeArea" id="faK-Nv-ySN"/>
+                </view>
             </objects>
-            <point key="canvasLocation" x="2309" y="-64"/>
+            <point key="canvasLocation" x="1354" y="-1056"/>
         </scene>
         <!--Weather-->
         <scene sceneID="hqV-3l-UBq">
@@ -487,6 +542,21 @@
             </objects>
             <point key="canvasLocation" x="-526" y="-64"/>
         </scene>
+        <!--Heater View Controller-->
+        <scene sceneID="C94-ov-xDX">
+            <objects>
+                <viewController id="6Wu-iv-TN4" customClass="HeaterViewController" customModule="Assignment3_MON_Home" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="4il-U4-ygo">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="1Fi-eS-rFg"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="hbo-RR-Pze" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2522" y="964"/>
+        </scene>
         <!--Test View Controller-->
         <scene sceneID="Sx9-QC-q8z">
             <objects>
@@ -561,7 +631,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L8d-OG-c1m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-959" y="1967"/>
+            <point key="canvasLocation" x="2523" y="-64"/>
         </scene>
         <!--Weather-->
         <scene sceneID="oK6-xD-633">
@@ -582,9 +652,25 @@
             </objects>
             <point key="canvasLocation" x="-526" y="964"/>
         </scene>
+        <!--Socket View Controller-->
+        <scene sceneID="juq-w5-bFg">
+            <objects>
+                <viewController id="yCk-JP-Xmw" customClass="SocketViewController" customModule="Assignment3_MON_Home" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Tts-YR-J8C">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="9Gi-F7-mgj"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KLG-fJ-8Fk" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2522" y="-1057"/>
+        </scene>
     </scenes>
     <resources>
         <image name="add" width="32" height="32"/>
+        <image name="cancel" width="32" height="32"/>
         <image name="done" width="32" height="32"/>
         <image name="more" width="32" height="32"/>
         <image name="setting" width="32" height="32"/>
