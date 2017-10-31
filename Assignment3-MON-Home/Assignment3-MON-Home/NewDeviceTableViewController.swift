@@ -217,7 +217,7 @@ class NewDeviceTableViewController: UITableViewController {
     }
 
     func getAllDevice() {
-        NodeServer.sharedInstance.allDeviceInfo(completionHandler: { devices, error in
+        NodeServer.sharedInstance.getAllDeviceInfo(completionHandler: { devices, error in
             if let error = error {
                 // got an error in getting the data, need to handle it
                 print(error)
