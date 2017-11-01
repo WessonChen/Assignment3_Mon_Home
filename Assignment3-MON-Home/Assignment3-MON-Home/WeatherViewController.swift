@@ -127,6 +127,15 @@ class WeatherViewController: UIViewController {
                             default:
                                 break
                             }
+                        }else{
+                                let alertController = UIAlertController(title: "Location Not Found", message: "Your city could not be found. Please try again!", preferredStyle: UIAlertControllerStyle.alert)
+                                
+                                alertController.addAction(UIAlertAction(title: "Yes", style: UIAlertActionStyle.default, handler: { (action) in
+                                    alertController.dismiss(animated: true, completion: nil)
+                                }))
+                                
+                                self.present(alertController, animated: true, completion: nil)
+                            
                         }
                     })
                 }
