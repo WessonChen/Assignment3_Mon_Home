@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		274122B51FA8964D0058260B /* NodeServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274122B41FA8964D0058260B /* NodeServer.swift */; };
 		C845919B1FA01F5F0005AF23 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = C845919A1FA01F5F0005AF23 /* Weather.swift */; };
 		C845919D1FA020920005AF23 /* GifBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = C845919C1FA020920005AF23 /* GifBackground.swift */; };
 		C84591A11FA0269B0005AF23 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84591A01FA0269B0005AF23 /* WeatherViewController.swift */; };
@@ -58,6 +59,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		274122B41FA8964D0058260B /* NodeServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeServer.swift; sourceTree = "<group>"; };
 		C845919A1FA01F5F0005AF23 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		C845919C1FA020920005AF23 /* GifBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifBackground.swift; sourceTree = "<group>"; };
 		C84591A01FA0269B0005AF23 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
@@ -342,6 +344,7 @@
 				C867B2FE1FA6DB32006ABF97 /* Room+CoreDataClass.swift in Sources */,
 				C867B2F51FA688BA006ABF97 /* DeviceTableViewController.swift in Sources */,
 				C84591A71FA02C710005AF23 /* WeatherTableViewController.swift in Sources */,
+				274122B51FA8964D0058260B /* NodeServer.swift in Sources */,
 				C8D017CB1F9D8F5E00FF1D7A /* Assignment3_MON_Home.xcdatamodeld in Sources */,
 				C867B3071FA72CFC006ABF97 /* HeaterViewController.swift in Sources */,
 				C84591E01FA2D40F0005AF23 /* TestViewController.swift in Sources */,

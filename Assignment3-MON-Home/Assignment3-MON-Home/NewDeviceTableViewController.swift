@@ -27,6 +27,7 @@ class NewDeviceTableViewController: UITableViewController {
     var isHeaterAdded = false
     var isSocketAdded = false
     var isLampAdded = false
+    var deviceList = [NodeServer.DeviceInfo]()
     
     var managedObjectContext:NSManagedObjectContext!
     
@@ -63,6 +64,8 @@ class NewDeviceTableViewController: UITableViewController {
         if !isLampAdded {
             newDevices.append(deviceLamp)
         }
+        
+        getAllDevice()
     }
     
     @IBAction func cancelAddDevice(_ sender: Any) {
@@ -223,7 +226,7 @@ class NewDeviceTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewDeviceCell", for: indexPath) as! NewDeviceTableViewCell
         
-        let theDevice = newDevices[indexPath.row]
+//        let theDevice = newDevices[indexPath.row]
         
         cell.newDeviceLab.text = theDevice[0]
         cell.newDeviceId.text = "ID: \(theDevice[1])"
@@ -231,10 +234,10 @@ class NewDeviceTableViewController: UITableViewController {
         case "Socket"?:
             cell.newDevicesImage.image = #imageLiteral(resourceName: "socket")
             break
-        case "Heater"?:
+        case "power-plug-heater":
             cell.newDevicesImage.image = #imageLiteral(resourceName: "heater")
             break
-        case "Lamp"?:
+        case "lamp":
             cell.newDevicesImage.image = #imageLiteral(resourceName: "lamp")
             break
         default:
@@ -252,6 +255,29 @@ class NewDeviceTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return newDevices.count
+        return deviceList.count
     }
+
+    func getAllDevice() {
+        NodeServer.sharedInstance.getAllDeviceInfo(completionHandler: { devices, error in
+            if let error = error {
+                // got an error in getting the data, need to handle it
+                print(error)
+                return
+            }
+            guard let devices = devices else {
+                print("error getting first todo: result is nil")
+                return
+            }
+            // success
+            self.deviceList.removeAll()
+            for device in devices{
+                self.deviceList.append(device)
+            }
+            DispatchQueue.main.async {
+                self.tableView.reloadData()
+            }
+        })
+    }
+    
 }
