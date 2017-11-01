@@ -282,7 +282,6 @@
                     <connections>
                         <outlet property="aAddDeviceView" destination="PoW-CT-zId" id="EBe-RU-iRw"/>
                         <outlet property="aNameTestField" destination="guF-kO-Hon" id="alI-gT-Blk"/>
-                        <outlet property="aSegControl" destination="RNw-FT-4a7" id="ixx-dD-gys"/>
                         <outlet property="addDeviceView" destination="YGE-Ug-OfZ" id="tfK-3S-kjx"/>
                         <outlet property="nameTextField" destination="SRG-ii-rsL" id="I5S-xs-LtO"/>
                     </connections>
@@ -292,15 +291,6 @@
                     <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="RNw-FT-4a7">
-                            <rect key="frame" x="16" y="77" width="208" height="29"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="Socket"/>
-                                <segment title="Heater"/>
-                                <segment title="Light"/>
-                            </segments>
-                        </segmentedControl>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Device Type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ny-fJ-mxe">
                             <rect key="frame" x="16" y="26" width="99" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -882,6 +872,9 @@
                                 <rect key="frame" x="148" y="616" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="cancel"/>
+                                <connections>
+                                    <action selector="discardChangeClicked:" destination="yCk-JP-Xmw" eventType="touchUpInside" id="mUB-tW-xhZ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="thx-Qw-m9x">
                                 <rect key="frame" x="15" y="112" width="40" height="30"/>
@@ -907,11 +900,17 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3a7-dZ-ITA">
                                 <rect key="frame" x="352" y="550" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="powerSwitchAction:" destination="yCk-JP-Xmw" eventType="valueChanged" id="uVD-iu-zpM"/>
+                                </connections>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNP-04-OpW">
                                 <rect key="frame" x="246" y="616" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="done"/>
+                                <connections>
+                                    <action selector="saveChangeClicked:" destination="yCk-JP-Xmw" eventType="touchUpInside" id="K8M-BW-hqK"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yoM-8H-D8c">
                                 <rect key="frame" x="15" y="311" width="19" height="30"/>
@@ -924,6 +923,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="9Gi-F7-mgj"/>
                     </view>
+                    <connections>
+                        <outlet property="enableSettingSwitch" destination="clP-8c-X94" id="g4A-ib-Hbp"/>
+                        <outlet property="fromTimePicker" destination="OQ7-fL-te7" id="9Jc-sy-APN"/>
+                        <outlet property="powerSwitch" destination="3a7-dZ-ITA" id="JLR-MI-y07"/>
+                        <outlet property="toTimePicker" destination="qoE-lC-xkU" id="P5e-h7-mPF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KLG-fJ-8Fk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
