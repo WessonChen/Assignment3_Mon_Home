@@ -12,6 +12,30 @@ class LampViewController: UIViewController {
 
     var thisDevice: Device?
     
+    @IBOutlet weak var fromDatePicker: UIDatePicker!
+    @IBOutlet weak var toDatePicker: UIDatePicker!
+    
+    @IBOutlet weak var brightnessSlider: UISlider!
+    
+    @IBOutlet weak var enableSettingSwitch: UISwitch!
+    @IBOutlet weak var powerSwitch: UISwitch!
+    
+    @IBAction func discardButtonClicker(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    @IBAction func saveButtonClicked(_ sender: Any) {
+        
+    }
+    
+    @IBAction func brightnessChanged(_ sender: Any) {
+        
+    }
+    
+    @IBAction func fromDatePickerChanged(_ sender: Any) {
+        toDatePicker.minimumDate = fromDatePicker.date
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

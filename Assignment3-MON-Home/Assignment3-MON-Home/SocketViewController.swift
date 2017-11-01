@@ -18,6 +18,12 @@ class SocketViewController: UIViewController {
     @IBOutlet weak var enableSettingSwitch: UISwitch!
     @IBOutlet weak var powerSwitch: UISwitch!
     
+    let dateFormatter:DateFormatter = DateFormatter()
+
+    @IBAction func fromDatePickerChanged(_ sender: Any) {
+        toTimePicker.minimumDate = fromTimePicker.date
+    }
+    
     @IBAction func powerSwitchAction(_ sender: Any) {
         if(powerSwitch.isOn){
             NodeServer.sharedInstance.setPowerForDeviceById(id: (thisDevice?.id)!, mode: "on")
@@ -27,15 +33,30 @@ class SocketViewController: UIViewController {
     }
     
     @IBAction func discardChangeClicked(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func saveChangeClicked(_ sender: Any) {
+        
+        let setting = NodeServer.DeviceSetting(id: (thisDevice?.id)!, startTime: dateFormatter.string(from: fromTimePicker.date), stopTime: dateFormatter.string(from: toTimePicker.date), minTemp: "0", maxTemp: "0", brightness: 0, isPowerOn: powerSwitch.isOn, isOnPeriod: false, isSettingEnabled: enableSettingSwitch.isOn, type: (thisDevice?.type)!, isManuallyControlled: false)
+        
+        NodeServer.sharedInstance.setDeviceSettingById(deviceSetting: setting, completionHandler: {error in
+            if let error = error {
+                // got an error in getting the data, need to handle it
+                print(error)
+                return
+            }
+        })
+        
+        generateAlert(message: "Setting has been saved successfully")
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
         // Do any additional setup after loading the view.
+        dateFormatter.dateFormat =  "HH:mm"
+        
         prepareUI()
     }
 
@@ -45,29 +66,37 @@ class SocketViewController: UIViewController {
     }
     
     func prepareUI(){
-        NodeServer.sharedInstance.getAllDeviceInfo(completionHandler: { devices, error in
+        NodeServer.sharedInstance.getDeviceSettingById(id: (thisDevice?.id)!, completionHandler: { devices, error in
             if let error = error {
                 // got an error in getting the data, need to handle it
                 print(error)
                 return
             }
-            guard let devices = devices else {
+            guard let device = devices else {
                 print("error getting first todo: result is nil")
                 return
             }
             // success
-            for device in devices{
-                if(device.id == self.thisDevice?.id){
-                    
-                    DispatchQueue.main.async {
-                        self.powerSwitch.isOn = device.isPowerOn
-                    }
-                    
+            if(device.id == self.thisDevice?.id){
+                DispatchQueue.main.async {
+                    self.powerSwitch.isOn = device.isPowerOn
+                    self.fromTimePicker.date = self.dateFormatter.date(from: device.startTime)!
+                    self.toTimePicker.date = self.dateFormatter.date(from: device.stopTime)!
                 }
             }
+            
         })
     }
 
+    func generateAlert(message: String){
+        let alertController = UIAlertController(title: "Setting Saved", message: message, preferredStyle: .alert)
+        
+        let defaultAction = UIAlertAction(title: "Done", style: .default, handler: nil)
+        alertController.addAction(defaultAction)
+        
+        self.present(alertController, animated: true, completion: nil)
+    }
+    
     /*
     // MARK: - Navigation
 
