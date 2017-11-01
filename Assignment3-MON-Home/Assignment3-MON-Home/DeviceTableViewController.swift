@@ -63,6 +63,9 @@ class DeviceTableViewController: UITableViewController {
         case "Lamp":
             cell.deviceImage.image = #imageLiteral(resourceName: "lamp")
             break
+        case "light":
+            cell.deviceImage.image = #imageLiteral(resourceName: "lamp")
+            break
         default:
             cell.deviceImage.image = #imageLiteral(resourceName: "noImage")
             break
@@ -98,6 +101,9 @@ class DeviceTableViewController: UITableViewController {
             self.performSegue(withIdentifier: "heaterDetailSegue", sender: indexPath);
             break
         case "Lamp":
+            self.performSegue(withIdentifier: "lampDetailSegue", sender: indexPath);
+            break
+        case "light":
             self.performSegue(withIdentifier: "lampDetailSegue", sender: indexPath);
             break
         default:

@@ -205,6 +205,10 @@ class NewDeviceTableViewController: UITableViewController {
             cell.newDeviceLab.text = "Desk Lamp"
             cell.newDevicesImage.image = #imageLiteral(resourceName: "lamp")
             break
+        case "light":
+            cell.newDeviceLab.text = "Light Bulb"
+            cell.newDevicesImage.image = #imageLiteral(resourceName: "lamp")
+            break
         default:
             cell.newDeviceLab.text = "Unknow Device"
             cell.newDevicesImage.image = #imageLiteral(resourceName: "noImage")
