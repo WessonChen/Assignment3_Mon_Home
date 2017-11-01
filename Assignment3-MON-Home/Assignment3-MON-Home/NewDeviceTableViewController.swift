@@ -15,57 +15,46 @@ class NewDeviceTableViewController: UITableViewController {
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet var addDeviceView: UIView!
     @IBOutlet weak var aNameTestField: UITextField!
-    @IBOutlet weak var aSegControl: UISegmentedControl!
     @IBOutlet var aAddDeviceView: UIView!
+    @IBOutlet weak var isHeater: UISwitch!
     
     var thisRoom: Room?
     
-    var newDevices = [[String]]()
-    var deviceHeater = ["Socket", "111"]
-    var deviceSocket = ["Socket", "222"]
-    var deviceLamp = ["Lamp", "333"]
-    var isHeaterAdded = false
-    var isSocketAdded = false
-    var isLampAdded = false
+    var newDevices = [NodeServer.DeviceInfo]()
     var deviceList = [NodeServer.DeviceInfo]()
+    var deviceInCoreData = [Device]()
     
     var managedObjectContext:NSManagedObjectContext!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getAllDevice()
         
         managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         
-        let deviceRequest:NSFetchRequest<Device> = Device.fetchRequest()
-        var devices = [Device]()
+        loadDeviceFromCoreData()
         
+        self.tableView.reloadData()
+    }
+    
+    func loadDeviceFromCoreData(){
+        let deviceRequest:NSFetchRequest<Device> = Device.fetchRequest()
+        deviceInCoreData.removeAll()
         do {
-            devices = try managedObjectContext.fetch(deviceRequest)
+            deviceInCoreData = try managedObjectContext.fetch(deviceRequest)
         }catch {
             print("Could not load data from database \(error.localizedDescription)")
         }
         
-        for each in devices {
-            if each.id == deviceHeater[1] {
-                isHeaterAdded = true
-            } else if each.id == deviceSocket[1] {
-                isSocketAdded = true
-            } else if each.id == deviceLamp[1] {
-                isLampAdded = true
+    }
+    
+    func findDeviceInCoreDataByDeviceId(id: String) -> Int{
+        for device in deviceInCoreData{
+            if( device.id == id){
+                return 1
             }
         }
-        
-        if !isHeaterAdded {
-            newDevices.append(deviceHeater)
-        }
-        if !isSocketAdded {
-            newDevices.append(deviceSocket)
-        }
-        if !isLampAdded {
-            newDevices.append(deviceLamp)
-        }
-        
-        getAllDevice()
+        return 0
     }
     
     @IBAction func cancelAddDevice(_ sender: Any) {
@@ -81,7 +70,6 @@ class NewDeviceTableViewController: UITableViewController {
     func cleanTextField() {
         nameTextField.text?.removeAll()
         aNameTestField.text?.removeAll()
-        aSegControl.selectedSegmentIndex = 0
     }
     
     @IBAction func finishAddDevice(_ sender: Any) {
@@ -103,12 +91,11 @@ class NewDeviceTableViewController: UITableViewController {
         if trimString(inputString: nameTextField.text!) == "" {
             generateAlert(title: "It should have a device name.")
         } else if isValid {
-            var selectedNewDevice = [String]()
-            selectedNewDevice = newDevices[addRow]
+            let selectedNewDevice = newDevices[addRow]
             let theDevice = NSEntityDescription.insertNewObject(forEntityName: "Device", into: managedObjectContext) as? Device
             theDevice?.name = trimString(inputString: nameTextField.text!)
-            theDevice?.type = selectedNewDevice[0]
-            theDevice?.id = selectedNewDevice[1]
+            theDevice?.type = selectedNewDevice.type
+            theDevice?.id = selectedNewDevice.id
             let room = thisRoom?.mutableSetValue(forKey: "hasDevices")
             room?.add(theDevice!)
             do{
@@ -145,12 +132,15 @@ class NewDeviceTableViewController: UITableViewController {
         if trimString(inputString: aNameTestField.text!) == "" {
             generateAlert(title: "It should have a device name.")
         } else if isValid {
-            var selectedNewDevice = [String]()
-            selectedNewDevice = newDevices[addRow]
+            let selectedNewDevice = newDevices[addRow]
             let theDevice = NSEntityDescription.insertNewObject(forEntityName: "Device", into: managedObjectContext) as? Device
             theDevice?.name = trimString(inputString: aNameTestField.text!)
-            theDevice?.type = aSegControl.titleForSegment(at: aSegControl.selectedSegmentIndex)
-            theDevice?.id = selectedNewDevice[1]
+            if (isHeater.isOn) {
+                theDevice?.type = "power-plug-heater"
+            } else {
+                theDevice?.type = selectedNewDevice.type
+            }
+            theDevice?.id = selectedNewDevice.id
             let room = thisRoom?.mutableSetValue(forKey: "hasDevices")
             room?.add(theDevice!)
             do{
@@ -181,31 +171,6 @@ class NewDeviceTableViewController: UITableViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    /*
-     func getJSON() {
-     let urlString = ""
-     
-     let url = URL(string: urlString)
-     URLSession.shared.dataTask(with:url!) { (data, response, error) in
-     if error != nil {
-     print(error!)
-     } else {
-     do {
-     let parsedData = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
-     let currentDevice = parsedData["name"] as! [String:Any]
-     let deviceId = currentDevice["id"] as! String
-     let deviceType = currentDevice["type"] as! String
-     let newDevice = [deviceId, deviceType]
-     self.newDevices.append(newDevice)
-     } catch let error as NSError {
-     print(error)
-     }
-     }
-     
-     }.resume()
-     }
-     */
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -215,8 +180,8 @@ class NewDeviceTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         addRow = indexPath.row
-        var theDevice = newDevices[addRow]
-        if theDevice[0] != "Socket" {
+        let theDevice = newDevices[addRow]
+        if theDevice.type != "power-plug" {
             Animation.animateIn(mainView: self.view, subView: addDeviceView)
         } else {
             Animation.animateIn(mainView: self.view, subView: aAddDeviceView)
@@ -225,20 +190,23 @@ class NewDeviceTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewDeviceCell", for: indexPath) as! NewDeviceTableViewCell
-        
-        cell.newDeviceLab.text = deviceList[indexPath.row].type
-        cell.newDeviceId.text = deviceList[indexPath.row].id
-        switch(deviceList[indexPath.row].type){
+
+        cell.newDeviceId.text = "ID: \(newDevices[indexPath.row].id)"
+        switch(newDevices[indexPath.row].type){
         case "power-plug":
+            cell.newDeviceLab.text = "Socket"
             cell.newDevicesImage.image = #imageLiteral(resourceName: "socket")
             break
         case "power-plug-heater":
+            cell.newDeviceLab.text = "Heater"
             cell.newDevicesImage.image = #imageLiteral(resourceName: "heater")
             break
         case "lamp":
+            cell.newDeviceLab.text = "Desk Lamp"
             cell.newDevicesImage.image = #imageLiteral(resourceName: "lamp")
             break
         default:
+            cell.newDeviceLab.text = "Unknow Device"
             cell.newDevicesImage.image = #imageLiteral(resourceName: "noImage")
             break
         }
@@ -253,7 +221,7 @@ class NewDeviceTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return deviceList.count
+        return newDevices.count
     }
 
     func getAllDevice() {
@@ -271,6 +239,10 @@ class NewDeviceTableViewController: UITableViewController {
             self.deviceList.removeAll()
             for device in devices{
                 self.deviceList.append(device)
+                
+                if(self.findDeviceInCoreDataByDeviceId(id: device.id) == 0){
+                        self.newDevices.append(device)
+                }
             }
             DispatchQueue.main.async {
                 self.tableView.reloadData()

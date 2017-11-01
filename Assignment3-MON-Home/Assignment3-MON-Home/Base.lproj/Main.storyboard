@@ -282,41 +282,25 @@
                     <connections>
                         <outlet property="aAddDeviceView" destination="PoW-CT-zId" id="EBe-RU-iRw"/>
                         <outlet property="aNameTestField" destination="guF-kO-Hon" id="alI-gT-Blk"/>
-                        <outlet property="aSegControl" destination="RNw-FT-4a7" id="ixx-dD-gys"/>
                         <outlet property="addDeviceView" destination="YGE-Ug-OfZ" id="tfK-3S-kjx"/>
+                        <outlet property="isHeater" destination="Ctv-Cy-ZhW" id="fKd-Ph-ucg"/>
                         <outlet property="nameTextField" destination="SRG-ii-rsL" id="I5S-xs-LtO"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MnH-iG-jyE" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <view contentMode="scaleToFill" id="PoW-CT-zId">
-                    <rect key="frame" x="0.0" y="0.0" width="240" height="240"/>
+                    <rect key="frame" x="0.0" y="0.0" width="240" height="175"/>
                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                     <subviews>
-                        <segmentedControl opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="RNw-FT-4a7">
-                            <rect key="frame" x="16" y="77" width="208" height="29"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <segments>
-                                <segment title="Socket"/>
-                                <segment title="Heater"/>
-                                <segment title="Light"/>
-                            </segments>
-                        </segmentedControl>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Device Type:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ny-fJ-mxe">
-                            <rect key="frame" x="16" y="26" width="99" height="21"/>
-                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                            <nil key="textColor"/>
-                            <nil key="highlightedColor"/>
-                        </label>
                         <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="My Heater" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="guF-kO-Hon">
-                            <rect key="frame" x="16" y="189" width="168" height="30"/>
+                            <rect key="frame" x="10" y="61" width="168" height="30"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <nil key="textColor"/>
                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                             <textInputTraits key="textInputTraits"/>
                         </textField>
                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lb3-ZQ-h4t">
-                            <rect key="frame" x="192" y="188" width="32" height="32"/>
+                            <rect key="frame" x="192" y="60" width="32" height="32"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <state key="normal" image="done"/>
                             <connections>
@@ -332,7 +316,18 @@
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Device Name:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cs3-9U-hGS">
-                            <rect key="frame" x="16" y="139" width="107" height="21"/>
+                            <rect key="frame" x="16" y="26" width="107" height="21"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ctv-Cy-ZhW">
+                            <rect key="frame" x="177" y="124" width="49" height="31"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                        </switch>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Is this a heater?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8ny-fJ-mxe">
+                            <rect key="frame" x="16" y="129" width="121" height="21"/>
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <fontDescription key="fontDescription" type="system" pointSize="17"/>
                             <nil key="textColor"/>
@@ -394,7 +389,7 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eRr-Rp-oo3">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                             </imageView>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lN4-6g-ikO">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="lN4-6g-ikO">
                                 <rect key="frame" x="242" y="308" width="64" height="64"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="64" id="TjU-tq-VoO"/>
@@ -743,7 +738,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hbo-RR-Pze" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2521.739130434783" y="963.58695652173924"/>
+            <point key="canvasLocation" x="2522" y="964"/>
         </scene>
         <!--Lamp View Controller-->
         <scene sceneID="Sx9-QC-q8z">
@@ -882,6 +877,9 @@
                                 <rect key="frame" x="148" y="616" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="cancel"/>
+                                <connections>
+                                    <action selector="discardChangeClicked:" destination="yCk-JP-Xmw" eventType="touchUpInside" id="mUB-tW-xhZ"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="thx-Qw-m9x">
                                 <rect key="frame" x="15" y="112" width="40" height="30"/>
@@ -907,11 +905,17 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3a7-dZ-ITA">
                                 <rect key="frame" x="352" y="550" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="powerSwitchAction:" destination="yCk-JP-Xmw" eventType="valueChanged" id="uVD-iu-zpM"/>
+                                </connections>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sNP-04-OpW">
                                 <rect key="frame" x="246" y="616" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="done"/>
+                                <connections>
+                                    <action selector="saveChangeClicked:" destination="yCk-JP-Xmw" eventType="touchUpInside" id="K8M-BW-hqK"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yoM-8H-D8c">
                                 <rect key="frame" x="15" y="311" width="19" height="30"/>
@@ -924,6 +928,12 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="9Gi-F7-mgj"/>
                     </view>
+                    <connections>
+                        <outlet property="enableSettingSwitch" destination="clP-8c-X94" id="g4A-ib-Hbp"/>
+                        <outlet property="fromTimePicker" destination="OQ7-fL-te7" id="9Jc-sy-APN"/>
+                        <outlet property="powerSwitch" destination="3a7-dZ-ITA" id="JLR-MI-y07"/>
+                        <outlet property="toTimePicker" destination="qoE-lC-xkU" id="P5e-h7-mPF"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KLG-fJ-8Fk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

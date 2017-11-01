@@ -17,7 +17,6 @@
 		C84591BD1FA17E970005AF23 /* sunnyGif.gif in Resources */ = {isa = PBXBuildFile; fileRef = C84591BC1FA17E970005AF23 /* sunnyGif.gif */; };
 		C84591BF1FA18FD60005AF23 /* RoomTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84591BE1FA18FD60005AF23 /* RoomTableViewController.swift */; };
 		C84591CD1FA1A3280005AF23 /* RoomTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84591CC1FA1A3280005AF23 /* RoomTableViewCell.swift */; };
-		C84591E01FA2D40F0005AF23 /* TestViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84591DF1FA2D40F0005AF23 /* TestViewController.swift */; };
 		C867B2F31FA68895006ABF97 /* DeviceTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C867B2F21FA68895006ABF97 /* DeviceTableViewCell.swift */; };
 		C867B2F51FA688BA006ABF97 /* DeviceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C867B2F41FA688BA006ABF97 /* DeviceTableViewController.swift */; };
 		C867B2F71FA6C90C006ABF97 /* NewDeviceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C867B2F61FA6C90C006ABF97 /* NewDeviceTableViewController.swift */; };
@@ -69,7 +68,6 @@
 		C84591BC1FA17E970005AF23 /* sunnyGif.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = sunnyGif.gif; sourceTree = "<group>"; };
 		C84591BE1FA18FD60005AF23 /* RoomTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTableViewController.swift; sourceTree = "<group>"; };
 		C84591CC1FA1A3280005AF23 /* RoomTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoomTableViewCell.swift; sourceTree = "<group>"; };
-		C84591DF1FA2D40F0005AF23 /* TestViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TestViewController.swift; sourceTree = "<group>"; };
 		C867B2F21FA68895006ABF97 /* DeviceTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTableViewCell.swift; sourceTree = "<group>"; };
 		C867B2F41FA688BA006ABF97 /* DeviceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeviceTableViewController.swift; sourceTree = "<group>"; };
 		C867B2F61FA6C90C006ABF97 /* NewDeviceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewDeviceTableViewController.swift; sourceTree = "<group>"; };
@@ -174,7 +172,6 @@
 				C84591A01FA0269B0005AF23 /* WeatherViewController.swift */,
 				C84591A61FA02C710005AF23 /* WeatherTableViewController.swift */,
 				C845919C1FA020920005AF23 /* GifBackground.swift */,
-				C84591DF1FA2D40F0005AF23 /* TestViewController.swift */,
 				C84591BE1FA18FD60005AF23 /* RoomTableViewController.swift */,
 				C84591CC1FA1A3280005AF23 /* RoomTableViewCell.swift */,
 				C867B2F41FA688BA006ABF97 /* DeviceTableViewController.swift */,
@@ -356,7 +353,6 @@
 				C8C0FB1F1FA9756400F66C08 /* NodeServer.swift in Sources */,
 				C8D017CB1F9D8F5E00FF1D7A /* Assignment3_MON_Home.xcdatamodeld in Sources */,
 				C867B3071FA72CFC006ABF97 /* HeaterViewController.swift in Sources */,
-				C84591E01FA2D40F0005AF23 /* TestViewController.swift in Sources */,
 				C8D017C51F9D8F5E00FF1D7A /* ViewController.swift in Sources */,
 				C84591CD1FA1A3280005AF23 /* RoomTableViewCell.swift in Sources */,
 				C845919B1FA01F5F0005AF23 /* Weather.swift in Sources */,

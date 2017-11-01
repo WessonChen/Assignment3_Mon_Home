@@ -53,14 +53,14 @@ class DeviceTableViewController: UITableViewController {
         
         cell.deviceLab.text = theDevice.name
         cell.deviceId.text = "ID: \(theDevice.id!)"
-        switch(theDevice.type){
-        case "Socket"?:
+        switch(theDevice.type!){
+        case "power-plug":
             cell.deviceImage.image = #imageLiteral(resourceName: "socket")
             break
-        case "Heater"?:
+        case "power-plug-heater":
             cell.deviceImage.image = #imageLiteral(resourceName: "heater")
             break
-        case "Lamp"?:
+        case "Lamp":
             cell.deviceImage.image = #imageLiteral(resourceName: "lamp")
             break
         default:
@@ -90,14 +90,14 @@ class DeviceTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         thisDevice = devices[indexPath.row]
         
-        switch(devices[indexPath.row].type){
-        case "Socket"?:
+        switch(devices[indexPath.row].type!){
+        case "power-plug":
             self.performSegue(withIdentifier: "socketDetailSegue", sender: indexPath);
             break
-        case "Heater"?:
+        case "power-plug-heater":
             self.performSegue(withIdentifier: "heaterDetailSegue", sender: indexPath);
             break
-        case "Lamp"?:
+        case "Lamp":
             self.performSegue(withIdentifier: "lampDetailSegue", sender: indexPath);
             break
         default:

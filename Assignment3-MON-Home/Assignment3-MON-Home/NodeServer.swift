@@ -24,6 +24,7 @@ class NodeServer{
     let port = "3000"
     let getAllDeviceInfoLink = "getalldeviceinfo"
     let getAllDeviceSettingLink = "getalldevicesetting"
+    let switchPowerLink = "setpower"
     
     enum BackendError: Error {
         case urlError(reason: String)
@@ -100,7 +101,6 @@ class NodeServer{
     
     func getAllDeviceSetting(completionHandler: @escaping ([DeviceSetting]?, Error?) -> Void) {
         // Set up URLRequest with URL
-        
         let endpoint = "\(host):\(port)/\(getAllDeviceSettingLink)"
         print(endpoint)
         guard let url = URL(string: endpoint) else {
@@ -141,6 +141,22 @@ class NodeServer{
                 completionHandler(nil, error)
             }
         })
+        task.resume()
+    }
+    
+    func setPowerForDeviceById(id: String, mode: String) {
+        // Set up URLRequest with URL
+        let endpoint = "\(host):\(port)/\(switchPowerLink)/\(id)/\(mode)"
+        print(endpoint)
+        guard let url = URL(string: endpoint) else {
+            print("Error: cannot create URL")
+            return
+        }
+        let urlRequest = URLRequest(url: url)
+        
+        // Make request
+        let session = URLSession.shared
+        let task = session.dataTask(with: urlRequest)
         task.resume()
     }
     

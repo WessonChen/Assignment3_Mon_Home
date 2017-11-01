@@ -68,13 +68,14 @@ class WeatherViewController: UIViewController {
     }
     
     @IBAction func saveLocation(_ sender: Any) {
-        animateOut()
         viewDidLoad()
+        animateOut()
     }
     
     @IBAction func cancelSave(_ sender: Any) {
         animateOut()
     }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         var lo = setLocationText.text!
         if lo == "" {
@@ -146,7 +147,7 @@ class WeatherViewController: UIViewController {
     func changeLayout(temperature: Double, condition: String, image: UIImage ,gifName: String){
         DispatchQueue.main.async {
             self.TempLabel.text = "\(Int(temperature))°C"
-            self.ConditionLabel.text = "Cloudy"
+            self.ConditionLabel.text = condition
             self.ConditionImage.image = image
             self.GifBackground.loadGif(name: gifName)
         }
