@@ -93,54 +93,36 @@ class WeatherViewController: UIViewController {
                 if let location = placemarks?.first?.location {
                     Weather.forecast(withLocation: location.coordinate, completion: { (results:[Weather]?) in
                         if let weatherData = results {
-                            self.TempLabel.text = "\(Int(weatherData[0].temperature))°C"
                             switch (weatherData[0].icon) {
                             case "clear-day":
-                                self.ConditionLabel.text = "Sunny"
-                                self.ConditionImage.image = #imageLiteral(resourceName: "clear-day")
-                                self.GifBackground.loadGif(name: "sunnyGif")
+                                self.changeLayout(temperature: weatherData[0].temperature, condition: "Sunny", image: #imageLiteral(resourceName: "clear-day"), gifName: "sunnyGif")
                                 break
                             case "clear-night":
-                                self.ConditionLabel.text = "Sunny"
-                                self.ConditionImage.image = #imageLiteral(resourceName: "clear-night")
-                                self.GifBackground.loadGif(name: "sunnyGif")
+                                self.changeLayout(temperature: weatherData[0].temperature, condition: "Sunny", image: #imageLiteral(resourceName: "clear-night"), gifName: "sunnyGif")
                                 break
                             case "cloudy":
-                                self.ConditionLabel.text = "Cloudy"
-                                self.ConditionImage.image = #imageLiteral(resourceName: "cloudy")
-                                self.GifBackground.loadGif(name: "cloudyGif")
+                                self.changeLayout(temperature: weatherData[0].temperature, condition: "Cloudy", image: #imageLiteral(resourceName: "cloudy"), gifName: "cloudyGif")
                                 break
                             case "fog":
-                                self.ConditionLabel.text = "Fog"
-                                self.ConditionImage.image = #imageLiteral(resourceName: "fog")
-                                self.GifBackground.loadGif(name: "fogGif")
+                                self.changeLayout(temperature: weatherData[0].temperature, condition: "Fog", image: #imageLiteral(resourceName: "fog"), gifName: "fogGif")
                                 break
                             case "partly-cloudy-day":
-                                self.ConditionLabel.text = "Cloudy"
-                                self.ConditionImage.image = #imageLiteral(resourceName: "partly-cloudy-day")
-                                self.GifBackground.loadGif(name: "cloudyGif")
+                                self.changeLayout(temperature: weatherData[0].temperature, condition: "Cloudy", image: #imageLiteral(resourceName: "partly-cloudy-day"), gifName: "cloudyGif")
                                 break
                             case "partly-cloudy-night":
-                                self.ConditionLabel.text = "Cloudy"
-                                self.ConditionImage.image = #imageLiteral(resourceName: "partly-cloudy-night")
-                                self.GifBackground.loadGif(name: "cloudyGif")
+                                self.changeLayout(temperature: weatherData[0].temperature, condition: "Cloudy", image: #imageLiteral(resourceName: "partly-cloudy-night"), gifName: "cloudyGif")
                                 break
                             case "rain":
-                                self.ConditionLabel.text = "Rain"
-                                self.ConditionImage.image = #imageLiteral(resourceName: "rain")
-                                self.GifBackground.loadGif(name: "rainGif")
+                                self.changeLayout(temperature: weatherData[0].temperature, condition: "Rain", image: #imageLiteral(resourceName: "rain"), gifName: "rainGif")
                                 break
                             case "sleet":
-                                self.ConditionLabel.text = "Sleet"
-                                self.ConditionImage.image = #imageLiteral(resourceName: "sleet")
+                                self.changeLayout(temperature: weatherData[0].temperature, condition: "Sleet", image: #imageLiteral(resourceName: "sleet"), gifName: "rainGif")
                                 break
                             case "snow":
-                                self.ConditionLabel.text = "Snow"
-                                self.ConditionImage.image = #imageLiteral(resourceName: "snow")
+                                self.changeLayout(temperature: weatherData[0].temperature, condition: "Snow", image: #imageLiteral(resourceName: "snow"), gifName: "cloudyGif")
                                 break
                             case "wind":
-                                self.ConditionLabel.text = "wind"
-                                self.ConditionImage.image = #imageLiteral(resourceName: "wind")
+                                self.changeLayout(temperature: weatherData[0].temperature, condition: "Windy", image: #imageLiteral(resourceName: "wind"), gifName: "cloudyGif")
                                 break
                             default:
                                 break
@@ -149,6 +131,15 @@ class WeatherViewController: UIViewController {
                     })
                 }
             }
+        }
+    }
+    
+    func changeLayout(temperature: Double, condition: String, image: UIImage ,gifName: String){
+        DispatchQueue.main.async {
+            self.TempLabel.text = "\(Int(temperature))°C"
+            self.ConditionLabel.text = "Cloudy"
+            self.ConditionImage.image = image
+            self.GifBackground.loadGif(name: gifName)
         }
     }
     
