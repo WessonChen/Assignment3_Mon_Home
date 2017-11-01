@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		274122B51FA8964D0058260B /* NodeServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274122B41FA8964D0058260B /* NodeServer.swift */; };
 		C845919B1FA01F5F0005AF23 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = C845919A1FA01F5F0005AF23 /* Weather.swift */; };
 		C845919D1FA020920005AF23 /* GifBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = C845919C1FA020920005AF23 /* GifBackground.swift */; };
 		C84591A11FA0269B0005AF23 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84591A01FA0269B0005AF23 /* WeatherViewController.swift */; };
@@ -31,6 +30,7 @@
 		C867B3051FA72CF3006ABF97 /* LampViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C867B3041FA72CF3006ABF97 /* LampViewController.swift */; };
 		C867B3071FA72CFC006ABF97 /* HeaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C867B3061FA72CFC006ABF97 /* HeaterViewController.swift */; };
 		C8C0FB1C1FA9592900F66C08 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C0FB1B1FA9592900F66C08 /* Animation.swift */; };
+		C8C0FB1F1FA9756400F66C08 /* NodeServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C0FB1E1FA9756400F66C08 /* NodeServer.swift */; };
 		C8D017C31F9D8F5E00FF1D7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D017C21F9D8F5E00FF1D7A /* AppDelegate.swift */; };
 		C8D017C51F9D8F5E00FF1D7A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D017C41F9D8F5E00FF1D7A /* ViewController.swift */; };
 		C8D017C81F9D8F5E00FF1D7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8D017C61F9D8F5E00FF1D7A /* Main.storyboard */; };
@@ -59,7 +59,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		274122B41FA8964D0058260B /* NodeServer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeServer.swift; sourceTree = "<group>"; };
 		C845919A1FA01F5F0005AF23 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		C845919C1FA020920005AF23 /* GifBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifBackground.swift; sourceTree = "<group>"; };
 		C84591A01FA0269B0005AF23 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
@@ -83,6 +82,7 @@
 		C867B3041FA72CF3006ABF97 /* LampViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampViewController.swift; sourceTree = "<group>"; };
 		C867B3061FA72CFC006ABF97 /* HeaterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaterViewController.swift; sourceTree = "<group>"; };
 		C8C0FB1B1FA9592900F66C08 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
+		C8C0FB1E1FA9756400F66C08 /* NodeServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeServer.swift; sourceTree = "<group>"; };
 		C8D017BF1F9D8F5E00FF1D7A /* Assignment3-MON-Home.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Assignment3-MON-Home.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8D017C21F9D8F5E00FF1D7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8D017C41F9D8F5E00FF1D7A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -124,6 +124,13 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		C8C0FB1D1FA9748F00F66C08 /* Recovered References */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = "Recovered References";
+			sourceTree = "<group>";
+		};
 		C8D017B61F9D8F5E00FF1D7A = {
 			isa = PBXGroup;
 			children = (
@@ -139,6 +146,7 @@
 				C8D017D91F9D8F5E00FF1D7A /* Assignment3-MON-HomeTests */,
 				C8D017E41F9D8F5E00FF1D7A /* Assignment3-MON-HomeUITests */,
 				C8D017C01F9D8F5E00FF1D7A /* Products */,
+				C8C0FB1D1FA9748F00F66C08 /* Recovered References */,
 			);
 			sourceTree = "<group>";
 		};
@@ -177,6 +185,7 @@
 				C867B3041FA72CF3006ABF97 /* LampViewController.swift */,
 				C867B3061FA72CFC006ABF97 /* HeaterViewController.swift */,
 				C8C0FB1B1FA9592900F66C08 /* Animation.swift */,
+				C8C0FB1E1FA9756400F66C08 /* NodeServer.swift */,
 			);
 			path = "Assignment3-MON-Home";
 			sourceTree = "<group>";
@@ -344,7 +353,7 @@
 				C867B2FE1FA6DB32006ABF97 /* Room+CoreDataClass.swift in Sources */,
 				C867B2F51FA688BA006ABF97 /* DeviceTableViewController.swift in Sources */,
 				C84591A71FA02C710005AF23 /* WeatherTableViewController.swift in Sources */,
-				274122B51FA8964D0058260B /* NodeServer.swift in Sources */,
+				C8C0FB1F1FA9756400F66C08 /* NodeServer.swift in Sources */,
 				C8D017CB1F9D8F5E00FF1D7A /* Assignment3_MON_Home.xcdatamodeld in Sources */,
 				C867B3071FA72CFC006ABF97 /* HeaterViewController.swift in Sources */,
 				C84591E01FA2D40F0005AF23 /* TestViewController.swift in Sources */,

@@ -226,12 +226,10 @@ class NewDeviceTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewDeviceCell", for: indexPath) as! NewDeviceTableViewCell
         
-//        let theDevice = newDevices[indexPath.row]
-        
-        cell.newDeviceLab.text = theDevice[0]
-        cell.newDeviceId.text = "ID: \(theDevice[1])"
-        switch(cell.newDeviceLab.text){
-        case "Socket"?:
+        cell.newDeviceLab.text = deviceList[indexPath.row].type
+        cell.newDeviceId.text = deviceList[indexPath.row].id
+        switch(deviceList[indexPath.row].type){
+        case "power-plug":
             cell.newDevicesImage.image = #imageLiteral(resourceName: "socket")
             break
         case "power-plug-heater":

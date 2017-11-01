@@ -98,7 +98,7 @@ class NodeServer{
         task.resume()
     } 
     
-    func getAllDeviceInfo(completionHandler: @escaping ([DeviceSetting]?, Error?) -> Void) {
+    func getAllDeviceSetting(completionHandler: @escaping ([DeviceSetting]?, Error?) -> Void) {
         // Set up URLRequest with URL
         
         let endpoint = "\(host):\(port)/\(getAllDeviceSettingLink)"
