@@ -14,11 +14,14 @@ class NewDeviceTableViewController: UITableViewController {
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet var addDeviceView: UIView!
+    @IBOutlet weak var aNameTestField: UITextField!
+    @IBOutlet weak var aSegControl: UISegmentedControl!
+    @IBOutlet var aAddDeviceView: UIView!
     
     var thisRoom: Room?
     
     var newDevices = [[String]]()
-    var deviceHeater = ["Heater", "111"]
+    var deviceHeater = ["Socket", "111"]
     var deviceSocket = ["Socket", "222"]
     var deviceLamp = ["Lamp", "333"]
     var isHeaterAdded = false
@@ -63,7 +66,19 @@ class NewDeviceTableViewController: UITableViewController {
     }
     
     @IBAction func cancelAddDevice(_ sender: Any) {
-        animateOut()
+        Animation.animateOut(subView: addDeviceView)
+        cleanTextField()
+    }
+    
+    @IBAction func cancelAddSocket(_ sender: Any) {
+        Animation.animateOut(subView: aAddDeviceView)
+        cleanTextField()
+    }
+    
+    func cleanTextField() {
+        nameTextField.text?.removeAll()
+        aNameTestField.text?.removeAll()
+        aSegControl.selectedSegmentIndex = 0
     }
     
     @IBAction func finishAddDevice(_ sender: Any) {
@@ -99,8 +114,51 @@ class NewDeviceTableViewController: UITableViewController {
             catch let error{
                 print("Could not save: \(error)")
             }
-            animateOut()
+            Animation.animateOut(subView: addDeviceView)
             self.navigationController!.popViewController(animated: true)
+            cleanTextField()
+        } else {
+            generateAlert(title: "You cannot use the same device name twice.")
+        }
+    }
+    
+    @IBAction func finishAddSocket(_ sender: Any) {
+        
+        var devices = [Device]()
+        let deviceRequest:NSFetchRequest<Device> = Device.fetchRequest()
+        do {
+            devices = try managedObjectContext.fetch(deviceRequest)
+        }catch {
+            print("Could not load data from database \(error.localizedDescription)")
+        }
+        
+        var isValid = true
+        for each in devices {
+            if each.name == trimString(inputString: aNameTestField.text!) {
+                isValid = false
+            }
+        }
+        
+        if trimString(inputString: aNameTestField.text!) == "" {
+            generateAlert(title: "It should have a device name.")
+        } else if isValid {
+            var selectedNewDevice = [String]()
+            selectedNewDevice = newDevices[addRow]
+            let theDevice = NSEntityDescription.insertNewObject(forEntityName: "Device", into: managedObjectContext) as? Device
+            theDevice?.name = trimString(inputString: aNameTestField.text!)
+            theDevice?.type = aSegControl.titleForSegment(at: aSegControl.selectedSegmentIndex)
+            theDevice?.id = selectedNewDevice[1]
+            let room = thisRoom?.mutableSetValue(forKey: "hasDevices")
+            room?.add(theDevice!)
+            do{
+                try self.managedObjectContext.save()
+            }
+            catch let error{
+                print("Could not save: \(error)")
+            }
+            Animation.animateOut(subView: aAddDeviceView)
+            self.navigationController!.popViewController(animated: true)
+            cleanTextField()
         } else {
             generateAlert(title: "You cannot use the same device name twice.")
         }
@@ -150,33 +208,16 @@ class NewDeviceTableViewController: UITableViewController {
         // Dispose of any resources that can be recreated.
     }
     
-    func animateIn() {
-        self.view.addSubview(addDeviceView)
-        addDeviceView.center = self.view.center
-        
-        addDeviceView.transform = CGAffineTransform.init(translationX: 1.3, y: 1.3)
-        addDeviceView.alpha = 0
-        
-        UIView.animate(withDuration: 0.4) {
-            self.addDeviceView.alpha = 1
-            self.addDeviceView.transform = CGAffineTransform.identity
-        }
-    }
-    
-    func animateOut() {
-        UIView.animate(withDuration: 0.3, animations: {
-            self.addDeviceView.transform = CGAffineTransform.init(translationX: 1.3, y: 1.3)
-            self.addDeviceView.alpha = 0
-        }) {(success:Bool) in
-            self.addDeviceView.removeFromSuperview()
-        }
-    }
-    
     var addRow = 0
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath)
     {
         addRow = indexPath.row
-        animateIn()
+        var theDevice = newDevices[addRow]
+        if theDevice[0] != "Socket" {
+            Animation.animateIn(mainView: self.view, subView: addDeviceView)
+        } else {
+            Animation.animateIn(mainView: self.view, subView: aAddDeviceView)
+        }
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -185,6 +226,7 @@ class NewDeviceTableViewController: UITableViewController {
         let theDevice = newDevices[indexPath.row]
         
         cell.newDeviceLab.text = theDevice[0]
+        cell.newDeviceId.text = "ID: \(theDevice[1])"
         switch(cell.newDeviceLab.text){
         case "Socket"?:
             cell.newDevicesImage.image = #imageLiteral(resourceName: "socket")

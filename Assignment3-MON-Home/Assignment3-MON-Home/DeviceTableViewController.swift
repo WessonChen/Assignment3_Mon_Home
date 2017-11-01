@@ -52,6 +52,7 @@ class DeviceTableViewController: UITableViewController {
         let theDevice = devices[indexPath.row]
         
         cell.deviceLab.text = theDevice.name
+        cell.deviceId.text = "ID: \(theDevice.id!)"
         switch(theDevice.type){
         case "Socket"?:
             cell.deviceImage.image = #imageLiteral(resourceName: "socket")

@@ -72,6 +72,9 @@ class WeatherViewController: UIViewController {
         viewDidLoad()
     }
     
+    @IBAction func cancelSave(_ sender: Any) {
+        animateOut()
+    }
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         var lo = setLocationText.text!
         if lo == "" {

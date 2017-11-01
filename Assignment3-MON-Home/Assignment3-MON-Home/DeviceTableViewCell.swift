@@ -12,6 +12,7 @@ class DeviceTableViewCell: UITableViewCell {
 
     @IBOutlet weak var deviceImage: UIImageView!
     @IBOutlet weak var deviceLab: UILabel!
+    @IBOutlet weak var deviceId: UILabel!
     
     
     override func awakeFromNib() {

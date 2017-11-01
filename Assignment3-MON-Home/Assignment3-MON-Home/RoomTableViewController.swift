@@ -43,25 +43,11 @@ class RoomTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
     }
 
     func animateIn() {
-        self.view.addSubview(addRoomView)
-        addRoomView.center = self.view.center
-        
-        addRoomView.transform = CGAffineTransform.init(translationX: 1.3, y: 1.3)
-        addRoomView.alpha = 0
-        
-        UIView.animate(withDuration: 0.4) {
-            self.addRoomView.alpha = 1
-            self.addRoomView.transform = CGAffineTransform.identity
-        }
+        Animation.animateIn(mainView: self.view, subView: addRoomView)
     }
     
     func animateOut() {
-        UIView.animate(withDuration: 0.3, animations: {
-            self.addRoomView.transform = CGAffineTransform.init(translationX: 1.3, y: 1.3)
-            self.addRoomView.alpha = 0
-        }) {(success:Bool) in
-            self.addRoomView.removeFromSuperview()
-        }
+        Animation.animateOut(subView: addRoomView)
     }
     
     @IBAction func addRoom(_ sender: Any) {
