@@ -26,6 +26,7 @@ class NodeServer{
     let getAllDeviceSettingLink = "getalldevicesetting"
     let getDeviceSettingByIdLink = "getdevicesetting"
     let setDeviceSettingByIdLink = "setting"
+    let setBrightnessLink = "setbrightness"
     let switchPowerLink = "setpower"
     
     enum BackendError: Error {
@@ -238,5 +239,20 @@ class NodeServer{
         task.resume()
     }
     
+    func setBrightnessForDeviceById(id: String, brightnessLevel: Int) {
+        // Set up URLRequest with URL
+        let endpoint = "\(host):\(port)/\(setBrightnessLink)/\(id)/\(brightnessLevel)"
+        print(endpoint)
+        guard let url = URL(string: endpoint) else {
+            print("Error: cannot create URL")
+            return
+        }
+        let urlRequest = URLRequest(url: url)
+        
+        // Make request
+        let session = URLSession.shared
+        let task = session.dataTask(with: urlRequest)
+        task.resume()
+    }
     
 }
