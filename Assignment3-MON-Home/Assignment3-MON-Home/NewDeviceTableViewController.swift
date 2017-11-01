@@ -16,6 +16,7 @@ class NewDeviceTableViewController: UITableViewController {
     @IBOutlet var addDeviceView: UIView!
     @IBOutlet weak var aNameTestField: UITextField!
     @IBOutlet var aAddDeviceView: UIView!
+    @IBOutlet weak var isHeater: UISwitch!
     
     var thisRoom: Room?
     
@@ -134,7 +135,11 @@ class NewDeviceTableViewController: UITableViewController {
             let selectedNewDevice = newDevices[addRow]
             let theDevice = NSEntityDescription.insertNewObject(forEntityName: "Device", into: managedObjectContext) as? Device
             theDevice?.name = trimString(inputString: aNameTestField.text!)
-            theDevice?.type = selectedNewDevice.type
+            if (isHeater.isOn) {
+                theDevice?.type = "power-plug-heater"
+            } else {
+                theDevice?.type = selectedNewDevice.type
+            }
             theDevice?.id = selectedNewDevice.id
             let room = thisRoom?.mutableSetValue(forKey: "hasDevices")
             room?.add(theDevice!)
@@ -166,31 +171,6 @@ class NewDeviceTableViewController: UITableViewController {
         self.present(alertController, animated: true, completion: nil)
     }
     
-    /*
-     func getJSON() {
-     let urlString = ""
-     
-     let url = URL(string: urlString)
-     URLSession.shared.dataTask(with:url!) { (data, response, error) in
-     if error != nil {
-     print(error!)
-     } else {
-     do {
-     let parsedData = try JSONSerialization.jsonObject(with: data!) as! [String:Any]
-     let currentDevice = parsedData["name"] as! [String:Any]
-     let deviceId = currentDevice["id"] as! String
-     let deviceType = currentDevice["type"] as! String
-     let newDevice = [deviceId, deviceType]
-     self.newDevices.append(newDevice)
-     } catch let error as NSError {
-     print(error)
-     }
-     }
-     
-     }.resume()
-     }
-     */
-    
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
         // Dispose of any resources that can be recreated.
@@ -210,20 +190,23 @@ class NewDeviceTableViewController: UITableViewController {
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "NewDeviceCell", for: indexPath) as! NewDeviceTableViewCell
-        
-        cell.newDeviceLab.text = newDevices[indexPath.row].type
-        cell.newDeviceId.text = newDevices[indexPath.row].id
+
+        cell.newDeviceId.text = "ID: \(newDevices[indexPath.row].id)"
         switch(newDevices[indexPath.row].type){
         case "power-plug":
+            cell.newDeviceLab.text = "Socket"
             cell.newDevicesImage.image = #imageLiteral(resourceName: "socket")
             break
         case "power-plug-heater":
+            cell.newDeviceLab.text = "Heater"
             cell.newDevicesImage.image = #imageLiteral(resourceName: "heater")
             break
         case "lamp":
+            cell.newDeviceLab.text = "Desk Lamp"
             cell.newDevicesImage.image = #imageLiteral(resourceName: "lamp")
             break
         default:
+            cell.newDeviceLab.text = "Unknow Device"
             cell.newDevicesImage.image = #imageLiteral(resourceName: "noImage")
             break
         }
