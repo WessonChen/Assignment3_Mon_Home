@@ -93,7 +93,7 @@ class NewDeviceTableViewController: UITableViewController {
         } else if isValid {
             let selectedNewDevice = newDevices[addRow]
             let theDevice = NSEntityDescription.insertNewObject(forEntityName: "Device", into: managedObjectContext) as? Device
-            theDevice?.name = trimString(inputString: nameTextField.text!)
+            theDevice?.name = "LAMP \(trimString(inputString: nameTextField.text!))"
             theDevice?.type = selectedNewDevice.type
             theDevice?.id = selectedNewDevice.id
             let room = thisRoom?.mutableSetValue(forKey: "hasDevices")
@@ -134,10 +134,11 @@ class NewDeviceTableViewController: UITableViewController {
         } else if isValid {
             let selectedNewDevice = newDevices[addRow]
             let theDevice = NSEntityDescription.insertNewObject(forEntityName: "Device", into: managedObjectContext) as? Device
-            theDevice?.name = trimString(inputString: aNameTestField.text!)
             if (isHeater.isOn) {
+                theDevice?.name = "HEATER \(trimString(inputString: aNameTestField.text!))"
                 theDevice?.type = "power-plug-heater"
             } else {
+                theDevice?.name = "SOCKET \(trimString(inputString: aNameTestField.text!))"
                 theDevice?.type = selectedNewDevice.type
             }
             theDevice?.id = selectedNewDevice.id
