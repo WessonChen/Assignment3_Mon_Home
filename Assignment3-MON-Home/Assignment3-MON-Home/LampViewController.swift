@@ -84,6 +84,7 @@ class LampViewController: UIViewController {
                     self.fromDatePicker.date = self.dateFormatter.date(from: device.startTime)!
                     self.toDatePicker.date = self.dateFormatter.date(from: device.stopTime)!
                     self.brightnessSlider.value = Float(device.brightness) / 100
+                    self.enableSettingSwitch.isOn = device.isSettingEnabled
                 }
             }
         })

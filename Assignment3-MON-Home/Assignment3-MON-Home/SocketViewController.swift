@@ -82,6 +82,7 @@ class SocketViewController: UIViewController {
                     self.powerSwitch.isOn = device.isPowerOn
                     self.fromTimePicker.date = self.dateFormatter.date(from: device.startTime)!
                     self.toTimePicker.date = self.dateFormatter.date(from: device.stopTime)!
+                    self.enableSettingSwitch.isOn = device.isSettingEnabled
                 }
             }
             

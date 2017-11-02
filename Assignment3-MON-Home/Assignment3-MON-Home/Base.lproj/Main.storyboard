@@ -642,6 +642,9 @@
                                 <date key="date" timeIntervalSinceReferenceDate="530766564.73065102">
                                     <!--2017-10-27 03:09:24 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="fromDatePickerChanged:" destination="6Wu-iv-TN4" eventType="valueChanged" id="uQA-pm-bhb"/>
+                                </connections>
                             </datePicker>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="AFm-9L-oxf">
                                 <rect key="frame" x="59" y="261" width="340" height="142"/>
@@ -658,6 +661,9 @@
                                 <rect key="frame" x="148" y="615" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="cancel"/>
+                                <connections>
+                                    <action selector="discardButtonClicked:" destination="6Wu-iv-TN4" eventType="touchUpInside" id="Abg-Gf-gOm"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kb-w7-OIa">
                                 <rect key="frame" x="15" y="111" width="40" height="30"/>
@@ -697,11 +703,17 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bdM-9y-ad5">
                                 <rect key="frame" x="352" y="549" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="powerSwitchChanged:" destination="6Wu-iv-TN4" eventType="valueChanged" id="mQH-zc-TBU"/>
+                                </connections>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hq0-PS-04L">
                                 <rect key="frame" x="246" y="615" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="done"/>
+                                <connections>
+                                    <action selector="saveButtonClicked:" destination="6Wu-iv-TN4" eventType="touchUpInside" id="OQx-fU-5LS"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="°C           To: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6z0-B3-9Ns">
                                 <rect key="frame" x="164" y="440" width="96" height="30"/>
@@ -715,7 +727,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="°C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wn5-dQ-bd2">
                                 <rect key="frame" x="366" y="440" width="28" height="30"/>
@@ -729,12 +741,20 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="1Fi-eS-rFg"/>
                     </view>
+                    <connections>
+                        <outlet property="enableSettingSwitch" destination="Dw4-G6-bZb" id="T35-RF-aNU"/>
+                        <outlet property="fromDatePicker" destination="HMd-7d-A7B" id="z1h-Nw-jWd"/>
+                        <outlet property="fromTemperature" destination="Trw-TD-oEt" id="1fP-Bu-mqf"/>
+                        <outlet property="powerSwitch" destination="bdM-9y-ad5" id="Xor-M3-U5S"/>
+                        <outlet property="toDatePicker" destination="AFm-9L-oxf" id="0Qi-hw-kBv"/>
+                        <outlet property="toTemperature" destination="Z1e-JA-K5p" id="zcU-3L-3s2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hbo-RR-Pze" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
