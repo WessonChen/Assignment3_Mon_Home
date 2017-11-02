@@ -33,6 +33,7 @@ class HeaterViewController: UIViewController {
         })
         
         generateAlert(message: "Setting has been saved successfully")
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func discardButtonClicked(_ sender: Any) {
