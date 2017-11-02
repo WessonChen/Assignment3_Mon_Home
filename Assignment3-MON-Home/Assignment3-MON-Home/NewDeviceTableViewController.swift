@@ -144,7 +144,14 @@ class NewDeviceTableViewController: UITableViewController {
             let room = thisRoom?.mutableSetValue(forKey: "hasDevices")
             room?.add(theDevice!)
             do{
+                // save device into CoreData
                 try self.managedObjectContext.save()
+                
+                // change type from power-plug to power-plug-heater if switch is on
+                if (isHeater.isOn) {
+                    theDevice?.type = "power-plug-heater"
+                    NodeServer.sharedInstance.setTypeForDeviceById(id: (theDevice?.id)!, type: "power-plug-heater")
+                }
             }
             catch let error{
                 print("Could not save: \(error)")
@@ -203,6 +210,10 @@ class NewDeviceTableViewController: UITableViewController {
             break
         case "lamp":
             cell.newDeviceLab.text = "Desk Lamp"
+            cell.newDevicesImage.image = #imageLiteral(resourceName: "lamp")
+            break
+        case "light":
+            cell.newDeviceLab.text = "Light Bulb"
             cell.newDevicesImage.image = #imageLiteral(resourceName: "lamp")
             break
         default:

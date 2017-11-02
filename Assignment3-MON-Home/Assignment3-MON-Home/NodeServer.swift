@@ -24,6 +24,10 @@ class NodeServer{
     let port = "3000"
     let getAllDeviceInfoLink = "getalldeviceinfo"
     let getAllDeviceSettingLink = "getalldevicesetting"
+    let getDeviceSettingByIdLink = "getdevicesetting"
+    let setDeviceSettingByIdLink = "setting"
+    let setBrightnessLink = "setbrightness"
+    let setDeviceTypeLink = "settype"
     let switchPowerLink = "setpower"
     
     enum BackendError: Error {
@@ -46,11 +50,12 @@ class NodeServer{
         var stopTime: String
         var minTemp: String
         var maxTemp: String
-        var brightness: String
+        var brightness: Int
+        var isPowerOn: Bool
         var isOnPeriod: Bool
         var isSettingEnabled: Bool
         var type: String
-        var isManuallyController: Bool
+        var isManuallyControlled: Bool
     }
     
     func getAllDeviceInfo(completionHandler: @escaping ([DeviceInfo]?, Error?) -> Void) {
@@ -144,9 +149,116 @@ class NodeServer{
         task.resume()
     }
     
+    func getDeviceSettingById(id: String, completionHandler: @escaping (DeviceSetting?, Error?) -> Void) {
+        // Set up URLRequest with URL
+        let endpoint = "\(host):\(port)/\(getDeviceSettingByIdLink)/\(id)"
+        print(endpoint)
+        guard let url = URL(string: endpoint) else {
+            print("Error: cannot create URL")
+            let error = BackendError.urlError(reason: "Could not construct URL")
+            completionHandler(nil, error)
+            return
+        }
+        let urlRequest = URLRequest(url: url)
+        
+        // Make request
+        let session = URLSession.shared
+        let task = session.dataTask(with: urlRequest, completionHandler: {
+            (data, response, error) in
+            // handle response to request
+            // check for error
+            guard error == nil else {
+                completionHandler(nil, error!)
+                return
+            }
+            // make sure we got data in the response
+            guard let responseData = data else {
+                print("Error: did not receive data")
+                let error = BackendError.objectSerialization(reason: "No data in response")
+                completionHandler(nil, error)
+                return
+            }
+            
+            // parse the result as JSON
+            // then create a Todo from the JSON
+            let decoder = JSONDecoder()
+            do {
+                let deviesSetting = try decoder.decode(DeviceSetting.self, from: responseData)
+                completionHandler(deviesSetting, nil)
+            } catch {
+                print("error trying to convert data to JSON")
+                print(error)
+                completionHandler(nil, error)
+            }
+        })
+        task.resume()
+    }
+    
+    func setDeviceSettingById(deviceSetting: DeviceSetting, completionHandler: @escaping (Error?) -> Void) {
+        let endpoint = "\(host):\(port)/\(setDeviceSettingByIdLink)"
+        print(endpoint)
+        guard let url = URL(string: endpoint) else {
+            print("Error: cannot create URL")
+            let error = BackendError.urlError(reason: "Could not construct URL")
+            completionHandler(error)
+            return
+        }
+        var urlRequest = URLRequest(url: url)
+        urlRequest.httpMethod = "POST"
+        urlRequest.addValue("application/json", forHTTPHeaderField: "Content-Type")
+        
+        let encoder = JSONEncoder()
+        do {
+            let deviceSettingJson = try encoder.encode(deviceSetting)
+            urlRequest.httpBody = deviceSettingJson
+        } catch {
+            print(error)
+            completionHandler(error)
+        }
+    
+        let session = URLSession.shared
+        let task = session.dataTask(with: urlRequest, completionHandler: {
+            (data, response, error) in
+
+        })
+        task.resume()
+    }
+    
     func setPowerForDeviceById(id: String, mode: String) {
         // Set up URLRequest with URL
         let endpoint = "\(host):\(port)/\(switchPowerLink)/\(id)/\(mode)"
+        print(endpoint)
+        guard let url = URL(string: endpoint) else {
+            print("Error: cannot create URL")
+            return
+        }
+        let urlRequest = URLRequest(url: url)
+        
+        // Make request
+        let session = URLSession.shared
+        let task = session.dataTask(with: urlRequest)
+        task.resume()
+    }
+    
+    func setBrightnessForDeviceById(id: String, brightnessLevel: Int) {
+        // Set up URLRequest with URL
+        let endpoint = "\(host):\(port)/\(setBrightnessLink)/\(id)/\(brightnessLevel)"
+        print(endpoint)
+        guard let url = URL(string: endpoint) else {
+            print("Error: cannot create URL")
+            return
+        }
+        let urlRequest = URLRequest(url: url)
+        
+        // Make request
+        let session = URLSession.shared
+        let task = session.dataTask(with: urlRequest)
+        task.resume()
+    }
+    
+    func setTypeForDeviceById(id: String, type: String) {
+        // Set up URLRequest with URL
+        let endpoint = "\(host):\(port)/\(setDeviceTypeLink)/\(id)/\(type)"
         print(endpoint)
         guard let url = URL(string: endpoint) else {
             print("Error: cannot create URL")

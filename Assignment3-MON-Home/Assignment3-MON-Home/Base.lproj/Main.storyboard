@@ -643,6 +643,9 @@
                                 <date key="date" timeIntervalSinceReferenceDate="530766564.73065102">
                                     <!--2017-10-27 03:09:24 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="fromDatePickerChanged:" destination="6Wu-iv-TN4" eventType="valueChanged" id="uQA-pm-bhb"/>
+                                </connections>
                             </datePicker>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="AFm-9L-oxf">
                                 <rect key="frame" x="59" y="261" width="340" height="142"/>
@@ -659,6 +662,9 @@
                                 <rect key="frame" x="148" y="615" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="cancel"/>
+                                <connections>
+                                    <action selector="discardButtonClicked:" destination="6Wu-iv-TN4" eventType="touchUpInside" id="Abg-Gf-gOm"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8kb-w7-OIa">
                                 <rect key="frame" x="15" y="111" width="40" height="30"/>
@@ -681,8 +687,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Auto-on/off" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKs-3n-AlE">
-                                <rect key="frame" x="15" y="495" width="109" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enable Setting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MKs-3n-AlE">
+                                <rect key="frame" x="15" y="495" width="127" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -698,11 +704,17 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bdM-9y-ad5">
                                 <rect key="frame" x="352" y="549" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="powerSwitchChanged:" destination="6Wu-iv-TN4" eventType="valueChanged" id="mQH-zc-TBU"/>
+                                </connections>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hq0-PS-04L">
                                 <rect key="frame" x="246" y="615" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="done"/>
+                                <connections>
+                                    <action selector="saveButtonClicked:" destination="6Wu-iv-TN4" eventType="touchUpInside" id="OQx-fU-5LS"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="°C           To: " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6z0-B3-9Ns">
                                 <rect key="frame" x="164" y="440" width="96" height="30"/>
@@ -716,7 +728,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="°C" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wn5-dQ-bd2">
                                 <rect key="frame" x="366" y="440" width="28" height="30"/>
@@ -730,16 +742,24 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                             </textField>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="1Fi-eS-rFg"/>
                     </view>
+                    <connections>
+                        <outlet property="enableSettingSwitch" destination="Dw4-G6-bZb" id="T35-RF-aNU"/>
+                        <outlet property="fromDatePicker" destination="HMd-7d-A7B" id="z1h-Nw-jWd"/>
+                        <outlet property="fromTemperature" destination="Trw-TD-oEt" id="1fP-Bu-mqf"/>
+                        <outlet property="powerSwitch" destination="bdM-9y-ad5" id="Xor-M3-U5S"/>
+                        <outlet property="toDatePicker" destination="AFm-9L-oxf" id="0Qi-hw-kBv"/>
+                        <outlet property="toTemperature" destination="Z1e-JA-K5p" id="zcU-3L-3s2"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hbo-RR-Pze" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2522" y="964"/>
+            <point key="canvasLocation" x="2521.739130434783" y="963.58695652173924"/>
         </scene>
         <!--Lamp View Controller-->
         <scene sceneID="Sx9-QC-q8z">
@@ -755,6 +775,9 @@
                                 <date key="date" timeIntervalSinceReferenceDate="530766564.73065102">
                                     <!--2017-10-27 03:09:24 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="fromDatePickerChanged:" destination="S6X-p8-Uol" eventType="valueChanged" id="KsC-ek-KKs"/>
+                                </connections>
                             </datePicker>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="aq9-Fg-sFD">
                                 <rect key="frame" x="54" y="257" width="340" height="142"/>
@@ -771,10 +794,16 @@
                                 <rect key="frame" x="143" y="611" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="cancel"/>
+                                <connections>
+                                    <action selector="discardButtonClicker:" destination="S6X-p8-Uol" eventType="touchUpInside" id="Pr4-uc-4KY"/>
+                                </connections>
                             </button>
                             <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="PjZ-3q-EU6">
                                 <rect key="frame" x="113" y="437" width="283" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="brightnessChanged:" destination="S6X-p8-Uol" eventType="valueChanged" id="f3P-uq-hHd"/>
+                                </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="To" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UJp-bi-NTQ">
                                 <rect key="frame" x="10" y="257" width="19" height="30"/>
@@ -790,8 +819,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Auto-on/off" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1at-rW-l0X">
-                                <rect key="frame" x="10" y="491" width="109" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enable Setting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1at-rW-l0X">
+                                <rect key="frame" x="10" y="491" width="124" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -807,11 +836,17 @@
                             <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JuY-s9-hdV">
                                 <rect key="frame" x="347" y="545" width="49" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="powerSwitchChanged:" destination="S6X-p8-Uol" eventType="valueChanged" id="isn-5D-sLe"/>
+                                </connections>
                             </switch>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Ne-Ge-ZCW">
                                 <rect key="frame" x="241" y="611" width="32" height="32"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="done"/>
+                                <connections>
+                                    <action selector="saveButtonClicked:" destination="S6X-p8-Uol" eventType="touchUpInside" id="ocV-zy-4Rk"/>
+                                </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="From" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="31D-G0-sgx">
                                 <rect key="frame" x="10" y="107" width="40" height="30"/>
@@ -824,10 +859,17 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="uH6-Fk-Nc2"/>
                     </view>
+                    <connections>
+                        <outlet property="brightnessSlider" destination="PjZ-3q-EU6" id="ppj-Ip-8cO"/>
+                        <outlet property="enableSettingSwitch" destination="LGG-ww-mpa" id="9Ng-YF-6j3"/>
+                        <outlet property="fromDatePicker" destination="xAj-Ff-IKp" id="eg2-M7-pAo"/>
+                        <outlet property="powerSwitch" destination="JuY-s9-hdV" id="ttN-pn-I1H"/>
+                        <outlet property="toDatePicker" destination="aq9-Fg-sFD" id="QTx-vK-K2J"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="L8d-OG-c1m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2522" y="-64"/>
+            <point key="canvasLocation" x="2521.739130434783" y="-64.402173913043484"/>
         </scene>
         <!--Voice Control-->
         <scene sceneID="Y10-Y0-TaH">
@@ -891,6 +933,9 @@
                                 <date key="date" timeIntervalSinceReferenceDate="530766564.73065102">
                                     <!--2017-10-27 03:09:24 +0000-->
                                 </date>
+                                <connections>
+                                    <action selector="fromDatePickerChanged:" destination="yCk-JP-Xmw" eventType="valueChanged" id="hy5-f8-GCS"/>
+                                </connections>
                             </datePicker>
                             <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="time" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="qoE-lC-xkU">
                                 <rect key="frame" x="59" y="311" width="340" height="142"/>
@@ -918,8 +963,8 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Auto-on/off" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RDc-Eh-Gtp">
-                                <rect key="frame" x="15" y="496" width="109" height="30"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Enable Setting" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RDc-Eh-Gtp">
+                                <rect key="frame" x="15" y="496" width="129" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -967,7 +1012,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="KLG-fJ-8Fk" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2522" y="-1057"/>
+            <point key="canvasLocation" x="2521.739130434783" y="-1057.3369565217392"/>
         </scene>
     </scenes>
     <resources>
