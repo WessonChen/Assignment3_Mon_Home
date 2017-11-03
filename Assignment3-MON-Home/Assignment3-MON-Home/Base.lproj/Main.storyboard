@@ -29,7 +29,7 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i15-S9-lmK">
                                             <rect key="frame" x="8" y="15" width="64" height="64"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="64" id="ume-Cq-gDh"/>
+                                                <constraint firstAttribute="width" constant="64" id="qf7-kQ-lHu"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3m-1E-sle">
@@ -40,13 +40,13 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="i15-S9-lmK" firstAttribute="centerY" secondItem="8G5-hm-XFZ" secondAttribute="centerY" id="AXR-XL-b2z"/>
-                                        <constraint firstItem="i15-S9-lmK" firstAttribute="centerY" secondItem="o3m-1E-sle" secondAttribute="centerY" id="Jb8-0G-Lgz"/>
-                                        <constraint firstItem="i15-S9-lmK" firstAttribute="leading" secondItem="8G5-hm-XFZ" secondAttribute="leadingMargin" id="QeG-26-wDQ"/>
-                                        <constraint firstItem="o3m-1E-sle" firstAttribute="top" secondItem="8G5-hm-XFZ" secondAttribute="topMargin" constant="15" id="Rsy-re-M0B"/>
-                                        <constraint firstItem="o3m-1E-sle" firstAttribute="leading" secondItem="i15-S9-lmK" secondAttribute="trailing" constant="8" symbolic="YES" id="VFC-yz-8sQ"/>
-                                        <constraint firstItem="i15-S9-lmK" firstAttribute="top" secondItem="8G5-hm-XFZ" secondAttribute="topMargin" constant="7" id="kBA-D6-Stq"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="o3m-1E-sle" secondAttribute="trailing" constant="8" id="oxr-d3-4vD"/>
+                                        <constraint firstItem="i15-S9-lmK" firstAttribute="centerY" secondItem="o3m-1E-sle" secondAttribute="centerY" id="0iy-ul-OTs"/>
+                                        <constraint firstItem="o3m-1E-sle" firstAttribute="top" secondItem="8G5-hm-XFZ" secondAttribute="topMargin" constant="15" id="4IP-DP-yQW"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="o3m-1E-sle" secondAttribute="trailing" constant="8" id="TP1-uc-QEx"/>
+                                        <constraint firstItem="i15-S9-lmK" firstAttribute="centerY" secondItem="8G5-hm-XFZ" secondAttribute="centerY" id="abY-xW-xWg"/>
+                                        <constraint firstItem="i15-S9-lmK" firstAttribute="leading" secondItem="8G5-hm-XFZ" secondAttribute="leadingMargin" id="gah-bp-NIn"/>
+                                        <constraint firstItem="o3m-1E-sle" firstAttribute="leading" secondItem="i15-S9-lmK" secondAttribute="trailing" constant="8" symbolic="YES" id="vNM-ch-aGQ"/>
+                                        <constraint firstItem="i15-S9-lmK" firstAttribute="top" secondItem="8G5-hm-XFZ" secondAttribute="topMargin" constant="7" id="zkL-gi-IJL"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>

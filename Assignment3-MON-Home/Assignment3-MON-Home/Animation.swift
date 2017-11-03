@@ -31,5 +31,6 @@ struct Animation {
         }) {(success:Bool) in
             subView.removeFromSuperview()
         }
+        
     }
 }

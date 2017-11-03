@@ -17,7 +17,11 @@ class VoiceViewController: UIViewController, SFSpeechRecognizerDelegate {
     private var recognitionTask: SFSpeechRecognitionTask?
     private let audioEngine = AVAudioEngine()
     var speechResult = SFSpeechRecognitionResult()
+    
+    var managedObjectContext:NSManagedObjectContext!
+    
     var isClosedManually = false
+    var devices = [Device]()
     
     @IBOutlet weak var voiceButton: UIButton!
     
@@ -42,7 +46,14 @@ class VoiceViewController: UIViewController, SFSpeechRecognizerDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Do any additional setup after loading the view.
+        managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
+        let deviceRequest:NSFetchRequest<Device> = Device.fetchRequest()
+        
+        do {
+            devices = try managedObjectContext.fetch(deviceRequest)
+        }catch {
+            print("Could not load data from database \(error.localizedDescription)")
+        }
     }
     
     func checkAuthStatus() {
@@ -91,11 +102,8 @@ class VoiceViewController: UIViewController, SFSpeechRecognizerDelegate {
             let inputNode = audioEngine.inputNode
             guard let recognitionRequest = recognitionRequest else { fatalError("Unable to create the recognition request") }
             
-            // Configure request so that results are returned before audio recording is finished
             recognitionRequest.shouldReportPartialResults = true
             
-            // A recognition task is used for speech recognition sessions
-            // A reference for the task is saved so it can be cancelled
             recognitionTask = speechRecognizer.recognitionTask(with: recognitionRequest) { result, error in
                 var isFinal = false
                 
@@ -161,8 +169,14 @@ class VoiceViewController: UIViewController, SFSpeechRecognizerDelegate {
         
         if isContainsOn {
             print("on")
+            if findDeviceBySpeech() != "" {
+                print(findDeviceBySpeech())
+            }
         } else if isContainsOff {
             print("off")
+            if findDeviceBySpeech() != "" {
+                print(findDeviceBySpeech())
+            }
         } else {
             generateAlert(title: "Commands are not detected", message: "It should contain On, Open, Off or Close as key words")
         }
@@ -176,6 +190,54 @@ class VoiceViewController: UIViewController, SFSpeechRecognizerDelegate {
         if !available {
             generateAlert(title: "There was a problem accessing the recognizer", message: "Please try again later")
         }
+    }
+    
+    func findDeviceBySpeech() -> String {
+        var validDevices = [Device]()
+        for each in devices {
+            let name = each.name?.lowercased()
+            var type = each.type?.lowercased()
+            switch(each.type!) {
+            case "power-plug":
+                type = "socket"
+                break
+            case "power-plug-heater":
+                type = "heater"
+                break
+            case "lamp":
+                type = "lamp"
+                break
+            case "light":
+                type = "light"
+                break
+            default:
+                type = "unknow device"
+                break
+            }
+            
+            let newString = speechResult.bestTranscription.formattedString.lowercased()
+            
+            if newString.range(of: name!) != nil || newString.range(of: type!) != nil {
+                validDevices.append(each)
+            }
+        }
+        
+        if validDevices.count == 0 {
+            generateAlert(title: "Try again?", message: "There is no such device")
+        } else if validDevices.count == 1 {
+            return validDevices[0].id!
+        } else {
+            let alertController = UIAlertController(title: "Which device do you want?", message: "", preferredStyle: UIAlertControllerStyle.alert)
+            for each in validDevices {
+                alertController.addAction(UIAlertAction(title: each.name, style: UIAlertActionStyle.default) {
+                    UIAlertAction in
+                    return each.id
+                })
+            }
+            alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
+            self.present(alertController, animated: true, completion: nil)
+        }
+        return ""
     }
     
     override func didReceiveMemoryWarning() {

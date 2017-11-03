@@ -10,26 +10,34 @@ import UIKit
 import Foundation
 import CoreData
 
-class RoomTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource {
-
+class RoomTableViewController: UITableViewController, UIPickerViewDelegate, UIPickerViewDataSource, UITextFieldDelegate {
+    
     @IBOutlet var addRoomView: UIView!
     @IBOutlet weak var nameText: UITextField!
     @IBOutlet weak var typePicker: UIPickerView!
     
     let types = ["Bedroom", "Dining Room", "Games Room", "Kitchen", "Living Room"]
     var currentType = "Bedroom"
-    
     var rooms = [Room]()
-    
+    var isAdding = false
     var managedObjectContext:NSManagedObjectContext!
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
         loadData()
-   }
+        self.nameText.delegate = self
+        
+        /*
+         Get the height of the keyboard
+         From: https://stackoverflow.com/questions/31774006/how-to-get-height-of-keyboard-swift
+         Author: Nrv
+         */
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(RoomTableViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(RoomTableViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+    }
     
     func loadData(){
         let roomRequest:NSFetchRequest<Room> = Room.fetchRequest()
@@ -41,17 +49,10 @@ class RoomTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
             print("Could not load data from database \(error.localizedDescription)")
         }
     }
-
-    func animateIn() {
-        Animation.animateIn(mainView: self.view, subView: addRoomView)
-    }
-    
-    func animateOut() {
-        Animation.animateOut(subView: addRoomView)
-    }
     
     @IBAction func addRoom(_ sender: Any) {
-        animateIn()
+        Animation.animateIn(mainView: self.view, subView: addRoomView)
+        isEditing = true
     }
     
     @IBAction func finishAddRoom(_ sender: Any) {
@@ -59,7 +60,8 @@ class RoomTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
     }
     
     @IBAction func cancelAddRoom(_ sender: Any) {
-        animateOut()
+        Animation.animateOut(subView: addRoomView)
+        isEditing = false
     }
     
     func createRoom() {
@@ -79,7 +81,8 @@ class RoomTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
             do {
                 try self.managedObjectContext.save()
                 self.loadData()
-                animateOut()
+                Animation.animateOut(subView: addRoomView)
+                isEditing = false
             }catch {
                 print("Could not save data \(error.localizedDescription)")
             }
@@ -153,9 +156,14 @@ class RoomTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
             cell.roomImage.image = #imageLiteral(resourceName: "noImage")
             break
         }
+        if isAdding {
+            cell.isUserInteractionEnabled = false
+        } else {
+            cell.isUserInteractionEnabled = true
+        }
         return cell
     }
-
+    
     var number = 0
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         number = indexPath.row
@@ -170,18 +178,38 @@ class RoomTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
         }
     }
     // MARK: - Table view data source
-
+    
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
-
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return rooms.count
     }
-
-
+    
+    @objc func keyboardWillShow(notification:NSNotification) {
+        let userInfo:NSDictionary = notification.userInfo! as NSDictionary
+        let keyboardFrame:NSValue = userInfo.value(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue
+        let keyboardRectangle = keyboardFrame.cgRectValue
+        let keyboardHeight = keyboardRectangle.height
+        addRoomView.center.y = keyboardHeight
+    }
+    
+    @objc func keyboardWillHide(notification:NSNotification) {
+        addRoomView.center = self.view.center
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        nameText.resignFirstResponder()
+        return true
+    }
+    
     func generateAlert(title: String) {
         let alertController = UIAlertController(title: title, message: "", preferredStyle: UIAlertControllerStyle.alert)
         
