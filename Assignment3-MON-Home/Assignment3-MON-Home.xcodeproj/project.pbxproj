@@ -7,6 +7,13 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		274122E11FAAF28E0058260B /* fliclib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 274122DE1FAADEDA0058260B /* fliclib.framework */; };
+		274122E21FAAF28E0058260B /* fliclib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 274122DE1FAADEDA0058260B /* fliclib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		274122E51FAAF4460058260B /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274122E41FAAF4460058260B /* SettingViewController.swift */; };
+		2753F6601FAB6C26006BEF43 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2753F65F1FAB6C25006BEF43 /* GoogleService-Info.plist */; };
+		A31C079E796CEE6163232E86 /* Pods_Assignment3_MON_HomeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF55AE1DA6FDDDFA3937F8AA /* Pods_Assignment3_MON_HomeUITests.framework */; };
+		A7D53571AF445A87005101A6 /* Pods_Assignment3_MON_Home.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72F50FB75EADEEDB8721622 /* Pods_Assignment3_MON_Home.framework */; settings = {ATTRIBUTES = (Required, ); }; };
+		ABFCF3A2DBEFA9E6482EBEBF /* Pods_Assignment3_MON_HomeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2D0FFC4167276726AF0C8C3 /* Pods_Assignment3_MON_HomeTests.framework */; };
 		C845919B1FA01F5F0005AF23 /* Weather.swift in Sources */ = {isa = PBXBuildFile; fileRef = C845919A1FA01F5F0005AF23 /* Weather.swift */; };
 		C845919D1FA020920005AF23 /* GifBackground.swift in Sources */ = {isa = PBXBuildFile; fileRef = C845919C1FA020920005AF23 /* GifBackground.swift */; };
 		C84591A11FA0269B0005AF23 /* WeatherViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C84591A01FA0269B0005AF23 /* WeatherViewController.swift */; };
@@ -57,7 +64,33 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		274122E31FAAF28E0058260B /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				274122E21FAAF28E0058260B /* fliclib.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
+		0A03AD7D7B338863C8679862 /* Pods-Assignment3-MON-HomeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Assignment3-MON-HomeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Assignment3-MON-HomeUITests/Pods-Assignment3-MON-HomeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		274122CC1FAACBA60058260B /* MON-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MON-Bridging-Header.h"; sourceTree = "<group>"; };
+		274122DB1FAAD3750058260B /* ios-boilerplate-swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ios-boilerplate-swift-Bridging-Header.h"; sourceTree = "<group>"; };
+		274122DE1FAADEDA0058260B /* fliclib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = fliclib.framework; path = "../fliclib-ios-master/fliclib.framework"; sourceTree = "<group>"; };
+		274122E41FAAF4460058260B /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
+		274122E61FAB417F0058260B /* Assignment3-MON-Home.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Assignment3-MON-Home.entitlements"; sourceTree = "<group>"; };
+		2753F65F1FAB6C25006BEF43 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		49BEFCA25424835EB3BFD46A /* Pods-Assignment3-MON-HomeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Assignment3-MON-HomeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Assignment3-MON-HomeUITests/Pods-Assignment3-MON-HomeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		75DF735ED3ACBBD0624EAA83 /* Pods-Assignment3-MON-HomeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Assignment3-MON-HomeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Assignment3-MON-HomeTests/Pods-Assignment3-MON-HomeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		B0A9394337E53B451C964C2C /* Pods-Assignment3-MON-HomeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Assignment3-MON-HomeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Assignment3-MON-HomeTests/Pods-Assignment3-MON-HomeTests.release.xcconfig"; sourceTree = "<group>"; };
+		B2D0FFC4167276726AF0C8C3 /* Pods_Assignment3_MON_HomeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Assignment3_MON_HomeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C72F50FB75EADEEDB8721622 /* Pods_Assignment3_MON_Home.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Assignment3_MON_Home.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		C845919A1FA01F5F0005AF23 /* Weather.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Weather.swift; sourceTree = "<group>"; };
 		C845919C1FA020920005AF23 /* GifBackground.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GifBackground.swift; sourceTree = "<group>"; };
 		C84591A01FA0269B0005AF23 /* WeatherViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherViewController.swift; sourceTree = "<group>"; };
@@ -95,6 +128,9 @@
 		C8D017E11F9D8F5E00FF1D7A /* Assignment3-MON-HomeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Assignment3-MON-HomeUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8D017E51F9D8F5E00FF1D7A /* Assignment3_MON_HomeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Assignment3_MON_HomeUITests.swift; sourceTree = "<group>"; };
 		C8D017E71F9D8F5E00FF1D7A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CD7D28A23654CD9B7C911225 /* Pods-Assignment3-MON-Home.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Assignment3-MON-Home.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Assignment3-MON-Home/Pods-Assignment3-MON-Home.debug.xcconfig"; sourceTree = "<group>"; };
+		D73832656981CC4E56D0F14B /* Pods-Assignment3-MON-Home.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Assignment3-MON-Home.release.xcconfig"; path = "Pods/Target Support Files/Pods-Assignment3-MON-Home/Pods-Assignment3-MON-Home.release.xcconfig"; sourceTree = "<group>"; };
+		EF55AE1DA6FDDDFA3937F8AA /* Pods_Assignment3_MON_HomeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Assignment3_MON_HomeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -102,6 +138,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				274122E11FAAF28E0058260B /* fliclib.framework in Frameworks */,
+				A7D53571AF445A87005101A6 /* Pods_Assignment3_MON_Home.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -109,6 +147,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				ABFCF3A2DBEFA9E6482EBEBF /* Pods_Assignment3_MON_HomeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -116,12 +155,36 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A31C079E796CEE6163232E86 /* Pods_Assignment3_MON_HomeUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		351FA0FFEAF70E451BD270BC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CD7D28A23654CD9B7C911225 /* Pods-Assignment3-MON-Home.debug.xcconfig */,
+				D73832656981CC4E56D0F14B /* Pods-Assignment3-MON-Home.release.xcconfig */,
+				75DF735ED3ACBBD0624EAA83 /* Pods-Assignment3-MON-HomeTests.debug.xcconfig */,
+				B0A9394337E53B451C964C2C /* Pods-Assignment3-MON-HomeTests.release.xcconfig */,
+				49BEFCA25424835EB3BFD46A /* Pods-Assignment3-MON-HomeUITests.debug.xcconfig */,
+				0A03AD7D7B338863C8679862 /* Pods-Assignment3-MON-HomeUITests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		4A7A6FA4B3B8F825F2377F8A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C72F50FB75EADEEDB8721622 /* Pods_Assignment3_MON_Home.framework */,
+				B2D0FFC4167276726AF0C8C3 /* Pods_Assignment3_MON_HomeTests.framework */,
+				EF55AE1DA6FDDDFA3937F8AA /* Pods_Assignment3_MON_HomeUITests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		C8C0FB1D1FA9748F00F66C08 /* Recovered References */ = {
 			isa = PBXGroup;
 			children = (
@@ -132,6 +195,8 @@
 		C8D017B61F9D8F5E00FF1D7A = {
 			isa = PBXGroup;
 			children = (
+				274122DE1FAADEDA0058260B /* fliclib.framework */,
+				274122CC1FAACBA60058260B /* MON-Bridging-Header.h */,
 				C867B2FA1FA6DB32006ABF97 /* Room+CoreDataClass.swift */,
 				C867B2FB1FA6DB32006ABF97 /* Room+CoreDataProperties.swift */,
 				C867B2FC1FA6DB32006ABF97 /* Device+CoreDataClass.swift */,
@@ -145,6 +210,8 @@
 				C8D017E41F9D8F5E00FF1D7A /* Assignment3-MON-HomeUITests */,
 				C8D017C01F9D8F5E00FF1D7A /* Products */,
 				C8C0FB1D1FA9748F00F66C08 /* Recovered References */,
+				351FA0FFEAF70E451BD270BC /* Pods */,
+				4A7A6FA4B3B8F825F2377F8A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -161,6 +228,9 @@
 		C8D017C11F9D8F5E00FF1D7A /* Assignment3-MON-Home */ = {
 			isa = PBXGroup;
 			children = (
+				2753F65F1FAB6C25006BEF43 /* GoogleService-Info.plist */,
+				274122E61FAB417F0058260B /* Assignment3-MON-Home.entitlements */,
+				274122DB1FAAD3750058260B /* ios-boilerplate-swift-Bridging-Header.h */,
 				C8D017C21F9D8F5E00FF1D7A /* AppDelegate.swift */,
 				C8D017C41F9D8F5E00FF1D7A /* ViewController.swift */,
 				C8D017C61F9D8F5E00FF1D7A /* Main.storyboard */,
@@ -183,6 +253,7 @@
 				C867B3061FA72CFC006ABF97 /* HeaterViewController.swift */,
 				C8C0FB1B1FA9592900F66C08 /* Animation.swift */,
 				C8C0FB1E1FA9756400F66C08 /* NodeServer.swift */,
+				274122E41FAAF4460058260B /* SettingViewController.swift */,
 			);
 			path = "Assignment3-MON-Home";
 			sourceTree = "<group>";
@@ -212,9 +283,13 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C8D017EA1F9D8F5E00FF1D7A /* Build configuration list for PBXNativeTarget "Assignment3-MON-Home" */;
 			buildPhases = (
+				C6CEF192387B2DE249574CC3 /* [CP] Check Pods Manifest.lock */,
 				C8D017BB1F9D8F5E00FF1D7A /* Sources */,
 				C8D017BC1F9D8F5E00FF1D7A /* Frameworks */,
 				C8D017BD1F9D8F5E00FF1D7A /* Resources */,
+				274122E31FAAF28E0058260B /* Embed Frameworks */,
+				8058CC2E5F8C2CC7686B7BA4 /* [CP] Embed Pods Frameworks */,
+				637A2FC98B9DFE95D7948438 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -229,9 +304,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C8D017ED1F9D8F5E00FF1D7A /* Build configuration list for PBXNativeTarget "Assignment3-MON-HomeTests" */;
 			buildPhases = (
+				A3B87A1DE107180AD7DDDBA4 /* [CP] Check Pods Manifest.lock */,
 				C8D017D21F9D8F5E00FF1D7A /* Sources */,
 				C8D017D31F9D8F5E00FF1D7A /* Frameworks */,
 				C8D017D41F9D8F5E00FF1D7A /* Resources */,
+				A51A46F4AA19C1F7AE4EED0F /* [CP] Embed Pods Frameworks */,
+				05BBC1E198549629C61497A3 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -247,9 +325,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = C8D017F01F9D8F5E00FF1D7A /* Build configuration list for PBXNativeTarget "Assignment3-MON-HomeUITests" */;
 			buildPhases = (
+				CAC580ADD499EF8A2525B919 /* [CP] Check Pods Manifest.lock */,
 				C8D017DD1F9D8F5E00FF1D7A /* Sources */,
 				C8D017DE1F9D8F5E00FF1D7A /* Frameworks */,
 				C8D017DF1F9D8F5E00FF1D7A /* Resources */,
+				DD0EBB101ABF76BC9CEB3D41 /* [CP] Embed Pods Frameworks */,
+				728C8601A91A0E1FDBF8A659 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -274,6 +355,14 @@
 					C8D017BE1F9D8F5E00FF1D7A = {
 						CreatedOnToolsVersion = 9.0.1;
 						ProvisioningStyle = Automatic;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					C8D017D51F9D8F5E00FF1D7A = {
 						CreatedOnToolsVersion = 9.0.1;
@@ -313,6 +402,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				C8D017D01F9D8F5E00FF1D7A /* LaunchScreen.storyboard in Resources */,
+				2753F6601FAB6C26006BEF43 /* GoogleService-Info.plist in Resources */,
 				C84591BD1FA17E970005AF23 /* sunnyGif.gif in Resources */,
 				C84591AB1FA0496D0005AF23 /* cloudyGif.gif in Resources */,
 				C84591A51FA02B340005AF23 /* rainGif.gif in Resources */,
@@ -338,6 +428,160 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		05BBC1E198549629C61497A3 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Assignment3-MON-HomeTests/Pods-Assignment3-MON-HomeTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		637A2FC98B9DFE95D7948438 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Assignment3-MON-Home/Pods-Assignment3-MON-Home-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		728C8601A91A0E1FDBF8A659 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Assignment3-MON-HomeUITests/Pods-Assignment3-MON-HomeUITests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		8058CC2E5F8C2CC7686B7BA4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-Assignment3-MON-Home/Pods-Assignment3-MON-Home-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Assignment3-MON-Home/Pods-Assignment3-MON-Home-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A3B87A1DE107180AD7DDDBA4 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Assignment3-MON-HomeTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A51A46F4AA19C1F7AE4EED0F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Assignment3-MON-HomeTests/Pods-Assignment3-MON-HomeTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C6CEF192387B2DE249574CC3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Assignment3-MON-Home-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CAC580ADD499EF8A2525B919 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Assignment3-MON-HomeUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		DD0EBB101ABF76BC9CEB3D41 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-Assignment3-MON-HomeUITests/Pods-Assignment3-MON-HomeUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		C8D017BB1F9D8F5E00FF1D7A /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -361,6 +605,7 @@
 				C867B2F91FA6C937006ABF97 /* NewDeviceTableViewCell.swift in Sources */,
 				C867B3001FA6DB32006ABF97 /* Device+CoreDataClass.swift in Sources */,
 				C867B3031FA72CE7006ABF97 /* SocketViewController.swift in Sources */,
+				274122E51FAAF4460058260B /* SettingViewController.swift in Sources */,
 				C867B3051FA72CF3006ABF97 /* LampViewController.swift in Sources */,
 				C84591A11FA0269B0005AF23 /* WeatherViewController.swift in Sources */,
 				C845919D1FA020920005AF23 /* GifBackground.swift in Sources */,
@@ -528,12 +773,21 @@
 		};
 		C8D017EB1F9D8F5E00FF1D7A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CD7D28A23654CD9B7C911225 /* Pods-Assignment3-MON-Home.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Assignment3-MON-Home/Assignment3-MON-Home.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9Y6ZYU7BN2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Assignment3-MON-Home/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Minh-Weicheng.Assignment3-MON-Home";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Minh.Weicheng.Assignment3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -542,12 +796,21 @@
 		};
 		C8D017EC1F9D8F5E00FF1D7A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D73832656981CC4E56D0F14B /* Pods-Assignment3-MON-Home.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Assignment3-MON-Home/Assignment3-MON-Home.entitlements";
 				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 9Y6ZYU7BN2;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = "Assignment3-MON-Home/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 11;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = "com.Minh-Weicheng.Assignment3-MON-Home";
+				PRODUCT_BUNDLE_IDENTIFIER = com.Minh.Weicheng.Assignment3;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -556,6 +819,7 @@
 		};
 		C8D017EE1F9D8F5E00FF1D7A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 75DF735ED3ACBBD0624EAA83 /* Pods-Assignment3-MON-HomeTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -572,6 +836,7 @@
 		};
 		C8D017EF1F9D8F5E00FF1D7A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B0A9394337E53B451C964C2C /* Pods-Assignment3-MON-HomeTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -588,6 +853,7 @@
 		};
 		C8D017F11F9D8F5E00FF1D7A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 49BEFCA25424835EB3BFD46A /* Pods-Assignment3-MON-HomeUITests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;
@@ -603,6 +869,7 @@
 		};
 		C8D017F21F9D8F5E00FF1D7A /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0A03AD7D7B338863C8679862 /* Pods-Assignment3-MON-HomeUITests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CODE_SIGN_STYLE = Automatic;

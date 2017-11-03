@@ -4,6 +4,7 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13174"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -605,6 +606,7 @@
                     <connections>
                         <segue destination="TqG-LS-amn" kind="relationship" relationship="viewControllers" id="uor-B5-fOI"/>
                         <segue destination="uEp-Ue-yvM" kind="relationship" relationship="viewControllers" id="VYx-YF-lib"/>
+                        <segue destination="xG5-tb-uyQ" kind="relationship" relationship="viewControllers" id="RBT-ML-b3b"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ms9-0g-Vz9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -888,6 +890,42 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="cFj-do-GtQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-526" y="964"/>
+        </scene>
+        <!--Setting-->
+        <scene sceneID="WxT-Wc-fYE">
+            <objects>
+                <viewController id="xG5-tb-uyQ" customClass="SettingViewController" customModule="Assignment3_MON_Home" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="BGZ-Fu-bgJ">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XXq-bn-V0C">
+                                <rect key="frame" x="20" y="164" width="126" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Connect to flick"/>
+                                <connections>
+                                    <action selector="connectFlicButtonClick:" destination="xG5-tb-uyQ" eventType="touchUpInside" id="fin-Nb-zQd"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kDZ-Ub-qpd">
+                                <rect key="frame" x="154" y="169" width="240" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="2S9-rr-peP"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Setting" id="6aD-YX-rJi"/>
+                    <connections>
+                        <outlet property="labelStatus" destination="kDZ-Ub-qpd" id="q9K-EJ-C5h"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aiE-HE-K9b" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-526.08695652173913" y="1775.5434782608697"/>
         </scene>
         <!--Socket View Controller-->
         <scene sceneID="juq-w5-bFg">
