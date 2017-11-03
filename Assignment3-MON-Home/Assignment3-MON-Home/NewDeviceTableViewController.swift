@@ -10,7 +10,7 @@ import UIKit
 import Foundation
 import CoreData
 
-class NewDeviceTableViewController: UITableViewController {
+class NewDeviceTableViewController: UITableViewController, UITextFieldDelegate {
     
     @IBOutlet weak var nameTextField: UITextField!
     @IBOutlet var addDeviceView: UIView!
@@ -23,18 +23,25 @@ class NewDeviceTableViewController: UITableViewController {
     var newDevices = [NodeServer.DeviceInfo]()
     var deviceList = [NodeServer.DeviceInfo]()
     var deviceInCoreData = [Device]()
-    
+    var isAdding = false
     var managedObjectContext:NSManagedObjectContext!
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getAllDevice()
-        
         managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
-        
         loadDeviceFromCoreData()
-        
         self.tableView.reloadData()
+        
+        /*
+         Get the height of the keyboard
+         From: https://stackoverflow.com/questions/31774006/how-to-get-height-of-keyboard-swift
+         Author: Nrv
+         */
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(NewDeviceTableViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(NewDeviceTableViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     func loadDeviceFromCoreData(){
@@ -60,11 +67,13 @@ class NewDeviceTableViewController: UITableViewController {
     @IBAction func cancelAddDevice(_ sender: Any) {
         Animation.animateOut(subView: addDeviceView)
         cleanTextField()
+        isAdding = false
     }
     
     @IBAction func cancelAddSocket(_ sender: Any) {
         Animation.animateOut(subView: aAddDeviceView)
         cleanTextField()
+        isAdding = false
     }
     
     func cleanTextField() {
@@ -107,6 +116,7 @@ class NewDeviceTableViewController: UITableViewController {
             Animation.animateOut(subView: addDeviceView)
             self.navigationController!.popViewController(animated: true)
             cleanTextField()
+            isAdding = false
         } else {
             generateAlert(title: "You cannot use the same device name twice.")
         }
@@ -159,6 +169,7 @@ class NewDeviceTableViewController: UITableViewController {
             Animation.animateOut(subView: aAddDeviceView)
             self.navigationController!.popViewController(animated: true)
             cleanTextField()
+            isAdding = false
         } else {
             generateAlert(title: "You cannot use the same device name twice.")
         }
@@ -193,6 +204,7 @@ class NewDeviceTableViewController: UITableViewController {
         } else {
             Animation.animateIn(mainView: self.view, subView: aAddDeviceView)
         }
+        isAdding = true
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -221,6 +233,11 @@ class NewDeviceTableViewController: UITableViewController {
             cell.newDevicesImage.image = #imageLiteral(resourceName: "noImage")
             break
         }
+        if isAdding {
+            cell.isUserInteractionEnabled = false
+        } else {
+            cell.isUserInteractionEnabled = true
+        }
         return cell
     }
     // MARK: - Table view data source
@@ -233,6 +250,30 @@ class NewDeviceTableViewController: UITableViewController {
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return newDevices.count
+    }
+    
+    @objc func keyboardWillShow(notification:NSNotification) {
+        let userInfo:NSDictionary = notification.userInfo! as NSDictionary
+        let keyboardFrame:NSValue = userInfo.value(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue
+        let keyboardRectangle = keyboardFrame.cgRectValue
+        let keyboardHeight = keyboardRectangle.height
+        addDeviceView.center.y = keyboardHeight
+        aAddDeviceView.center.y = keyboardHeight
+    }
+    
+    @objc func keyboardWillHide(notification:NSNotification) {
+        addDeviceView.center = self.view.center
+        aAddDeviceView.center = self.view.center
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        nameTextField.resignFirstResponder()
+        aNameTestField.resignFirstResponder()
+        return true
     }
 
     func getAllDevice() {

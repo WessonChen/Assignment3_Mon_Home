@@ -49,6 +49,7 @@ class SocketViewController: UIViewController {
         })
         
         generateAlert(message: "Setting has been saved successfully")
+        navigationController?.popViewController(animated: true)
     }
     
     override func viewDidLoad() {

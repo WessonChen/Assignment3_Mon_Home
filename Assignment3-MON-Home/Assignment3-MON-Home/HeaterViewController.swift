@@ -8,7 +8,7 @@
 
 import UIKit
 
-class HeaterViewController: UIViewController {
+class HeaterViewController: UIViewController, UITextFieldDelegate {
 
     var thisDevice: Device?
     
@@ -20,6 +20,7 @@ class HeaterViewController: UIViewController {
     @IBOutlet weak var powerSwitch: UISwitch!
     
     let dateFormatter:DateFormatter = DateFormatter()
+    var defaultY: CGFloat = 0.0
     
     @IBAction func saveButtonClicked(_ sender: Any) {
         let setting = NodeServer.DeviceSetting(id: (thisDevice?.id)!, startTime: dateFormatter.string(from: fromDatePicker.date), stopTime: dateFormatter.string(from: toDatePicker.date), minTemp: (fromTemperature.text)!, maxTemp: (toTemperature.text)!, brightness: 0, isPowerOn: powerSwitch.isOn, isOnPeriod: false, isSettingEnabled: enableSettingSwitch.isOn, type: (thisDevice?.type)!, isManuallyControlled: false)
@@ -33,6 +34,7 @@ class HeaterViewController: UIViewController {
         })
         
         generateAlert(message: "Setting has been saved successfully")
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func discardButtonClicked(_ sender: Any) {
@@ -57,6 +59,18 @@ class HeaterViewController: UIViewController {
         // Do any additional setup after loading the view.
         dateFormatter.dateFormat =  "HH:mm"
         prepareUI()
+        
+        /*
+         Get the height of the keyboard
+         From: https://stackoverflow.com/questions/31774006/how-to-get-height-of-keyboard-swift
+         Author: Nrv
+         */
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(RoomTableViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(RoomTableViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
+        
+        defaultY = self.view.center.y
     }
 
     override func didReceiveMemoryWarning() {
@@ -88,6 +102,34 @@ class HeaterViewController: UIViewController {
             }
             
         })
+    }
+    
+    
+    
+    @objc func keyboardWillShow(notification:NSNotification) {
+        let userInfo:NSDictionary = notification.userInfo! as NSDictionary
+        let keyboardFrame:NSValue = userInfo.value(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue
+        let keyboardRectangle = keyboardFrame.cgRectValue
+        let keyboardHeight = keyboardRectangle.height
+        self.view.center.y = keyboardHeight
+    }
+    
+    @objc func keyboardWillHide(notification:NSNotification) {
+        self.view.center.y = defaultY
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        if fromTemperature.isEditing {
+            fromTemperature.resignFirstResponder()
+        }
+        if toTemperature.isEditing {
+            toTemperature.resignFirstResponder()
+        }
+        return true
     }
     
     func generateAlert(message: String){

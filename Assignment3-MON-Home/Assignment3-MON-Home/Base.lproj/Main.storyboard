@@ -30,7 +30,7 @@
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="i15-S9-lmK">
                                             <rect key="frame" x="8" y="15" width="64" height="64"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="64" id="ume-Cq-gDh"/>
+                                                <constraint firstAttribute="width" constant="64" id="qf7-kQ-lHu"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Room" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="o3m-1E-sle">
@@ -41,13 +41,13 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="i15-S9-lmK" firstAttribute="centerY" secondItem="8G5-hm-XFZ" secondAttribute="centerY" id="AXR-XL-b2z"/>
-                                        <constraint firstItem="i15-S9-lmK" firstAttribute="centerY" secondItem="o3m-1E-sle" secondAttribute="centerY" id="Jb8-0G-Lgz"/>
-                                        <constraint firstItem="i15-S9-lmK" firstAttribute="leading" secondItem="8G5-hm-XFZ" secondAttribute="leadingMargin" id="QeG-26-wDQ"/>
-                                        <constraint firstItem="o3m-1E-sle" firstAttribute="top" secondItem="8G5-hm-XFZ" secondAttribute="topMargin" constant="15" id="Rsy-re-M0B"/>
-                                        <constraint firstItem="o3m-1E-sle" firstAttribute="leading" secondItem="i15-S9-lmK" secondAttribute="trailing" constant="8" symbolic="YES" id="VFC-yz-8sQ"/>
-                                        <constraint firstItem="i15-S9-lmK" firstAttribute="top" secondItem="8G5-hm-XFZ" secondAttribute="topMargin" constant="7" id="kBA-D6-Stq"/>
-                                        <constraint firstAttribute="trailingMargin" secondItem="o3m-1E-sle" secondAttribute="trailing" constant="8" id="oxr-d3-4vD"/>
+                                        <constraint firstItem="i15-S9-lmK" firstAttribute="centerY" secondItem="o3m-1E-sle" secondAttribute="centerY" id="0iy-ul-OTs"/>
+                                        <constraint firstItem="o3m-1E-sle" firstAttribute="top" secondItem="8G5-hm-XFZ" secondAttribute="topMargin" constant="15" id="4IP-DP-yQW"/>
+                                        <constraint firstAttribute="trailingMargin" secondItem="o3m-1E-sle" secondAttribute="trailing" constant="8" id="TP1-uc-QEx"/>
+                                        <constraint firstItem="i15-S9-lmK" firstAttribute="centerY" secondItem="8G5-hm-XFZ" secondAttribute="centerY" id="abY-xW-xWg"/>
+                                        <constraint firstItem="i15-S9-lmK" firstAttribute="leading" secondItem="8G5-hm-XFZ" secondAttribute="leadingMargin" id="gah-bp-NIn"/>
+                                        <constraint firstItem="o3m-1E-sle" firstAttribute="leading" secondItem="i15-S9-lmK" secondAttribute="trailing" constant="8" symbolic="YES" id="vNM-ch-aGQ"/>
+                                        <constraint firstItem="i15-S9-lmK" firstAttribute="top" secondItem="8G5-hm-XFZ" secondAttribute="topMargin" constant="7" id="zkL-gi-IJL"/>
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
@@ -872,6 +872,35 @@
             </objects>
             <point key="canvasLocation" x="2521.739130434783" y="-64.402173913043484"/>
         </scene>
+        <!--Voice Control-->
+        <scene sceneID="Y10-Y0-TaH">
+            <objects>
+                <viewController id="aZV-1H-rbO" customClass="VoiceViewController" customModule="Assignment3_MON_Home" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="f5O-rx-iFO">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RZ2-NT-nga">
+                                <rect key="frame" x="111" y="272" width="192" height="192"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="microphoneOff"/>
+                                <connections>
+                                    <action selector="voiceButtonClicked:" destination="aZV-1H-rbO" eventType="touchUpInside" id="OL8-eA-Yw1"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <viewLayoutGuide key="safeArea" id="uwG-hl-2NV"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="Voice Control" id="cEd-uK-eJx"/>
+                    <connections>
+                        <outlet property="voiceButton" destination="RZ2-NT-nga" id="0cz-31-Npi"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="a05-Ny-ozK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1500.0000000000002" y="1267.663043478261"/>
+        </scene>
         <!--Weather-->
         <scene sceneID="oK6-xD-633">
             <objects>
@@ -1027,6 +1056,7 @@
         <image name="add" width="32" height="32"/>
         <image name="cancel" width="32" height="32"/>
         <image name="done" width="32" height="32"/>
+        <image name="microphoneOff" width="100" height="100"/>
         <image name="more" width="32" height="32"/>
         <image name="setting" width="32" height="32"/>
     </resources>

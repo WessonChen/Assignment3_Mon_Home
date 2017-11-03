@@ -37,6 +37,7 @@
 		C867B3071FA72CFC006ABF97 /* HeaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C867B3061FA72CFC006ABF97 /* HeaterViewController.swift */; };
 		C8C0FB1C1FA9592900F66C08 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C0FB1B1FA9592900F66C08 /* Animation.swift */; };
 		C8C0FB1F1FA9756400F66C08 /* NodeServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C0FB1E1FA9756400F66C08 /* NodeServer.swift */; };
+		C8C74CC21FAAC45500EF865A /* VoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C74CC11FAAC45500EF865A /* VoiceViewController.swift */; };
 		C8D017C31F9D8F5E00FF1D7A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D017C21F9D8F5E00FF1D7A /* AppDelegate.swift */; };
 		C8D017C51F9D8F5E00FF1D7A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8D017C41F9D8F5E00FF1D7A /* ViewController.swift */; };
 		C8D017C81F9D8F5E00FF1D7A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C8D017C61F9D8F5E00FF1D7A /* Main.storyboard */; };
@@ -114,6 +115,7 @@
 		C867B3061FA72CFC006ABF97 /* HeaterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaterViewController.swift; sourceTree = "<group>"; };
 		C8C0FB1B1FA9592900F66C08 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		C8C0FB1E1FA9756400F66C08 /* NodeServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeServer.swift; sourceTree = "<group>"; };
+		C8C74CC11FAAC45500EF865A /* VoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceViewController.swift; sourceTree = "<group>"; };
 		C8D017BF1F9D8F5E00FF1D7A /* Assignment3-MON-Home.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Assignment3-MON-Home.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		C8D017C21F9D8F5E00FF1D7A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		C8D017C41F9D8F5E00FF1D7A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -251,6 +253,7 @@
 				C867B3021FA72CE7006ABF97 /* SocketViewController.swift */,
 				C867B3041FA72CF3006ABF97 /* LampViewController.swift */,
 				C867B3061FA72CFC006ABF97 /* HeaterViewController.swift */,
+				C8C74CC11FAAC45500EF865A /* VoiceViewController.swift */,
 				C8C0FB1B1FA9592900F66C08 /* Animation.swift */,
 				C8C0FB1E1FA9756400F66C08 /* NodeServer.swift */,
 				274122E41FAAF4460058260B /* SettingViewController.swift */,
@@ -609,6 +612,7 @@
 				C867B3051FA72CF3006ABF97 /* LampViewController.swift in Sources */,
 				C84591A11FA0269B0005AF23 /* WeatherViewController.swift in Sources */,
 				C845919D1FA020920005AF23 /* GifBackground.swift in Sources */,
+				C8C74CC21FAAC45500EF865A /* VoiceViewController.swift in Sources */,
 				C8D017C31F9D8F5E00FF1D7A /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

@@ -44,6 +44,7 @@ class LampViewController: UIViewController {
                 return
             }
         })
+        navigationController?.popViewController(animated: true)
     }
     
     @IBAction func brightnessChanged(_ sender: Any) {

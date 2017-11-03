@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class WeatherViewController: UIViewController {
+class WeatherViewController: UIViewController, UITextFieldDelegate {
 
     @IBOutlet weak var GifBackground: UIImageView!
     @IBOutlet weak var CItyLabel: UILabel!
@@ -25,7 +25,7 @@ class WeatherViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        self.setLocationText.delegate = self
         self.lo = setLocationText.text!
         if self.lo == "" {
             self.lo = "Melbourne"
@@ -37,6 +37,16 @@ class WeatherViewController: UIViewController {
         effect = VisualEffectView.effect
         VisualEffectView.effect = nil
         SettingView.layer.cornerRadius = 5
+        
+        /*
+         Get the height of the keyboard
+         From: https://stackoverflow.com/questions/31774006/how-to-get-height-of-keyboard-swift
+         Author: Nrv
+         */
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(WeatherViewController.keyboardWillShow(notification:)), name: NSNotification.Name.UIKeyboardWillShow, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(WeatherViewController.keyboardWillHide(notification:)), name: NSNotification.Name.UIKeyboardWillHide, object: nil)
     }
     
     func animateIn() {
@@ -142,6 +152,27 @@ class WeatherViewController: UIViewController {
                 }
             }
         }
+    }
+    
+    @objc func keyboardWillShow(notification:NSNotification) {
+        let userInfo:NSDictionary = notification.userInfo! as NSDictionary
+        let keyboardFrame:NSValue = userInfo.value(forKey: UIKeyboardFrameEndUserInfoKey) as! NSValue
+        let keyboardRectangle = keyboardFrame.cgRectValue
+        let keyboardHeight = keyboardRectangle.height
+        SettingView.center.y = keyboardHeight
+    }
+    
+    @objc func keyboardWillHide(notification:NSNotification) {
+        SettingView.center = self.view.center
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.view.endEditing(true)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        setLocationText.resignFirstResponder()
+        return true
     }
     
     func changeLayout(temperature: Double, condition: String, image: UIImage ,gifName: String){
