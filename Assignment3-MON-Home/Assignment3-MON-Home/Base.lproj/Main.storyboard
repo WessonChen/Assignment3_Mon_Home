@@ -446,7 +446,7 @@
                                 <blurEffect style="light"/>
                             </visualEffectView>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstItem="qbe-F6-Z9i" firstAttribute="leading" secondItem="Ok8-Iy-RTh" secondAttribute="leading" id="8MF-hp-ibY"/>
                             <constraint firstItem="jlK-wP-ju5" firstAttribute="top" secondItem="tIe-r4-Tdq" secondAttribute="bottom" constant="8" symbolic="YES" id="CNi-J5-Gec"/>
@@ -887,18 +887,34 @@
                                     <action selector="voiceButtonClicked:" destination="aZV-1H-rbO" eventType="touchUpInside" id="OL8-eA-Yw1"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wfn-LD-faT">
+                                <rect key="frame" x="20" y="75" width="374" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u1b-ZC-yTI">
+                                <rect key="frame" x="20" y="143" width="374" height="32"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                         <viewLayoutGuide key="safeArea" id="uwG-hl-2NV"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="Voice Control" id="cEd-uK-eJx"/>
                     <connections>
+                        <outlet property="feedbackLabel" destination="u1b-ZC-yTI" id="7oz-Dq-NIm"/>
+                        <outlet property="userLabel" destination="wfn-LD-faT" id="VJ1-hd-zON"/>
                         <outlet property="voiceButton" destination="RZ2-NT-nga" id="0cz-31-Npi"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a05-Ny-ozK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1500.0000000000002" y="1267.663043478261"/>
+            <point key="canvasLocation" x="-1500" y="1296"/>
         </scene>
         <!--Weather-->
         <scene sceneID="oK6-xD-633">

@@ -24,6 +24,8 @@ class VoiceViewController: UIViewController, SFSpeechRecognizerDelegate {
     var devices = [Device]()
     
     @IBOutlet weak var voiceButton: UIButton!
+    @IBOutlet weak var userLabel: UILabel!
+    @IBOutlet weak var feedbackLabel: UILabel!
     
     @IBAction func voiceButtonClicked(_ sender: Any) {
         if voiceButton.currentImage == #imageLiteral(resourceName: "microphoneOff") {
@@ -88,6 +90,8 @@ class VoiceViewController: UIViewController, SFSpeechRecognizerDelegate {
     }
     
     func startRecording() throws {
+        self.userLabel.text = ""
+        self.feedbackLabel.text = ""
         let deviceRequest:NSFetchRequest<Device> = Device.fetchRequest()
         
         do {
@@ -119,6 +123,7 @@ class VoiceViewController: UIViewController, SFSpeechRecognizerDelegate {
                     isFinal = result.isFinal
                     
                     self.speechResult = result
+                    self.userLabel.text = self.speechResult.bestTranscription.formattedString
                 }
                 
                 if error != nil || isFinal {
@@ -165,28 +170,33 @@ class VoiceViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     var isContainsOn = false
     var isContainsOff = false
+    var isOn = false
     func checkForActionPhrases() {
         isContainsOn = false
         isContainsOff = false
+        isOn = false
         let newString = speechResult.bestTranscription.formattedString.lowercased()
         if newString.contains("open") || newString.contains("on") {
             isContainsOn = true
         } else if newString.contains("close") || newString.contains("off") {
             isContainsOff = true
         }
-        
+
         if isContainsOn {
             print("on")
             if findDeviceBySpeech() != "" {
                 NodeServer.sharedInstance.setPowerForDeviceById(id: findDeviceBySpeech(), mode: "on")
+                feedbackLabel.text = "Done..."
             }
         } else if isContainsOff {
             print("off")
             if findDeviceBySpeech() != "" {
                 NodeServer.sharedInstance.setPowerForDeviceById(id: findDeviceBySpeech(), mode: "off")
+                feedbackLabel.text = "Done..."
             }
         } else {
             generateAlert(title: "Commands are not detected", message: "It should contain On, Open, Off or Close as key words")
+            feedbackLabel.text = "Emmm, what are you doing?"
         }
         
         print(speechResult.bestTranscription.formattedString)
@@ -234,6 +244,7 @@ class VoiceViewController: UIViewController, SFSpeechRecognizerDelegate {
         
         if validDevices.count == 0 {
             generateAlert(title: "Try again?", message: "There is no such device")
+            self.feedbackLabel.text = "Emmm, what are you doing?"
         } else if validDevices.count == 1 {
             id = validDevices[0].id!
         } else {
@@ -245,14 +256,17 @@ class VoiceViewController: UIViewController, SFSpeechRecognizerDelegate {
                     if self.isContainsOn {
                         if id != "" {
                             NodeServer.sharedInstance.setPowerForDeviceById(id: id, mode: "on")
+                            self.feedbackLabel.text = "Done..."
                         }
                     } else if self.isContainsOff {
                         print("off")
                         if id != "" {
                             NodeServer.sharedInstance.setPowerForDeviceById(id: id, mode: "off")
+                            self.feedbackLabel.text = "Done..."
                         }
                     } else {
                         self.generateAlert(title: "Commands are not detected", message: "It should contain On, Open, Off or Close as key words")
+                        self.feedbackLabel.text = "Emmm, what are you doing?"
                     }
                 })
             }
