@@ -52,7 +52,8 @@ class RoomTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
     
     @IBAction func addRoom(_ sender: Any) {
         Animation.animateIn(mainView: self.view, subView: addRoomView)
-        isEditing = true
+        isAdding = true
+        self.tableView.reloadData()
     }
     
     @IBAction func finishAddRoom(_ sender: Any) {
@@ -61,7 +62,8 @@ class RoomTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
     
     @IBAction func cancelAddRoom(_ sender: Any) {
         Animation.animateOut(subView: addRoomView)
-        isEditing = false
+        isAdding = false
+        self.tableView.reloadData()
     }
     
     func createRoom() {
@@ -82,7 +84,8 @@ class RoomTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
                 try self.managedObjectContext.save()
                 self.loadData()
                 Animation.animateOut(subView: addRoomView)
-                isEditing = false
+                isAdding = false
+                self.tableView.reloadData()
             }catch {
                 print("Could not save data \(error.localizedDescription)")
             }
