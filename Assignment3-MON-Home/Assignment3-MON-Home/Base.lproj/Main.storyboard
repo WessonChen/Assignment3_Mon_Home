@@ -606,7 +606,8 @@
                     <connections>
                         <segue destination="TqG-LS-amn" kind="relationship" relationship="viewControllers" id="uor-B5-fOI"/>
                         <segue destination="uEp-Ue-yvM" kind="relationship" relationship="viewControllers" id="VYx-YF-lib"/>
-                        <segue destination="xG5-tb-uyQ" kind="relationship" relationship="viewControllers" id="RBT-ML-b3b"/>
+                        <segue destination="aZV-1H-rbO" kind="relationship" relationship="viewControllers" id="rmx-2q-VuP"/>
+                        <segue destination="xG5-tb-uyQ" kind="relationship" relationship="viewControllers" id="oqH-Fx-10e"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ms9-0g-Vz9" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -899,7 +900,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="a05-Ny-ozK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1500.0000000000002" y="1267.663043478261"/>
+            <point key="canvasLocation" x="-1903" y="1776"/>
         </scene>
         <!--Weather-->
         <scene sceneID="oK6-xD-633">
@@ -954,7 +955,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aiE-HE-K9b" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-526.08695652173913" y="1775.5434782608697"/>
+            <point key="canvasLocation" x="-1043" y="1776"/>
         </scene>
         <!--Socket View Controller-->
         <scene sceneID="juq-w5-bFg">
