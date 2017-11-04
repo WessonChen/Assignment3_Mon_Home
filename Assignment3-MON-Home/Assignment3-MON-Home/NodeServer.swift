@@ -8,10 +8,11 @@
 
 import Foundation
 
-// THIS CLASS HAS BEEN MODIFIED FROM THE ORIGINAL
-// Author: Christina Moulton
-// Link: https://grokswift.com/json-swift-4/
-// Date 1st November 2017
+////////////////////////////////////////////////////
+// THIS CLASS HAS BEEN MODIFIED FROM THE ORIGINAL //
+//          Author: Christina Moulton             //
+//     Link: https://grokswift.com/json-swift-4   //
+////////////////////////////////////////////////////
 class NodeServer{
     
     private init(){
@@ -29,6 +30,8 @@ class NodeServer{
     let setBrightnessLink = "setbrightness"
     let setDeviceTypeLink = "settype"
     let switchPowerLink = "setpower"
+    let singleClickLink = "singleclick"
+    let doubleClickLink = "doubleclick"
     
     enum BackendError: Error {
         case urlError(reason: String)
@@ -259,6 +262,38 @@ class NodeServer{
     func setTypeForDeviceById(id: String, type: String) {
         // Set up URLRequest with URL
         let endpoint = "\(host):\(port)/\(setDeviceTypeLink)/\(id)/\(type)"
+        print(endpoint)
+        guard let url = URL(string: endpoint) else {
+            print("Error: cannot create URL")
+            return
+        }
+        let urlRequest = URLRequest(url: url)
+        
+        // Make request
+        let session = URLSession.shared
+        let task = session.dataTask(with: urlRequest)
+        task.resume()
+    }
+    
+    func singleClicked() {
+        // Set up URLRequest with URL
+        let endpoint = "\(host):\(port)/\(singleClickLink)"
+        print(endpoint)
+        guard let url = URL(string: endpoint) else {
+            print("Error: cannot create URL")
+            return
+        }
+        let urlRequest = URLRequest(url: url)
+        
+        // Make request
+        let session = URLSession.shared
+        let task = session.dataTask(with: urlRequest)
+        task.resume()
+    }
+    
+    func doubleClicked() {
+        // Set up URLRequest with URL
+        let endpoint = "\(host):\(port)/\(doubleClickLink)"
         print(endpoint)
         guard let url = URL(string: endpoint) else {
             print("Error: cannot create URL")

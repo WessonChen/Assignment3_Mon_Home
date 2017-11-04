@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import fliclib
 
 class LampViewController: UIViewController {
-
+    
     var thisDevice: Device?
     let dateFormatter:DateFormatter = DateFormatter()
     
@@ -60,6 +61,9 @@ class LampViewController: UIViewController {
         // Do any additional setup after loading the view.
         dateFormatter.dateFormat =  "HH:mm"
         prepareUI()
+        
+        //
+//
     }
 
     override func didReceiveMemoryWarning() {
