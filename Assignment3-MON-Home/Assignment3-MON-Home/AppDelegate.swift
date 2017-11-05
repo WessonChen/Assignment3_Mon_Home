@@ -58,7 +58,15 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         let token = Messaging.messaging().fcmToken
         print("FCM token: \(token ?? "")")
-    self.ref.child("users").child(UIDevice.current.identifierForVendor!.uuidString).setValue(["token" : fcmToken])
+   
+        //How to get unique device ID in Swift
+        //Author: Atomix
+        //https://stackoverflow.com/questions/25925481/how-to-get-a-unique-device-id-in-swift
+        //
+        //How to read and write data on iOS
+        //author: Firebase
+        //https://firebase.google.com/docs/database/ios/read-and-write
+        self.ref.child("users").child(UIDevice.current.identifierForVendor!.uuidString).setValue(["token" : fcmToken])
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
