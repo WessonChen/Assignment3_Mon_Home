@@ -21,6 +21,26 @@ import UIKit
 import fliclib
 
 class SettingViewController: UIViewController,SCLFlicManagerDelegate, SCLFlicButtonDelegate {
+    
+    @IBOutlet weak var gasSwitch: UISwitch!
+    @IBOutlet weak var motionSwitch: UISwitch!
+    
+    @IBAction func gasSwitchChanged(_ sender: Any) {
+        if(gasSwitch.isOn){
+            NodeServer.sharedInstance.switchSensor(sensorName: "Gas", mode: "on")
+        }else{
+            NodeServer.sharedInstance.switchSensor(sensorName: "Gas", mode: "off")
+        }
+    }
+    
+    @IBAction func motionSwitchChanged(_ sender: Any) {
+        if(motionSwitch.isOn){
+            NodeServer.sharedInstance.switchSensor(sensorName: "Motion", mode: "on")
+        }else{
+            NodeServer.sharedInstance.switchSensor(sensorName: "Motion", mode: "off")
+        }
+    }
+    
     func flicManager(_ manager: SCLFlicManager, didGrab button: SCLFlicButton?, withError error: Error?) {
         button?.triggerBehavior = SCLFlicButtonTriggerBehavior.clickAndDoubleClickAndHold
         
@@ -43,6 +63,8 @@ class SettingViewController: UIViewController,SCLFlicManagerDelegate, SCLFlicBut
 
         // Do any additional setup after loading the view.
         SCLFlicManager.configure(with: self, defaultButtonDelegate: self, appID: SCL_APP_ID, appSecret: SCL_APP_SECRET, backgroundExecution: true)
+        
+        prepareUI()
     }
     
     func flicManager(_ manager: SCLFlicManager, didChange state: SCLFlicManagerBluetoothState) {
@@ -90,7 +112,39 @@ class SettingViewController: UIViewController,SCLFlicManagerDelegate, SCLFlicBut
         // Dispose of any resources that can be recreated.
     }
     
-
+    func prepareUI(){
+        NodeServer.sharedInstance.getCurrentStateSensors(completionHandler: { sensors, error in
+            if let error = error {
+                // got an error in getting the data, need to handle it
+                print(error)
+                return
+            }
+            guard let sensors = sensors else {
+                print("error getting first todo: result is nil")
+                return
+            }
+            // success
+            if(sensors.gas){
+                
+                self.setState(sensor: self.gasSwitch, mode: true)
+            }else{
+                self.setState(sensor: self.gasSwitch, mode: false)
+            }
+            
+            if(sensors.motion){
+                self.setState(sensor: self.motionSwitch, mode: true)
+            }else{
+                self.setState(sensor: self.motionSwitch, mode: false)
+            }
+        });
+    }
+    
+    func setState(sensor: UISwitch, mode: Bool){
+        DispatchQueue.main.async {
+            sensor.isOn = mode
+        }
+    }
+    
     /*
     // MARK: - Navigation
 

@@ -7,10 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		274122E11FAAF28E0058260B /* fliclib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 274122DE1FAADEDA0058260B /* fliclib.framework */; };
-		274122E21FAAF28E0058260B /* fliclib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 274122DE1FAADEDA0058260B /* fliclib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		274122E51FAAF4460058260B /* SettingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 274122E41FAAF4460058260B /* SettingViewController.swift */; };
 		2753F6601FAB6C26006BEF43 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2753F65F1FAB6C25006BEF43 /* GoogleService-Info.plist */; };
+		2753F6651FAD713B006BEF43 /* fliclib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2753F6641FAD713B006BEF43 /* fliclib.framework */; };
+		2753F6661FAD713B006BEF43 /* fliclib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 2753F6641FAD713B006BEF43 /* fliclib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		A31C079E796CEE6163232E86 /* Pods_Assignment3_MON_HomeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = EF55AE1DA6FDDDFA3937F8AA /* Pods_Assignment3_MON_HomeUITests.framework */; };
 		A7D53571AF445A87005101A6 /* Pods_Assignment3_MON_Home.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C72F50FB75EADEEDB8721622 /* Pods_Assignment3_MON_Home.framework */; settings = {ATTRIBUTES = (Required, ); }; };
 		ABFCF3A2DBEFA9E6482EBEBF /* Pods_Assignment3_MON_HomeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B2D0FFC4167276726AF0C8C3 /* Pods_Assignment3_MON_HomeTests.framework */; };
@@ -66,13 +66,13 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXCopyFilesBuildPhase section */
-		274122E31FAAF28E0058260B /* Embed Frameworks */ = {
+		2753F6671FAD713B006BEF43 /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
 			dstPath = "";
 			dstSubfolderSpec = 10;
 			files = (
-				274122E21FAAF28E0058260B /* fliclib.framework in Embed Frameworks */,
+				2753F6661FAD713B006BEF43 /* fliclib.framework in Embed Frameworks */,
 			);
 			name = "Embed Frameworks";
 			runOnlyForDeploymentPostprocessing = 0;
@@ -83,10 +83,10 @@
 		0A03AD7D7B338863C8679862 /* Pods-Assignment3-MON-HomeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Assignment3-MON-HomeUITests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Assignment3-MON-HomeUITests/Pods-Assignment3-MON-HomeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		274122CC1FAACBA60058260B /* MON-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "MON-Bridging-Header.h"; sourceTree = "<group>"; };
 		274122DB1FAAD3750058260B /* ios-boilerplate-swift-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "ios-boilerplate-swift-Bridging-Header.h"; sourceTree = "<group>"; };
-		274122DE1FAADEDA0058260B /* fliclib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = fliclib.framework; path = "../fliclib-ios-master/fliclib.framework"; sourceTree = "<group>"; };
 		274122E41FAAF4460058260B /* SettingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingViewController.swift; sourceTree = "<group>"; };
 		274122E61FAB417F0058260B /* Assignment3-MON-Home.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "Assignment3-MON-Home.entitlements"; sourceTree = "<group>"; };
 		2753F65F1FAB6C25006BEF43 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2753F6641FAD713B006BEF43 /* fliclib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = fliclib.framework; path = "../fliclib-ios-master/fliclib.framework"; sourceTree = "<group>"; };
 		49BEFCA25424835EB3BFD46A /* Pods-Assignment3-MON-HomeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Assignment3-MON-HomeUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Assignment3-MON-HomeUITests/Pods-Assignment3-MON-HomeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		75DF735ED3ACBBD0624EAA83 /* Pods-Assignment3-MON-HomeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Assignment3-MON-HomeTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-Assignment3-MON-HomeTests/Pods-Assignment3-MON-HomeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		B0A9394337E53B451C964C2C /* Pods-Assignment3-MON-HomeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Assignment3-MON-HomeTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-Assignment3-MON-HomeTests/Pods-Assignment3-MON-HomeTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -140,7 +140,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				274122E11FAAF28E0058260B /* fliclib.framework in Frameworks */,
+				2753F6651FAD713B006BEF43 /* fliclib.framework in Frameworks */,
 				A7D53571AF445A87005101A6 /* Pods_Assignment3_MON_Home.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -197,7 +197,7 @@
 		C8D017B61F9D8F5E00FF1D7A = {
 			isa = PBXGroup;
 			children = (
-				274122DE1FAADEDA0058260B /* fliclib.framework */,
+				2753F6641FAD713B006BEF43 /* fliclib.framework */,
 				274122CC1FAACBA60058260B /* MON-Bridging-Header.h */,
 				C867B2FA1FA6DB32006ABF97 /* Room+CoreDataClass.swift */,
 				C867B2FB1FA6DB32006ABF97 /* Room+CoreDataProperties.swift */,
@@ -290,9 +290,9 @@
 				C8D017BB1F9D8F5E00FF1D7A /* Sources */,
 				C8D017BC1F9D8F5E00FF1D7A /* Frameworks */,
 				C8D017BD1F9D8F5E00FF1D7A /* Resources */,
-				274122E31FAAF28E0058260B /* Embed Frameworks */,
 				8058CC2E5F8C2CC7686B7BA4 /* [CP] Embed Pods Frameworks */,
 				637A2FC98B9DFE95D7948438 /* [CP] Copy Pods Resources */,
+				2753F6671FAD713B006BEF43 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -486,12 +486,14 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-Assignment3-MON-Home/Pods-Assignment3-MON-Home-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GoogleToolboxForMac/GoogleToolboxForMac.framework",
 				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleToolboxForMac.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;

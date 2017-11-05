@@ -3,6 +3,7 @@
 //  Assignment3-MON-Home
 //
 //  Created by weicheng chen on 23/10/17.
+//  Last modified by Minh 04/11/17
 //  Copyright © 2017 Minh&Weicheng. All rights reserved.
 //
 
@@ -12,11 +13,18 @@ import fliclib
 import Firebase
 import UserNotifications
 
+///////////////////////////////////////////////////////////////////
+//                      Firebase iOS SDK                         //
+//                  Author: Ricardo Aratani                      //
+// Link: https://github.com/firebase/firebase-ios-sdk/issues/284 //
+///////////////////////////////////////////////////////////////////
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate, MessagingDelegate{
     
     var window: UIWindow?
 
+    var ref: DatabaseReference!
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
 //         Override point for customization after application launch.
@@ -40,12 +48,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         
         Messaging.messaging().delegate = self
         
+        ref = Database.database().reference()
+        
         return true
     }
 
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        //TODO: Handle foreground notification
+        completionHandler([.alert])
+    }
+    
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         let token = Messaging.messaging().fcmToken
         print("FCM token: \(token ?? "")")
+    self.ref.child("users").child(UIDevice.current.identifierForVendor!.uuidString).setValue(["token" : fcmToken])
     }
     
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
