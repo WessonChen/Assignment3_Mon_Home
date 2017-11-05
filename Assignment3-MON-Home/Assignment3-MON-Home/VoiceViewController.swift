@@ -24,6 +24,8 @@ class VoiceViewController: UIViewController, SFSpeechRecognizerDelegate {
     var devices = [Device]()
     
     @IBOutlet weak var voiceButton: UIButton!
+    @IBOutlet weak var userLabel: UILabel!
+    @IBOutlet weak var feedbackLabel: UILabel!
     
     @IBAction func voiceButtonClicked(_ sender: Any) {
         if voiceButton.currentImage == #imageLiteral(resourceName: "microphoneOff") {
@@ -88,6 +90,15 @@ class VoiceViewController: UIViewController, SFSpeechRecognizerDelegate {
     }
     
     func startRecording() throws {
+        self.userLabel.text = ""
+        self.feedbackLabel.text = ""
+        let deviceRequest:NSFetchRequest<Device> = Device.fetchRequest()
+        
+        do {
+            devices = try managedObjectContext.fetch(deviceRequest)
+        }catch {
+            print("Could not load data from database \(error.localizedDescription)")
+        }
         if !audioEngine.isRunning {
             let timer = Timer(timeInterval: 5.0, target: self, selector: #selector(VoiceViewController.timerEnded), userInfo: nil, repeats: false)
             RunLoop.current.add(timer, forMode: .commonModes)
@@ -112,6 +123,7 @@ class VoiceViewController: UIViewController, SFSpeechRecognizerDelegate {
                     isFinal = result.isFinal
                     
                     self.speechResult = result
+                    self.userLabel.text = self.speechResult.bestTranscription.formattedString
                 }
                 
                 if error != nil || isFinal {
@@ -156,29 +168,35 @@ class VoiceViewController: UIViewController, SFSpeechRecognizerDelegate {
         voiceButton.setImage(#imageLiteral(resourceName: "microphoneOff"), for: UIControlState.normal)
     }
     
+    var isContainsOn = false
+    var isContainsOff = false
+    var isOn = false
     func checkForActionPhrases() {
-        var isContainsOn = false
-        var isContainsOff = false
-        
+        isContainsOn = false
+        isContainsOff = false
+        isOn = false
         let newString = speechResult.bestTranscription.formattedString.lowercased()
         if newString.contains("open") || newString.contains("on") {
             isContainsOn = true
         } else if newString.contains("close") || newString.contains("off") {
             isContainsOff = true
         }
-        
+
         if isContainsOn {
             print("on")
             if findDeviceBySpeech() != "" {
-                print(findDeviceBySpeech())
+                NodeServer.sharedInstance.setPowerForDeviceById(id: findDeviceBySpeech(), mode: "on")
+                feedbackLabel.text = "Done..."
             }
         } else if isContainsOff {
             print("off")
             if findDeviceBySpeech() != "" {
-                print(findDeviceBySpeech())
+                NodeServer.sharedInstance.setPowerForDeviceById(id: findDeviceBySpeech(), mode: "off")
+                feedbackLabel.text = "Done..."
             }
         } else {
             generateAlert(title: "Commands are not detected", message: "It should contain On, Open, Off or Close as key words")
+            feedbackLabel.text = "Emmm, what are you doing?"
         }
         
         print(speechResult.bestTranscription.formattedString)
@@ -194,6 +212,8 @@ class VoiceViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     func findDeviceBySpeech() -> String {
         var validDevices = [Device]()
+        var id = ""
+        print(devices.count)
         for each in devices {
             let name = each.name?.lowercased()
             var type = each.type?.lowercased()
@@ -224,20 +244,36 @@ class VoiceViewController: UIViewController, SFSpeechRecognizerDelegate {
         
         if validDevices.count == 0 {
             generateAlert(title: "Try again?", message: "There is no such device")
+            self.feedbackLabel.text = "Emmm, what are you doing?"
         } else if validDevices.count == 1 {
-            return validDevices[0].id!
+            id = validDevices[0].id!
         } else {
             let alertController = UIAlertController(title: "Which device do you want?", message: "", preferredStyle: UIAlertControllerStyle.alert)
             for each in validDevices {
                 alertController.addAction(UIAlertAction(title: each.name, style: UIAlertActionStyle.default) {
                     UIAlertAction in
-                    return each.id
+                    id = each.id!
+                    if self.isContainsOn {
+                        if id != "" {
+                            NodeServer.sharedInstance.setPowerForDeviceById(id: id, mode: "on")
+                            self.feedbackLabel.text = "Done..."
+                        }
+                    } else if self.isContainsOff {
+                        print("off")
+                        if id != "" {
+                            NodeServer.sharedInstance.setPowerForDeviceById(id: id, mode: "off")
+                            self.feedbackLabel.text = "Done..."
+                        }
+                    } else {
+                        self.generateAlert(title: "Commands are not detected", message: "It should contain On, Open, Off or Close as key words")
+                        self.feedbackLabel.text = "Emmm, what are you doing?"
+                    }
                 })
             }
             alertController.addAction(UIAlertAction(title: "Cancel", style: UIAlertActionStyle.cancel, handler: nil))
             self.present(alertController, animated: true, completion: nil)
         }
-        return ""
+        return id
     }
     
     override func didReceiveMemoryWarning() {

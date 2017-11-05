@@ -35,6 +35,10 @@
 		C867B3031FA72CE7006ABF97 /* SocketViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C867B3021FA72CE7006ABF97 /* SocketViewController.swift */; };
 		C867B3051FA72CF3006ABF97 /* LampViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C867B3041FA72CF3006ABF97 /* LampViewController.swift */; };
 		C867B3071FA72CFC006ABF97 /* HeaterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C867B3061FA72CFC006ABF97 /* HeaterViewController.swift */; };
+		C898B7931FAD589A0034188C /* PaperOnboarding.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C898B7921FAD589A0034188C /* PaperOnboarding.framework */; };
+		C898B7941FAD589A0034188C /* PaperOnboarding.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = C898B7921FAD589A0034188C /* PaperOnboarding.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		C898B7981FADEC370034188C /* LaunchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C898B7971FADEC370034188C /* LaunchViewController.swift */; };
+		C898B79A1FADEC980034188C /* OnboardingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C898B7991FADEC980034188C /* OnboardingView.swift */; };
 		C8C0FB1C1FA9592900F66C08 /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C0FB1B1FA9592900F66C08 /* Animation.swift */; };
 		C8C0FB1F1FA9756400F66C08 /* NodeServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C0FB1E1FA9756400F66C08 /* NodeServer.swift */; };
 		C8C74CC21FAAC45500EF865A /* VoiceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C8C74CC11FAAC45500EF865A /* VoiceViewController.swift */; };
@@ -113,6 +117,9 @@
 		C867B3021FA72CE7006ABF97 /* SocketViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SocketViewController.swift; sourceTree = "<group>"; };
 		C867B3041FA72CF3006ABF97 /* LampViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LampViewController.swift; sourceTree = "<group>"; };
 		C867B3061FA72CFC006ABF97 /* HeaterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaterViewController.swift; sourceTree = "<group>"; };
+		C898B7921FAD589A0034188C /* PaperOnboarding.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = PaperOnboarding.framework; path = Carthage/Build/iOS/PaperOnboarding.framework; sourceTree = "<group>"; };
+		C898B7971FADEC370034188C /* LaunchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LaunchViewController.swift; sourceTree = "<group>"; };
+		C898B7991FADEC980034188C /* OnboardingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingView.swift; sourceTree = "<group>"; };
 		C8C0FB1B1FA9592900F66C08 /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
 		C8C0FB1E1FA9756400F66C08 /* NodeServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NodeServer.swift; sourceTree = "<group>"; };
 		C8C74CC11FAAC45500EF865A /* VoiceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VoiceViewController.swift; sourceTree = "<group>"; };
@@ -256,7 +263,8 @@
 				C8C74CC11FAAC45500EF865A /* VoiceViewController.swift */,
 				C8C0FB1B1FA9592900F66C08 /* Animation.swift */,
 				C8C0FB1E1FA9756400F66C08 /* NodeServer.swift */,
-				274122E41FAAF4460058260B /* SettingViewController.swift */,
+				C898B7971FADEC370034188C /* LaunchViewController.swift */,
+				C898B7991FADEC980034188C /* OnboardingView.swift */,
 			);
 			path = "Assignment3-MON-Home";
 			sourceTree = "<group>";
@@ -599,6 +607,7 @@
 				C867B2FE1FA6DB32006ABF97 /* Room+CoreDataClass.swift in Sources */,
 				C867B2F51FA688BA006ABF97 /* DeviceTableViewController.swift in Sources */,
 				C84591A71FA02C710005AF23 /* WeatherTableViewController.swift in Sources */,
+				C898B7981FADEC370034188C /* LaunchViewController.swift in Sources */,
 				C8C0FB1F1FA9756400F66C08 /* NodeServer.swift in Sources */,
 				C8D017CB1F9D8F5E00FF1D7A /* Assignment3_MON_Home.xcdatamodeld in Sources */,
 				C867B3071FA72CFC006ABF97 /* HeaterViewController.swift in Sources */,
@@ -609,6 +618,7 @@
 				C84591BF1FA18FD60005AF23 /* RoomTableViewController.swift in Sources */,
 				C867B2F91FA6C937006ABF97 /* NewDeviceTableViewCell.swift in Sources */,
 				C867B3001FA6DB32006ABF97 /* Device+CoreDataClass.swift in Sources */,
+				C898B79A1FADEC980034188C /* OnboardingView.swift in Sources */,
 				C867B3031FA72CE7006ABF97 /* SocketViewController.swift in Sources */,
 				274122E51FAAF4460058260B /* SettingViewController.swift in Sources */,
 				C867B3051FA72CF3006ABF97 /* LampViewController.swift in Sources */,
@@ -785,10 +795,9 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Assignment3-MON-Home/Assignment3-MON-Home.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9Y6ZYU7BN2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "Assignment3-MON-Home/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11;
@@ -808,10 +817,9 @@
 				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = YES;
 				CODE_SIGN_ENTITLEMENTS = "Assignment3-MON-Home/Assignment3-MON-Home.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9Y6ZYU7BN2;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)",
+					"$(PROJECT_DIR)/Carthage/Build/iOS",
 				);
 				INFOPLIST_FILE = "Assignment3-MON-Home/Info.plist";
 				IPHONEOS_DEPLOYMENT_TARGET = 11;

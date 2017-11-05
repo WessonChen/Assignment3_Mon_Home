@@ -31,6 +31,8 @@ class NewDeviceTableViewController: UITableViewController, UITextFieldDelegate {
         getAllDevice()
         managedObjectContext = (UIApplication.shared.delegate as! AppDelegate).persistentContainer.viewContext
         loadDeviceFromCoreData()
+        self.aNameTestField.delegate = self
+        self.nameTextField.delegate = self
         self.tableView.reloadData()
         
         /*
@@ -68,12 +70,14 @@ class NewDeviceTableViewController: UITableViewController, UITextFieldDelegate {
         Animation.animateOut(subView: addDeviceView)
         cleanTextField()
         isAdding = false
+        self.tableView.reloadData()
     }
     
     @IBAction func cancelAddSocket(_ sender: Any) {
         Animation.animateOut(subView: aAddDeviceView)
         cleanTextField()
         isAdding = false
+        self.tableView.reloadData()
     }
     
     func cleanTextField() {
@@ -117,6 +121,7 @@ class NewDeviceTableViewController: UITableViewController, UITextFieldDelegate {
             self.navigationController!.popViewController(animated: true)
             cleanTextField()
             isAdding = false
+            self.tableView.reloadData()
         } else {
             generateAlert(title: "You cannot use the same device name twice.")
         }
@@ -170,6 +175,7 @@ class NewDeviceTableViewController: UITableViewController, UITextFieldDelegate {
             self.navigationController!.popViewController(animated: true)
             cleanTextField()
             isAdding = false
+            self.tableView.reloadData()
         } else {
             generateAlert(title: "You cannot use the same device name twice.")
         }
@@ -205,6 +211,7 @@ class NewDeviceTableViewController: UITableViewController, UITextFieldDelegate {
             Animation.animateIn(mainView: self.view, subView: aAddDeviceView)
         }
         isAdding = true
+        self.tableView.reloadData()
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
@@ -271,8 +278,8 @@ class NewDeviceTableViewController: UITableViewController, UITextFieldDelegate {
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        nameTextField.resignFirstResponder()
         aNameTestField.resignFirstResponder()
+        nameTextField.resignFirstResponder()
         return true
     }
 
