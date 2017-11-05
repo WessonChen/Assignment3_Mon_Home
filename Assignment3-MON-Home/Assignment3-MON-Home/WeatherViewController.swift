@@ -130,7 +130,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
                                 self.changeLayout(temperature: weatherData[0].temperature, condition: "Sleet", image: #imageLiteral(resourceName: "sleet"), gifName: "rainGif")
                                 break
                             case "snow":
-                                self.changeLayout(temperature: weatherData[0].temperature, condition: "Snow", image: #imageLiteral(resourceName: "snow"), gifName: "cloudyGif")
+                                self.changeLayout(temperature: weatherData[0].temperature, condition: "Snow", image: #imageLiteral(resourceName: "snow"), gifName: "rainGif")
                                 break
                             case "wind":
                                 self.changeLayout(temperature: weatherData[0].temperature, condition: "Windy", image: #imageLiteral(resourceName: "wind"), gifName: "cloudyGif")
