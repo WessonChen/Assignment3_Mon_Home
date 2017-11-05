@@ -6,6 +6,14 @@
 //  Copyright © 2017 Minh&Weicheng. All rights reserved.
 //
 
+
+///////////////////////////////////////////////////////////////////
+//                      Paper-onboarding                         //
+//                      Author: Ramotion                         //
+// Link: https://github.com/Ramotion/paper-onboarding            //
+///////////////////////////////////////////////////////////////////
+
+
 import UIKit
 import PaperOnboarding
 

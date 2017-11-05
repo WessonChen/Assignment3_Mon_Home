@@ -9,6 +9,14 @@
 import Foundation
 import UIKit
 
+
+///////////////////////////////////////////////////////////////////
+//                      Popup Animation                          //
+//                  Author: Brian Advent                         //
+// Link: https://www.youtube.com/watch?v=CXvOS6hYADc             //
+///////////////////////////////////////////////////////////////////
+
+
 struct Animation {
     
     static func animateIn(mainView: UIView!, subView: UIView!) {

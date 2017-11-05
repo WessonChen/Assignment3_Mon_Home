@@ -50,22 +50,27 @@ class RoomTableViewController: UITableViewController, UIPickerViewDelegate, UIPi
         }
     }
     
+    //Add room button clicked
     @IBAction func addRoom(_ sender: Any) {
         Animation.animateIn(mainView: self.view, subView: addRoomView)
         isAdding = true
         self.tableView.reloadData()
     }
     
+    //Finished add room
     @IBAction func finishAddRoom(_ sender: Any) {
         createRoom()
     }
     
+    
+    //Canceled add room
     @IBAction func cancelAddRoom(_ sender: Any) {
         Animation.animateOut(subView: addRoomView)
         isAdding = false
         self.tableView.reloadData()
     }
     
+    //Create room in core data
     func createRoom() {
         var isValid = true
         for each in rooms {

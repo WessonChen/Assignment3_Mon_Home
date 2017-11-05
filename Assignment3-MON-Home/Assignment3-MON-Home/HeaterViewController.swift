@@ -22,6 +22,8 @@ class HeaterViewController: UIViewController, UITextFieldDelegate {
     let dateFormatter:DateFormatter = DateFormatter()
     var defaultY: CGFloat = 0.0
     
+    
+    //Save the config for this device
     @IBAction func saveButtonClicked(_ sender: Any) {
         let setting = NodeServer.DeviceSetting(id: (thisDevice?.id)!, startTime: dateFormatter.string(from: fromDatePicker.date), stopTime: dateFormatter.string(from: toDatePicker.date), minTemp: (fromTemperature.text)!, maxTemp: (toTemperature.text)!, brightness: 0, isPowerOn: powerSwitch.isOn, isOnPeriod: false, isSettingEnabled: enableSettingSwitch.isOn, type: (thisDevice?.type)!, isManuallyControlled: false)
         
@@ -78,6 +80,7 @@ class HeaterViewController: UIViewController, UITextFieldDelegate {
         // Dispose of any resources that can be recreated.
     }
     
+    //Get current config from back-end
     func prepareUI(){
         NodeServer.sharedInstance.getDeviceSettingById(id: (thisDevice?.id)!, completionHandler: { devices, error in
             if let error = error {

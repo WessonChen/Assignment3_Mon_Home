@@ -12,6 +12,7 @@ import CoreData
 import fliclib
 import Firebase
 import UserNotifications
+import FirebaseDatabase
 
 ///////////////////////////////////////////////////////////////////
 //                      Firebase iOS SDK                         //
@@ -26,6 +27,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
     var ref: DatabaseReference!
 
+    
+    //Get launch view when first time launch
+    //Author: Brian Advent
+    //https://www.youtube.com/watch?v=G5UkS4Mrepo
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
         
         window = UIWindow(frame: UIScreen.main.bounds)

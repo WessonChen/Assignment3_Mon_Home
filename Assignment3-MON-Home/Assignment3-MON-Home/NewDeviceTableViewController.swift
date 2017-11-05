@@ -66,6 +66,8 @@ class NewDeviceTableViewController: UITableViewController, UITextFieldDelegate {
         return 0
     }
     
+    
+    //Canceled add device
     @IBAction func cancelAddDevice(_ sender: Any) {
         Animation.animateOut(subView: addDeviceView)
         cleanTextField()
@@ -73,6 +75,7 @@ class NewDeviceTableViewController: UITableViewController, UITextFieldDelegate {
         self.tableView.reloadData()
     }
     
+    //Canceled add device
     @IBAction func cancelAddSocket(_ sender: Any) {
         Animation.animateOut(subView: aAddDeviceView)
         cleanTextField()
@@ -85,6 +88,7 @@ class NewDeviceTableViewController: UITableViewController, UITextFieldDelegate {
         aNameTestField.text?.removeAll()
     }
     
+    //FInished add device
     @IBAction func finishAddDevice(_ sender: Any) {
         var devices = [Device]()
         let deviceRequest:NSFetchRequest<Device> = Device.fetchRequest()
@@ -127,6 +131,8 @@ class NewDeviceTableViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
+    
+    //Finished add socket
     @IBAction func finishAddSocket(_ sender: Any) {
         
         var devices = [Device]()
@@ -181,10 +187,13 @@ class NewDeviceTableViewController: UITableViewController, UITextFieldDelegate {
         }
     }
     
+    //Trim string
     func trimString (inputString: String) -> String {
         return inputString.trimmingCharacters(in: .whitespacesAndNewlines)
     }
     
+    
+    //Generate alert when something bad happens
     func generateAlert(title: String) {
         let alertController = UIAlertController(title: title, message: "", preferredStyle: UIAlertControllerStyle.alert)
         

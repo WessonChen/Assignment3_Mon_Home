@@ -10,6 +10,10 @@ import UIKit
 import Speech
 import CoreData
 
+//Learned from tutorial "Speech Recognition"
+//Author: Jen Sipila
+//https://medium.com/ios-os-x-development/speech-recognition-with-swift-in-ios-10-50d5f4e59c48
+
 class VoiceViewController: UIViewController, SFSpeechRecognizerDelegate {
     
     private let speechRecognizer = SFSpeechRecognizer(locale: Locale(identifier: "en-US"))!

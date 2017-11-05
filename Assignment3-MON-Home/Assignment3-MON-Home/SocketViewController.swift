@@ -24,6 +24,8 @@ class SocketViewController: UIViewController {
         toTimePicker.minimumDate = fromTimePicker.date
     }
     
+    
+    //Turn on/off device
     @IBAction func powerSwitchAction(_ sender: Any) {
         if(powerSwitch.isOn){
             NodeServer.sharedInstance.setPowerForDeviceById(id: (thisDevice?.id)!, mode: "on")
@@ -32,10 +34,14 @@ class SocketViewController: UIViewController {
         }
     }
     
+    
+    //Canceled set config
     @IBAction func discardChangeClicked(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
     
+    
+    //Save config for this device
     @IBAction func saveChangeClicked(_ sender: Any) {
         
         let setting = NodeServer.DeviceSetting(id: (thisDevice?.id)!, startTime: dateFormatter.string(from: fromTimePicker.date), stopTime: dateFormatter.string(from: toTimePicker.date), minTemp: "0", maxTemp: "0", brightness: 0, isPowerOn: powerSwitch.isOn, isOnPeriod: false, isSettingEnabled: enableSettingSwitch.isOn, type: (thisDevice?.type)!, isManuallyControlled: false)
@@ -66,6 +72,7 @@ class SocketViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //Get current config from back-end
     func prepareUI(){
         NodeServer.sharedInstance.getDeviceSettingById(id: (thisDevice?.id)!, completionHandler: { devices, error in
             if let error = error {

@@ -20,10 +20,13 @@ class LampViewController: UIViewController {
     @IBOutlet weak var enableSettingSwitch: UISwitch!
     @IBOutlet weak var powerSwitch: UISwitch!
     
+    
+    //Canceled the setting
     @IBAction func discardButtonClicker(_ sender: Any) {
         navigationController?.popViewController(animated: true)
     }
     
+    //Turn on/off this device
     @IBAction func powerSwitchChanged(_ sender: Any) {
         if(powerSwitch.isOn){
             NodeServer.sharedInstance.setPowerForDeviceById(id: (thisDevice?.id)!, mode: "on")
@@ -32,6 +35,8 @@ class LampViewController: UIViewController {
         }
     }
     
+    
+    //Save the config
     @IBAction func saveButtonClicked(_ sender: Any) {
         NodeServer.sharedInstance.setBrightnessForDeviceById(id: (thisDevice?.id)!, brightnessLevel: Int(brightnessSlider.value * 100) )
     
@@ -71,6 +76,7 @@ class LampViewController: UIViewController {
         // Dispose of any resources that can be recreated.
     }
     
+    //Get current config from back-end
     func prepareUI(){
         NodeServer.sharedInstance.getDeviceSettingById(id: (thisDevice?.id)!, completionHandler: { devices, error in
             if let error = error {

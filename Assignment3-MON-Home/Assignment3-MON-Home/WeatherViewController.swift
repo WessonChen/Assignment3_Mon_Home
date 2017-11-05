@@ -34,6 +34,8 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         CItyLabel.text = self.lo
         displayWeather(location: self.lo)
         
+        
+        //Disable blur
         effect = VisualEffectView.effect
         VisualEffectView.effect = nil
         SettingView.layer.cornerRadius = 5
@@ -98,6 +100,8 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         }
     }
     
+    
+    //Load weather from json to view
     func displayWeather (location: String) {
         CLGeocoder().geocodeAddressString(location) { (placemarks:[CLPlacemark]?, error:Error?) in
             if error == nil {
@@ -175,6 +179,7 @@ class WeatherViewController: UIViewController, UITextFieldDelegate {
         return true
     }
     
+    //Change weather information after reset location.
     func changeLayout(temperature: Double, condition: String, image: UIImage ,gifName: String){
         DispatchQueue.main.async {
             self.TempLabel.text = "\(Int(temperature))°C"

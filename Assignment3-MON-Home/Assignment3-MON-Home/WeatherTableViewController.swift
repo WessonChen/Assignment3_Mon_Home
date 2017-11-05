@@ -6,6 +6,14 @@
 //  Copyright © 2017 Minh&Weicheng. All rights reserved.
 //
 
+
+///////////////////////////////////////////////////////////////////
+//                      Weather json                             //
+//                  Author: Brian Advent                         //
+// Link: https://www.youtube.com/watch?v=doqtsIsbtqs             //
+///////////////////////////////////////////////////////////////////
+
+
 import UIKit
 import CoreLocation
 
@@ -21,6 +29,8 @@ class WeatherTableViewController: UITableViewController {
         viewTitle.title = location
     }
     
+    
+    //Get the weather information from json
     func updateWeatherForLocation (location:String) {
         CLGeocoder().geocodeAddressString(location) { (placemarks:[CLPlacemark]?, error:Error?) in
             if error == nil {
