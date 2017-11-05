@@ -1091,7 +1091,7 @@
         <!--Setting-->
         <scene sceneID="WxT-Wc-fYE">
             <objects>
-                <viewController id="xG5-tb-uyQ" customClass="SettingViewController" customModule="Assignment3_MON_Home" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="xG5-tb-uyQ" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="BGZ-Fu-bgJ">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
