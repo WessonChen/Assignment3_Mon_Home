@@ -8,6 +8,7 @@ target 'Assignment3-MON-Home' do
   # Pods for Assignment3-MON-Home
 	pod 'Firebase/Core'
 	pod 'Firebase/Messaging'
+	pod ‘Firebase/Database’
 
   target 'Assignment3-MON-HomeTests' do
     inherit! :search_paths

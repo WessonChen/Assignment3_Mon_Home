@@ -9,8 +9,8 @@
 import Foundation
 
 ////////////////////////////////////////////////////
-// THIS CLASS HAS BEEN MODIFIED FROM THE ORIGINAL //
-//          Author: Christina Moulton             //
+//              Parsing JSON in Swift 4           //
+//             Author: Christina Moulton          //
 //     Link: https://grokswift.com/json-swift-4   //
 ////////////////////////////////////////////////////
 class NodeServer{
@@ -32,6 +32,9 @@ class NodeServer{
     let switchPowerLink = "setpower"
     let singleClickLink = "singleclick"
     let doubleClickLink = "doubleclick"
+    let switchGasSensorLink = "switchgassensor"
+    let switchMotionSensorLink = "switchmotionsensor"
+    let getCurrentStateSensorsLink = "currentstatesensors"
     
     enum BackendError: Error {
         case urlError(reason: String)
@@ -59,6 +62,11 @@ class NodeServer{
         var isSettingEnabled: Bool
         var type: String
         var isManuallyControlled: Bool
+    }
+    
+    struct SensorState: Codable {
+        var gas: Bool
+        var motion: Bool
     }
     
     func getAllDeviceInfo(completionHandler: @escaping ([DeviceInfo]?, Error?) -> Void) {
@@ -304,6 +312,72 @@ class NodeServer{
         // Make request
         let session = URLSession.shared
         let task = session.dataTask(with: urlRequest)
+        task.resume()
+    }
+    
+    func switchSensor(sensorName: String, mode: String) {
+        // Set up URLRequest with URL
+        let endpoint: String
+        if(sensorName == "Gas"){
+            endpoint = "\(host):\(port)/\(switchGasSensorLink)/\(mode)"
+        }else{
+            endpoint = "\(host):\(port)/\(switchMotionSensorLink)/\(mode)"
+        }
+        print(endpoint)
+        guard let url = URL(string: endpoint) else {
+            print("Error: cannot create URL")
+            return
+        }
+        let urlRequest = URLRequest(url: url)
+        
+        // Make request
+        let session = URLSession.shared
+        let task = session.dataTask(with: urlRequest)
+        task.resume()
+    }
+    
+    func getCurrentStateSensors(completionHandler: @escaping (SensorState?,Error?) -> Void) {
+        // Set up URLRequest with URL
+        let endpoint = "\(host):\(port)/\(getCurrentStateSensorsLink)"
+        print(endpoint)
+        guard let url = URL(string: endpoint) else {
+            print("Error: cannot create URL")
+            let error = BackendError.urlError(reason: "Could not construct URL")
+            completionHandler(nil, error)
+            return
+        }
+        let urlRequest = URLRequest(url: url)
+        
+        // Make request
+        let session = URLSession.shared
+        let task = session.dataTask(with: urlRequest, completionHandler: {
+            (data, response, error) in
+            // handle response to request
+            // check for error
+            guard error == nil else {
+                completionHandler(nil, error!)
+                return
+            }
+            // make sure we got data in the response
+            guard let responseData = data else {
+                print("Error: did not receive data")
+                let error = BackendError.objectSerialization(reason: "No data in response")
+                completionHandler(nil, error)
+                return
+            }
+            
+            // parse the result as JSON
+            // then create a Todo from the JSON
+            let decoder = JSONDecoder()
+            do {
+                let deviesSetting = try decoder.decode(SensorState.self, from: responseData)
+                completionHandler(deviesSetting, nil)
+            } catch {
+                print("error trying to convert data to JSON")
+                print(error)
+                completionHandler(nil, error)
+            }
+        })
         task.resume()
     }
     
