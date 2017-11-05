@@ -43,6 +43,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
         window?.rootViewController = initialViewController
         window?.makeKeyAndVisible()
         
+        FirebaseApp.configure()
+        
         ref = Database.database().reference()
         
         return true
